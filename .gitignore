@@ -1,0 +1,17 @@
+# Exclude large original files
+assets/ps-3d-animation.mp4
+assets/images/hero-desktop.png
+assets/images/setup-demo.mp4
+
+# Keep compressed versions
+!assets/ps-3d-animation-compressed.mp4
+!assets/images/hero-desktop-compressed.webp
+!assets/images/*-compressed.webp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
