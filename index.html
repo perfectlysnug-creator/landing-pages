@@ -397,6 +397,25 @@
         }
         @media (min-width: 768px) { .product-spotlight { padding: 120px 0; } }
         
+        .spotlight-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+        @media (min-width: 768px) {
+            .spotlight-layout {
+                grid-template-columns: 1fr 1fr;
+                gap: 80px;
+            }
+        }
+        
+        .spotlight-image img {
+            width: 100%;
+            display: block;
+            border-radius: 16px;
+        }
+        
         .spotlight-eyebrow {
             font-size: 12px;
             font-weight: 700;
@@ -408,85 +427,58 @@
         
         .spotlight-heading {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
             font-weight: 600;
             line-height: 1.15;
             color: var(--dark-blue);
-            margin-bottom: 24px;
-        }
-        
-        .spotlight-layout {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 48px;
-            align-items: center;
-        }
-        @media (min-width: 768px) {
-            .spotlight-layout {
-                grid-template-columns: 1fr 1fr;
-                gap: 64px;
-            }
-        }
-        
-        .spotlight-image {
-            position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-        }
-        
-        .spotlight-image img {
-            width: 100%;
-            display: block;
-            border-radius: 16px;
-        }
-        
-        .spotlight-image-label {
-            position: absolute;
-            bottom: 16px;
-            left: 16px;
-            background: rgba(37, 52, 62, 0.8);
-            color: var(--white);
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            padding: 8px 14px;
-            border-radius: 6px;
-            backdrop-filter: blur(4px);
-        }
-        
-        .spotlight-text p {
-            font-size: 1.05rem;
-            line-height: 1.75;
-            color: var(--grey-text);
-            margin-bottom: 20px;
+            margin-bottom: 40px;
         }
         
         .spotlight-features {
             display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 28px;
+            flex-direction: column;
+            gap: 28px;
         }
         
-        .spotlight-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 18px;
-            background: var(--light-blue);
-            border-radius: 9999px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--dark-blue);
+        .spotlight-feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
         }
         
-        .spotlight-tag-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--yellow);
+        .spotlight-icon {
             flex-shrink: 0;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--light-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+        
+        .spotlight-feature-text h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--dark-blue);
+            margin-bottom: 4px;
+        }
+        
+        .spotlight-feature-text p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--grey-text);
+            margin: 0;
+        }
+        
+        .spotlight-cta {
+            margin-top: 40px;
+        }
+        
+        .spotlight-cta .btn {
+            padding: 16px 40px;
         }
         
         /* Features Grid */
@@ -996,19 +988,43 @@
         <div class="container">
             <div class="spotlight-layout fade-in">
                 <div class="spotlight-image">
-                    <img src="https://perfectlysnug.com/cdn/shop/files/home_module2_image1.webp" alt="Smart Topper with built-in sensors glowing blue">
-                    <div class="spotlight-image-label">Built-in Sensors</div>
+                    <img src="https://perfectlysnug.com/cdn/shop/files/home_module2_image1.webp" alt="Smart Topper with built-in sensors">
                 </div>
                 <div class="spotlight-text">
                     <div class="spotlight-eyebrow">The Smart Topper</div>
-                    <h2 class="spotlight-heading">The world's first Smart Topper that adjusts cooling & heating while you sleep.</h2>
-                    <p>A 2-inch, dual zone active air cooling and heating sleep system. Quiet internal fans propel cooling air under and around your body, while cozy heating keeps you warm when you need it.</p>
-                    <p>Temperature automatically adjusts throughout the night, keeping you and your partner at your preferred settings. Includes a Cold Burst for instant cooling relief.</p>
+                    <h2 class="spotlight-heading">Everything you need for your best sleep, built right in.</h2>
                     <div class="spotlight-features">
-                        <span class="spotlight-tag"><span class="spotlight-tag-dot"></span>Dual Zone Control</span>
-                        <span class="spotlight-tag"><span class="spotlight-tag-dot"></span>Auto-Adjusting</span>
-                        <span class="spotlight-tag"><span class="spotlight-tag-dot"></span>Cold Burst</span>
-                        <span class="spotlight-tag"><span class="spotlight-tag-dot"></span>Zero Maintenance</span>
+                        <div class="spotlight-feature-item">
+                            <div class="spotlight-icon">🌬️</div>
+                            <div class="spotlight-feature-text">
+                                <h4>Active Air Cooling</h4>
+                                <p>Draws heat from your body with quiet internal fans, not just surface cooling.</p>
+                            </div>
+                        </div>
+                        <div class="spotlight-feature-item">
+                            <div class="spotlight-icon">❄️</div>
+                            <div class="spotlight-feature-text">
+                                <h4>Instant Cold Burst</h4>
+                                <p>Immediate cooling relief in seconds when you need it most.</p>
+                            </div>
+                        </div>
+                        <div class="spotlight-feature-item">
+                            <div class="spotlight-icon">🔄</div>
+                            <div class="spotlight-feature-text">
+                                <h4>Smart Auto-Adjust</h4>
+                                <p>Sensors monitor and adjust thousands of times per night automatically.</p>
+                            </div>
+                        </div>
+                        <div class="spotlight-feature-item">
+                            <div class="spotlight-icon">👥</div>
+                            <div class="spotlight-feature-text">
+                                <h4>Dual Zone Control</h4>
+                                <p>You and your partner each get your own perfect temperature zone.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spotlight-cta">
+                        <a href="https://perfectlysnug.com/products/the-smart-topper" class="btn">Shop the Smart Topper</a>
                     </div>
                 </div>
             </div>
