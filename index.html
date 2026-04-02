@@ -485,43 +485,69 @@
         /* Features Grid */
         .features-section {
             padding: 100px 0;
-            background: var(--dark-blue);
-            border-top: 6px solid #7eb8b6;
+            background: #f7f8fa;
         }
         @media (min-width: 768px) { .features-section { padding: 120px 0; } }
         
-        .features-section h2 {
-            color: var(--white);
-            text-align: center;
-            margin-bottom: 56px;
-            font-family: 'Playfair Display', Georgia, serif;
-            font-style: italic;
-            font-weight: 700;
-            font-size: 2.8rem;
+        .features-layout {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 48px;
         }
         @media (min-width: 768px) {
-            .features-section h2 {
-                font-size: 3.2rem;
-            }
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        @media (min-width: 640px) {
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .features-layout {
+                flex-direction: row;
+                align-items: center;
+                gap: 64px;
             }
         }
         @media (min-width: 1024px) {
-            .features-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 48px;
+            .features-layout {
+                gap: 80px;
             }
+        }
+        
+        .features-image-col {
+            flex-shrink: 0;
+            width: 100%;
+            max-width: 380px;
+            text-align: center;
+        }
+        @media (min-width: 768px) {
+            .features-image-col {
+                width: 38%;
+                max-width: 420px;
+            }
+        }
+        
+        .features-image-col img {
+            width: 100%;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+        }
+        
+        .features-text-col {
+            flex: 1;
+        }
+        
+        .features-section h2 {
+            color: #25343e;
+            margin-bottom: 40px;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 700;
+            font-size: 2.2rem;
+        }
+        @media (min-width: 768px) {
+            .features-section h2 {
+                font-size: 2.6rem;
+            }
+        }
+        
+        .features-list {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
         }
         
         .feature {
@@ -534,17 +560,23 @@
             flex-shrink: 0;
             width: 52px;
             height: 52px;
-            background-color: var(--yellow);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         
+        .feature-icon.icon-blue { background: linear-gradient(135deg, #a8d4f0, #7bb8e0); }
+        .feature-icon.icon-gold { background: linear-gradient(135deg, #f5e0a8, #e8c96e); }
+        .feature-icon.icon-teal { background: linear-gradient(135deg, #a8e0dc, #6ec4be); }
+        .feature-icon.icon-coral { background: linear-gradient(135deg, #f5c4b8, #e89a88); }
+        .feature-icon.icon-green { background: linear-gradient(135deg, #b8e8c0, #82d490); }
+        .feature-icon.icon-lavender { background: linear-gradient(135deg, #d0c4f0, #a890e0); }
+        
         .feature-icon svg {
-            width: 24px;
-            height: 24px;
-            stroke: var(--dark-blue);
+            width: 22px;
+            height: 22px;
+            stroke: #fff;
             fill: none;
             stroke-width: 2;
             stroke-linecap: round;
@@ -555,28 +587,39 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 1.05rem;
             font-weight: 700;
-            color: var(--white);
-            margin-bottom: 6px;
+            color: #25343e;
+            margin-bottom: 4px;
         }
         
         .feature-content p {
             font-size: 0.9rem;
             line-height: 1.6;
-            color: rgba(255,255,255,0.6);
+            color: #6b7c88;
             margin: 0;
         }
         
-        .features-image {
-            margin-top: 64px;
-            text-align: center;
+        .features-cta {
+            margin-top: 40px;
         }
         
-        .features-image img {
-            max-width: 55%;
-            border-radius: 20px;
-            border-radius: 16px;
+        .features-cta .btn {
+            background: var(--dark-blue);
+            color: var(--white);
+            padding: 16px 40px;
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            text-decoration: none;
+            display: inline-block;
+            transition: opacity 0.2s ease;
         }
         
+        .features-cta .btn:hover {
+            opacity: 0.85;
+        }
+
         /* Clinical Results — Eight Sleep Style */
         .clinical-section {
             padding: 100px 0;
@@ -1700,65 +1743,72 @@
     <!-- The Solution / Key Features -->
     <section id="features" class="features-section">
         <div class="container">
-            <h2 class="fade-in">Smart Temperature Control That Actually Works</h2>
-            <div class="features-grid">
-                <div class="feature fade-in">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
+            <div class="features-layout fade-in">
+                <div class="features-image-col">
+                    <img src="https://perfectlysnug.com/cdn/shop/files/home_module2_image1.webp" alt="Smart Topper on bed">
+                </div>
+                <div class="features-text-col">
+                    <h2>Smart Temperature Control That Actually Works</h2>
+                    <div class="features-list">
+                        <div class="feature">
+                            <div class="feature-icon icon-blue">
+                                <svg viewBox="0 0 24 24"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Active Air Cooling</h3>
+                                <p>Draws heat FROM your body, not just surface cooling like other systems.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon icon-gold">
+                                <svg viewBox="0 0 24 24"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Instant Cold Burst</h3>
+                                <p>Relief in seconds, not 30-60 minutes like water-based competitors.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon icon-teal">
+                                <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6m-6 3h4m-4 3h6"/></svg>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Smart Sensors</h3>
+                                <p>Monitors and adjusts thousands of times per night automatically.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon icon-coral">
+                                <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Dual Zone Control</h3>
+                                <p>You and your partner each get your perfect temperature zone.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon icon-green">
+                                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Zero Maintenance</h3>
+                                <p>No water, no hoses, no leaks, no subscriptions. Just plug in and sleep.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon icon-lavender">
+                                <svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                            </div>
+                            <div class="feature-content">
+                                <h3>$4.32/Year to Run</h3>
+                                <p>25x less expensive than water-based competitors to operate.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="feature-content">
-                        <h3>Active Air Cooling</h3>
-                        <p>Draws heat FROM your body, not just surface cooling like other systems.</p>
+                    <div class="features-cta">
+                        <a href="https://perfectlysnug.com/products/the-smart-topper" class="btn">Shop the Smart Topper</a>
                     </div>
                 </div>
-                <div class="feature fade-in">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>
-                    </div>
-                    <div class="feature-content">
-                        <h3>Instant Cold Burst</h3>
-                        <p>Relief in seconds, not 30-60 minutes like water-based competitors.</p>
-                    </div>
-                </div>
-                <div class="feature fade-in">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6m-6 3h4m-4 3h6"/></svg>
-                    </div>
-                    <div class="feature-content">
-                        <h3>Smart Sensors</h3>
-                        <p>Monitors and adjusts thousands of times per night automatically.</p>
-                    </div>
-                </div>
-                <div class="feature fade-in">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    </div>
-                    <div class="feature-content">
-                        <h3>Dual Zone Control</h3>
-                        <p>You and your partner each get your perfect temperature zone.</p>
-                    </div>
-                </div>
-                <div class="feature fade-in">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
-                    </div>
-                    <div class="feature-content">
-                        <h3>Zero Maintenance</h3>
-                        <p>No water, no hoses, no leaks, no subscriptions. Just plug in and sleep.</p>
-                    </div>
-                </div>
-                <div class="feature fade-in">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                    </div>
-                    <div class="feature-content">
-                        <h3>$4.32/Year to Run</h3>
-                        <p>25x less expensive than water-based competitors to operate.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="features-image fade-in">
-                <img src="assets/images/product-detail.png" alt="Airflow Technology Diagram">
             </div>
         </div>
     </section>
