@@ -247,30 +247,23 @@
             margin-bottom: 0.5rem;
         }
         
-        /* Press Bar — Text-based */
+        /* Press Bar — Scrolling Marquee */
         .press-bar {
             padding: 56px 0;
             background: #F8FBFC;
             border-top: 1px solid var(--light-blue);
             border-bottom: 1px solid var(--light-blue);
+            overflow: hidden;
         }
         @media (min-width: 768px) { .press-bar { padding: 64px 0; } }
-        
-        .press-bar-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 24px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 36px;
-        }
         
         .press-bar-top {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 12px;
+            margin-bottom: 36px;
+            padding: 0 24px;
         }
         
         .press-award-pill {
@@ -303,40 +296,67 @@
             color: #697E8C;
         }
         
-        .press-logos-row {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 24px 40px;
+        .marquee-wrapper {
+            position: relative;
             width: 100%;
+            overflow: hidden;
         }
         
-        .press-pub {
-            font-size: clamp(14px, 2vw, 18px);
-            font-weight: 800;
-            letter-spacing: 0.02em;
-            color: #C3D4DA;
-            text-transform: uppercase;
-            transition: color 0.2s;
-            user-select: none;
-            cursor: default;
+        .marquee-wrapper::before,
+        .marquee-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100px;
+            z-index: 2;
+            pointer-events: none;
         }
         
-        .press-pub:hover {
-            color: #697E8C;
+        .marquee-wrapper::before {
+            left: 0;
+            background: linear-gradient(to right, #F8FBFC, transparent);
         }
         
-        .press-dot-sep {
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            background: #C3E6EA;
+        .marquee-wrapper::after {
+            right: 0;
+            background: linear-gradient(to left, #F8FBFC, transparent);
+        }
+        
+        .marquee-track {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            width: max-content;
+            animation: marquee-scroll 35s linear infinite;
+        }
+        
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+        
+        .marquee-track img {
+            height: 30px;
+            max-width: 130px;
+            object-fit: contain;
+            opacity: 0.5;
             flex-shrink: 0;
-            display: none;
+            transition: opacity 0.3s ease;
         }
         
-        @media (min-width: 640px) { .press-dot-sep { display: block; } }
+        .marquee-track img:hover {
+            opacity: 0.8;
+        }
+        
+        .marquee-track img.oprah-badge {
+            height: 45px;
+            opacity: 0.7;
+        }
+        
+        @keyframes marquee-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
         
         /* How It Works */
         .how-it-works-grid {
@@ -717,12 +737,21 @@
                 gap: 15px;
             }
             
-            .press-logos-row {
-                gap: 16px 24px;
+            .marquee-track {
+                gap: 40px;
             }
             
-            .press-pub {
-                font-size: 13px;
+            .marquee-track img {
+                height: 22px;
+            }
+            
+            .marquee-track img.oprah-badge {
+                height: 35px;
+            }
+            
+            .marquee-wrapper::before,
+            .marquee-wrapper::after {
+                width: 40px;
             }
         }
         
@@ -812,35 +841,41 @@
     
     <!-- Press Bar -->
     <section class="press-bar">
-        <div class="press-bar-inner fade-in">
-            <div class="press-bar-top">
-                <div class="press-award-pill">
-                    <span>★</span>
-                    <span>Oprah Daily Sleep Award Winner 2026</span>
-                    <div class="press-award-dot"></div>
-                </div>
-                <span class="press-eyebrow">As featured in</span>
+        <div class="press-bar-top fade-in">
+            <div class="press-award-pill">
+                <span>★</span>
+                <span>Oprah Daily Sleep Award Winner 2026</span>
+                <div class="press-award-dot"></div>
             </div>
-            <div class="press-logos-row">
-                <span class="press-pub">House Beautiful</span>
-                <div class="press-dot-sep"></div>
-                <span class="press-pub">Men's Journal</span>
-                <div class="press-dot-sep"></div>
-                <span class="press-pub">Town & Country</span>
-                <div class="press-dot-sep"></div>
-                <span class="press-pub">the Strategist</span>
-                <div class="press-dot-sep"></div>
-                <span class="press-pub">WIRED</span>
-                <div class="press-dot-sep"></div>
-                <span class="press-pub">GQ</span>
-                <div class="press-dot-sep"></div>
-                <span class="press-pub">BuzzFeed</span>
-                <div class="press-dot-sep"></div>
-                <span class="press-pub">Inc.</span>
-                <div class="press-dot-sep"></div>
-                <span class="press-pub">Dragon's Den</span>
-                <div class="press-dot-sep"></div>
-                <span class="press-pub">Sleep Foundation</span>
+            <span class="press-eyebrow">As featured in</span>
+        </div>
+        <div class="marquee-wrapper">
+            <div class="marquee-track">
+                <img src="https://perfectlysnug.com/cdn/shop/files/house_beautiful_logo.png" alt="House Beautiful">
+                <img src="https://perfectlysnug.com/cdn/shop/files/omc_oprah_daily_logo.png" alt="Oprah Daily" class="oprah-badge">
+                <img src="https://perfectlysnug.com/cdn/shop/files/dargon_s_den_logo.png" alt="Dragon's Den">
+                <img src="https://perfectlysnug.com/cdn/shop/files/sleep_foundation_logo.png" alt="Sleep Foundation">
+                <img src="https://perfectlysnug.com/cdn/shop/files/GQ_logo_b.png" alt="GQ">
+                <img src="https://perfectlysnug.com/cdn/shop/files/buzzfeed_logo.png" alt="BuzzFeed">
+                <img src="https://perfectlysnug.com/cdn/shop/files/Inc___business_magazine__logo_svg.png" alt="Inc Magazine">
+                <img src="https://perfectlysnug.com/cdn/shop/files/strategist_logo_825f8752-adf8-4b42-8f15-ab985d023dfb.png" alt="The Strategist">
+                <img src="https://perfectlysnug.com/cdn/shop/files/wired_logo_b.png" alt="Wired">
+                <img src="https://perfectlysnug.com/cdn/shop/files/mens-journal.png" alt="Men's Journal">
+                <img src="https://perfectlysnug.com/cdn/shop/files/town_and_country_logo.png" alt="Town & Country">
+                <img src="https://perfectlysnug.com/cdn/shop/files/yawnder_logo.jpg" alt="Yawnder">
+                <!-- Duplicate for seamless loop -->
+                <img src="https://perfectlysnug.com/cdn/shop/files/house_beautiful_logo.png" alt="House Beautiful">
+                <img src="https://perfectlysnug.com/cdn/shop/files/omc_oprah_daily_logo.png" alt="Oprah Daily" class="oprah-badge">
+                <img src="https://perfectlysnug.com/cdn/shop/files/dargon_s_den_logo.png" alt="Dragon's Den">
+                <img src="https://perfectlysnug.com/cdn/shop/files/sleep_foundation_logo.png" alt="Sleep Foundation">
+                <img src="https://perfectlysnug.com/cdn/shop/files/GQ_logo_b.png" alt="GQ">
+                <img src="https://perfectlysnug.com/cdn/shop/files/buzzfeed_logo.png" alt="BuzzFeed">
+                <img src="https://perfectlysnug.com/cdn/shop/files/Inc___business_magazine__logo_svg.png" alt="Inc Magazine">
+                <img src="https://perfectlysnug.com/cdn/shop/files/strategist_logo_825f8752-adf8-4b42-8f15-ab985d023dfb.png" alt="The Strategist">
+                <img src="https://perfectlysnug.com/cdn/shop/files/wired_logo_b.png" alt="Wired">
+                <img src="https://perfectlysnug.com/cdn/shop/files/mens-journal.png" alt="Men's Journal">
+                <img src="https://perfectlysnug.com/cdn/shop/files/town_and_country_logo.png" alt="Town & Country">
+                <img src="https://perfectlysnug.com/cdn/shop/files/yawnder_logo.jpg" alt="Yawnder">
             </div>
         </div>
     </section>
