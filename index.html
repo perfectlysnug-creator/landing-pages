@@ -336,30 +336,65 @@
             }
         }
         
-        .press-logos-row {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 20px 44px;
+        .marquee-wrapper {
+            position: relative;
             width: 100%;
-            padding: 0 24px;
+            overflow: hidden;
+        }
+        
+        .marquee-wrapper::before,
+        .marquee-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 80px;
+            z-index: 2;
+            pointer-events: none;
+        }
+        
+        .marquee-wrapper::before {
+            left: 0;
+            background: linear-gradient(to right, #F8FBFC, transparent);
+        }
+        
+        .marquee-wrapper::after {
+            right: 0;
+            background: linear-gradient(to left, #F8FBFC, transparent);
+        }
+        
+        .marquee-track {
+            display: flex;
+            align-items: center;
+            gap: 56px;
+            width: max-content;
+            animation: marquee-scroll 25s linear infinite;
+        }
+        
+        .marquee-track:hover {
+            animation-play-state: paused;
         }
         
         .press-pub {
-            font-size: clamp(13px, 1.8vw, 17px);
+            font-size: 15px;
             font-weight: 800;
-            letter-spacing: 0.02em;
+            letter-spacing: 0.03em;
             color: #C3D4DA;
             text-transform: uppercase;
+            white-space: nowrap;
+            flex-shrink: 0;
             transition: color 0.2s;
             user-select: none;
             cursor: default;
-            white-space: nowrap;
         }
         
         .press-pub:hover {
             color: #697E8C;
+        }
+        
+        @keyframes marquee-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
         
         /* How It Works */
@@ -1313,12 +1348,13 @@
                 gap: 40px;
             }
             
-            .press-logos-row {
-                gap: 14px 28px;
-            }
-            
             .press-pub {
                 font-size: 12px;
+            }
+            
+            .marquee-wrapper::before,
+            .marquee-wrapper::after {
+                width: 40px;
             }
         }
         
@@ -1422,17 +1458,30 @@
             </div>
             <span class="press-eyebrow">As featured in</span>
         </div>
-        <div class="press-logos-row">
-            <span class="press-pub">House Beautiful</span>
-            <span class="press-pub">Men's Journal</span>
-            <span class="press-pub">Town & Country</span>
-            <span class="press-pub">the Strategist</span>
-            <span class="press-pub">WIRED</span>
-            <span class="press-pub">GQ</span>
-            <span class="press-pub">BuzzFeed</span>
-            <span class="press-pub">Inc.</span>
-            <span class="press-pub">Dragon's Den</span>
-            <span class="press-pub">Sleep Foundation</span>
+        <div class="marquee-wrapper">
+            <div class="marquee-track">
+                <span class="press-pub">House Beautiful</span>
+                <span class="press-pub">Men's Journal</span>
+                <span class="press-pub">Town & Country</span>
+                <span class="press-pub">the Strategist</span>
+                <span class="press-pub">WIRED</span>
+                <span class="press-pub">GQ</span>
+                <span class="press-pub">BuzzFeed</span>
+                <span class="press-pub">Inc.</span>
+                <span class="press-pub">Dragon's Den</span>
+                <span class="press-pub">Sleep Foundation</span>
+                <!-- Duplicate for seamless loop -->
+                <span class="press-pub">House Beautiful</span>
+                <span class="press-pub">Men's Journal</span>
+                <span class="press-pub">Town & Country</span>
+                <span class="press-pub">the Strategist</span>
+                <span class="press-pub">WIRED</span>
+                <span class="press-pub">GQ</span>
+                <span class="press-pub">BuzzFeed</span>
+                <span class="press-pub">Inc.</span>
+                <span class="press-pub">Dragon's Den</span>
+                <span class="press-pub">Sleep Foundation</span>
+            </div>
         </div>
     </section>
     
