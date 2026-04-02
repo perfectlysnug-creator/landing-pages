@@ -799,36 +799,136 @@
             color: var(--dark-blue);
         }
         
-        /* Comparison Table */
-        .comparison-table {
-            background-color: var(--white);
-            border-radius: 12px;
+        /* Us vs Them Comparison */
+        .vs-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        @media (min-width: 768px) { .vs-section { padding: 120px 0; } }
+        
+        .vs-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+        @media (min-width: 1024px) {
+            .vs-layout {
+                grid-template-columns: 1fr 2fr;
+                gap: 64px;
+            }
+        }
+        
+        .vs-heading h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            color: var(--dark-blue);
+            margin-bottom: 16px;
+        }
+        
+        .vs-heading p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--grey-text);
+        }
+        
+        .vs-table-wrap {
+            border-radius: 16px;
             overflow: hidden;
-            margin-top: 40px;
+            border: 1px solid #E0E7EC;
+        }
+        
+        .vs-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        
+        .vs-table thead th {
+            padding: 20px 16px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-align: center;
+            letter-spacing: 0.04em;
+            border-bottom: 1px solid #E0E7EC;
+            background: #F8FBFC;
+            color: var(--grey-text);
+        }
+        
+        .vs-table thead th:first-child {
+            text-align: left;
+            background: transparent;
+        }
+        
+        .vs-table thead th.vs-ps-head {
+            background: var(--dark-blue);
+            color: var(--white);
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            border-radius: 12px 12px 0 0;
+            position: relative;
+        }
+        
+        .vs-table tbody td {
+            padding: 18px 16px;
+            border-bottom: 1px solid #F0F3F5;
+            text-align: center;
             color: var(--dark-blue);
         }
         
-        .comparison-table table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        
-        .comparison-table th,
-        .comparison-table td {
-            padding: 20px;
+        .vs-table tbody td:first-child {
             text-align: left;
-            border-bottom: 1px solid var(--light-blue);
+            font-weight: 600;
+            color: var(--dark-blue);
         }
         
-        .comparison-table th {
-            background-color: var(--dark-blue);
+        .vs-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .vs-table td.vs-ps-col {
+            background: rgba(37, 52, 62, 0.04);
+            font-weight: 700;
+            color: var(--dark-blue);
+        }
+        
+        .vs-check {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            font-size: 14px;
+        }
+        
+        .vs-check.yes {
+            background: var(--dark-blue);
             color: var(--white);
-            font-weight: 600;
         }
         
-        .comparison-table .ps-column {
-            background-color: var(--yellow);
-            font-weight: 600;
+        .vs-check.no {
+            background: #E0E7EC;
+            color: #9BAAB4;
+        }
+        
+        .vs-table .vs-ps-value {
+            font-weight: 800;
+            color: var(--dark-blue);
+        }
+        
+        .vs-table .vs-comp-value {
+            color: var(--grey-text);
+        }
+        
+        @media (max-width: 640px) {
+            .vs-table {
+                font-size: 0.8rem;
+            }
+            .vs-table thead th,
+            .vs-table tbody td {
+                padding: 14px 10px;
+            }
         }
         
         /* Risk Reversal */
@@ -1391,57 +1491,76 @@
         </div>
     </section>
     
-    <!-- Competitor Comparison -->
-    <section class="section dark">
+    <!-- Us vs Them -->
+    <section class="vs-section">
         <div class="container">
-            <h2 class="fade-in" style="text-align: center;">Why Smart Air Beats Water-Based Systems</h2>
-            <div class="comparison-table fade-in">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Feature</th>
-                            <th class="ps-column">Perfectly Snug</th>
-                            <th>Water-Based Systems</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Cooling Method</strong></td>
-                            <td class="ps-column">Active airflow under body</td>
-                            <td>Surface-only water cooling</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Response Time</strong></td>
-                            <td class="ps-column">20 seconds</td>
-                            <td>30-60 minutes</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Cooling Power</strong></td>
-                            <td class="ps-column">52-102% more effective</td>
-                            <td>Limited surface cooling</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Maintenance</strong></td>
-                            <td class="ps-column">None</td>
-                            <td>Water refills, cleaning, leak risk</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Subscriptions</strong></td>
-                            <td class="ps-column">None, one-time purchase</td>
-                            <td>Often required for full features</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Room Temperature Impact</strong></td>
-                            <td class="ps-column">Ambient neutral</td>
-                            <td>Can increase room temp by 10°F</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Operating Cost</strong></td>
-                            <td class="ps-column">$4.32/year</td>
-                            <td>25x more expensive</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="vs-layout fade-in">
+                <div class="vs-heading">
+                    <h2>Us vs. Them</h2>
+                    <p>Not overhyped or overpriced. Just smarter sleep technology that actually works.</p>
+                </div>
+                <div class="vs-table-wrap">
+                    <table class="vs-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th class="vs-ps-head">Perfectly Snug</th>
+                                <th>Water-Based<br>Systems</th>
+                                <th>Fans &<br>Toppers</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Cools in Seconds</td>
+                                <td class="vs-ps-col"><span class="vs-check yes">✓</span></td>
+                                <td><span class="vs-check no">✗</span></td>
+                                <td><span class="vs-check no">✗</span></td>
+                            </tr>
+                            <tr>
+                                <td>Dual Zone Control</td>
+                                <td class="vs-ps-col"><span class="vs-check yes">✓</span></td>
+                                <td><span class="vs-check yes">✓</span></td>
+                                <td><span class="vs-check no">✗</span></td>
+                            </tr>
+                            <tr>
+                                <td>Zero Maintenance</td>
+                                <td class="vs-ps-col"><span class="vs-check yes">✓</span></td>
+                                <td><span class="vs-check no">✗</span></td>
+                                <td><span class="vs-check yes">✓</span></td>
+                            </tr>
+                            <tr>
+                                <td>No Subscriptions</td>
+                                <td class="vs-ps-col"><span class="vs-check yes">✓</span></td>
+                                <td><span class="vs-check no">✗</span></td>
+                                <td><span class="vs-check yes">✓</span></td>
+                            </tr>
+                            <tr>
+                                <td>No Leak Risk</td>
+                                <td class="vs-ps-col"><span class="vs-check yes">✓</span></td>
+                                <td><span class="vs-check no">✗</span></td>
+                                <td><span class="vs-check yes">✓</span></td>
+                            </tr>
+                            <tr>
+                                <td>Smart Auto-Adjust</td>
+                                <td class="vs-ps-col"><span class="vs-check yes">✓</span></td>
+                                <td><span class="vs-check yes">✓</span></td>
+                                <td><span class="vs-check no">✗</span></td>
+                            </tr>
+                            <tr>
+                                <td>Operating Cost</td>
+                                <td class="vs-ps-col vs-ps-value">$4.32/yr</td>
+                                <td class="vs-comp-value">$100+/yr</td>
+                                <td class="vs-comp-value">$15+/yr</td>
+                            </tr>
+                            <tr>
+                                <td>Room Temperature</td>
+                                <td class="vs-ps-col vs-ps-value">Neutral</td>
+                                <td class="vs-comp-value">+10°F</td>
+                                <td class="vs-comp-value">No effect</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </section>
