@@ -514,84 +514,263 @@
             margin-bottom: 10px;
         }
         
-        /* Stats Grid */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
+        /* Clinical Results — Eight Sleep Style */
+        .clinical-section {
+            padding: 100px 0;
+            background: linear-gradient(160deg, #1a2a33 0%, #25343E 30%, #2d4250 70%, #344d5c 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        @media (min-width: 768px) { .clinical-section { padding: 120px 0; } }
+        
+        .clinical-section::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to top, rgba(37,52,62,0.6), transparent);
         }
         
-        .stat {
+        .clinical-header {
             text-align: center;
-            padding: 30px;
-            background-color: var(--white);
-            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .clinical-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.25rem);
+            font-weight: 500;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+        
+        .clinical-header p {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.6);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .clinical-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 56px;
+            position: relative;
+            z-index: 1;
+        }
+        @media (min-width: 768px) {
+            .clinical-stats {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 24px;
+            }
+        }
+        
+        .clinical-card {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 32px 20px;
+            text-align: center;
+            backdrop-filter: blur(8px);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        
+        .clinical-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .clinical-number {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        
+        .clinical-label {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.4;
+        }
+        
+        .clinical-callout {
+            margin-top: 48px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .clinical-callout-box {
+            display: inline-block;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 32px 48px;
+            backdrop-filter: blur(8px);
+        }
+        
+        .clinical-callout-stat {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+        
+        .clinical-callout-desc {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .clinical-citation {
+            margin-top: 32px;
+            font-size: 0.8rem;
+            font-style: italic;
+            color: rgba(255,255,255,0.3);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Reviews Section — Card Grid + Categories */
+        .reviews-section {
+            padding: 100px 0;
+            background: #F8FBFC;
+        }
+        @media (min-width: 768px) { .reviews-section { padding: 120px 0; } }
+        
+        .reviews-header {
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        
+        .reviews-stars-line {
+            font-size: 1rem;
+            color: var(--yellow);
+            margin-bottom: 8px;
+        }
+        
+        .reviews-stars-line span {
+            color: var(--grey-text);
+            font-size: 0.9rem;
+            margin-left: 8px;
+        }
+        
+        .reviews-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.75rem, 4vw, 2.75rem);
             color: var(--dark-blue);
         }
         
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--yellow);
-            display: block;
-        }
-        
-        .citation {
-            margin-top: 30px;
-            font-style: italic;
-            color: var(--grey-text);
-            text-align: center;
-        }
-        
-        /* Testimonials */
-        .testimonials-slider {
-            position: relative;
-            overflow: hidden;
-            margin-top: 40px;
-        }
-        
-        .testimonials-track {
+        .reviews-categories {
             display: flex;
-            transition: transform 0.5s ease;
-        }
-        
-        .testimonial {
-            min-width: 100%;
-            padding: 0 20px;
-            text-align: center;
-        }
-        
-        .testimonial-text {
-            font-size: 1.25rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            font-style: italic;
-        }
-        
-        .testimonial-author {
-            font-weight: 600;
-            color: var(--yellow);
-        }
-        
-        .testimonials-nav {
-            display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             gap: 10px;
-            margin-top: 30px;
+            margin: 32px 0 48px;
         }
         
-        .nav-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.3);
+        .review-cat {
+            padding: 10px 22px;
+            border-radius: 9999px;
+            border: 2px solid var(--dark-blue);
+            background: transparent;
+            color: var(--dark-blue);
+            font-size: 0.85rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: all 0.2s ease;
+            font-family: 'Montserrat', sans-serif;
         }
         
-        .nav-dot.active {
-            background-color: var(--yellow);
+        .review-cat:hover,
+        .review-cat.active {
+            background: var(--dark-blue);
+            color: var(--white);
+        }
+        
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+        @media (min-width: 768px) {
+            .reviews-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .review-card {
+            background: var(--white);
+            border: 1px solid #E0E7EC;
+            border-radius: 16px;
+            padding: 32px 28px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .review-card-stars {
+            color: var(--yellow);
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+        }
+        
+        .review-card-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--dark-blue);
+            margin-bottom: 12px;
+        }
+        
+        .review-card-text {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: var(--grey-text);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .review-card-author {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--dark-blue);
+            margin-bottom: 4px;
+        }
+        
+        .review-card-verified {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+            color: var(--grey-text);
+        }
+        
+        .review-card-verified .check-badge {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--yellow);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: var(--dark-blue);
+        }
+        
+        .reviews-cta {
+            text-align: center;
+            margin-top: 48px;
+        }
+        
+        .reviews-cta .btn {
+            padding: 16px 40px;
         }
         
         /* Expert Section */
@@ -1097,71 +1276,102 @@
         </div>
     </section>
     
-    <!-- Study-Backed Results -->
-    <section class="section light">
+    <!-- Clinical Results -->
+    <section class="clinical-section">
         <div class="container">
-            <h2 class="fade-in" style="text-align: center;">Clinically Validated Results</h2>
-            <div class="stats-grid">
-                <div class="stat fade-in">
-                    <span class="stat-number">100%</span>
-                    <strong>of participants slept better</strong>
+            <div class="clinical-header fade-in">
+                <h2>Clinically Proven Results</h2>
+                <p>Independent sleep study results that speak for themselves.</p>
+            </div>
+            <div class="clinical-stats">
+                <div class="clinical-card fade-in">
+                    <div class="clinical-number">100%</div>
+                    <div class="clinical-label">of participants slept better</div>
                 </div>
-                <div class="stat fade-in">
-                    <span class="stat-number">90%</span>
-                    <strong>reported less tossing & turning</strong>
+                <div class="clinical-card fade-in">
+                    <div class="clinical-number">90%</div>
+                    <div class="clinical-label">reported less tossing & turning</div>
                 </div>
-                <div class="stat fade-in">
-                    <span class="stat-number">80%</span>
-                    <strong>said their partner slept better</strong>
+                <div class="clinical-card fade-in">
+                    <div class="clinical-number">80%</div>
+                    <div class="clinical-label">said their partner slept better</div>
                 </div>
-                <div class="stat fade-in">
-                    <span class="stat-number">75%</span>
-                    <strong>reported better dreams (more REM sleep)</strong>
+                <div class="clinical-card fade-in">
+                    <div class="clinical-number">75%</div>
+                    <div class="clinical-label">reported better dreams</div>
                 </div>
             </div>
-            <div class="fade-in" style="text-align: center; margin-top: 40px; padding: 30px; background-color: white; border-radius: 12px; color: var(--dark-blue);">
-                <h3>Case Study Result:</h3>
-                <p style="font-size: 1.25rem; margin: 20px 0;"><strong>5 rollovers/night with Perfectly Snug vs 16 without</strong></p>
-                <p>That's 68% fewer sleep disruptions every single night.</p>
+            <div class="clinical-callout fade-in">
+                <div class="clinical-callout-box">
+                    <div class="clinical-callout-stat">5 rollovers/night vs 16 without</div>
+                    <div class="clinical-callout-desc">68% fewer sleep disruptions every single night</div>
+                </div>
             </div>
-            <p class="citation fade-in">Independent SleepSpace study, Dr. Daniel Gartenberg, 2025</p>
+            <p class="clinical-citation fade-in">Independent SleepSpace study, Dr. Daniel Gartenberg, 2025</p>
         </div>
     </section>
     
-    <!-- Testimonials -->
-    <section id="testimonials" class="section dark">
+    <!-- Reviews -->
+    <section id="testimonials" class="reviews-section">
         <div class="container">
-            <h2 class="fade-in" style="text-align: center;">What Our Customers Are Saying</h2>
-            <div class="testimonials-slider fade-in">
-                <div class="testimonials-track">
-                    <div class="testimonial">
-                        <p class="testimonial-text">"Amazing product! After 1 week using the mattress topper, my wife said 'best purchase ever!' Thanks for keeping me out of the doghouse."</p>
-                        <p class="testimonial-author">— Richard G</p>
-                    </div>
-                    <div class="testimonial">
-                        <p class="testimonial-text">"I am obsessed with the Perfectly Snug topper. It gets 5 stars. It's changed my ability to sleep."</p>
-                        <p class="testimonial-author">— Sophie U.</p>
-                    </div>
-                    <div class="testimonial">
-                        <p class="testimonial-text">"We love this topper! Keeps us cool on the hottest nights and days (nightshifter!!). We both sleep so much better now!"</p>
-                        <p class="testimonial-author">— Gina D.</p>
-                    </div>
-                    <div class="testimonial">
-                        <p class="testimonial-text">"Worth every penny! We haven't slept so well in ages. The duel zoning & schedule setup is brilliant. Impeccable customer service!"</p>
-                        <p class="testimonial-author">— Natasha G.</p>
-                    </div>
-                    <div class="testimonial">
-                        <p class="testimonial-text">"No more waking up in a hot flash or freezing cold! I love that there's 2 zones as my husband & I are very different temperatures!"</p>
-                        <p class="testimonial-author">— Sally S.</p>
-                    </div>
+            <div class="reviews-header fade-in">
+                <div class="reviews-stars-line">★★★★★ <span>4.87 stars</span></div>
+                <h2>Don't Take Our Word For It.</h2>
+            </div>
+            <div class="reviews-categories fade-in">
+                <button class="review-cat active" data-cat="all">All</button>
+                <button class="review-cat" data-cat="cooling">Cooling</button>
+                <button class="review-cat" data-cat="couples">Couples</button>
+                <button class="review-cat" data-cat="setup">Easy Setup</button>
+                <button class="review-cat" data-cat="hotflash">Hot Flashes</button>
+                <button class="review-cat" data-cat="quality">Quality</button>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card fade-in" data-tags="cooling setup">
+                    <div class="review-card-stars">★★★★★</div>
+                    <div class="review-card-title">Skeptic Turned Believer</div>
+                    <div class="review-card-text">I was initially skeptical this would make a difference without water cooling features like competition. However, the reviews on others scared me and WOW am I glad they did. The cooling features here are perfect, easy to set up, and don't have to worry about any water leaks. Highly recommend to anyone considering.</div>
+                    <div class="review-card-author">Michael L.</div>
+                    <div class="review-card-verified"><span class="check-badge">✓</span> Verified Purchase</div>
                 </div>
-                <div class="testimonials-nav">
-                    <div class="nav-dot active" data-slide="0"></div>
-                    <div class="nav-dot" data-slide="1"></div>
-                    <div class="nav-dot" data-slide="2"></div>
-                    <div class="nav-dot" data-slide="3"></div>
-                    <div class="nav-dot" data-slide="4"></div>
+                <div class="review-card fade-in" data-tags="cooling hotflash quality">
+                    <div class="review-card-stars">★★★★★</div>
+                    <div class="review-card-title">Works!</div>
+                    <div class="review-card-text">This was a splurge but worth every penny. I have night sweats nightly and it has ruined my sleep the past few years. I tried two other types of bed coolers and this is by far superior in every way! And I enjoy the control on my phone with the app. So easy and stressfree. Would give 100 stars if I could.</div>
+                    <div class="review-card-author">Justine</div>
+                    <div class="review-card-verified"><span class="check-badge">✓</span> Verified Purchase</div>
                 </div>
+                <div class="review-card fade-in" data-tags="cooling hotflash couples">
+                    <div class="review-card-stars">★★★★★</div>
+                    <div class="review-card-title">Best Thing I've Ever Done For Myself</div>
+                    <div class="review-card-text">I actually sleep through the night now. I use to toss and turn, throw off the covers, and start over again. Now, when I get up, I can easily make my bed because I hardly move during the night. Amazing!</div>
+                    <div class="review-card-author">Maggie</div>
+                    <div class="review-card-verified"><span class="check-badge">✓</span> Verified Purchase</div>
+                </div>
+                <div class="review-card fade-in" data-tags="couples quality">
+                    <div class="review-card-stars">★★★★★</div>
+                    <div class="review-card-title">Worth Every Penny</div>
+                    <div class="review-card-text">We haven't slept so well in ages. The dual zoning and schedule setup is brilliant. Impeccable customer service!</div>
+                    <div class="review-card-author">Natasha G.</div>
+                    <div class="review-card-verified"><span class="check-badge">✓</span> Verified Purchase</div>
+                </div>
+                <div class="review-card fade-in" data-tags="hotflash couples">
+                    <div class="review-card-stars">★★★★★</div>
+                    <div class="review-card-title">No More Hot Flashes!</div>
+                    <div class="review-card-text">No more waking up in a hot flash or freezing cold! I love that there's 2 zones as my husband and I are very different temperatures!</div>
+                    <div class="review-card-author">Sally S.</div>
+                    <div class="review-card-verified"><span class="check-badge">✓</span> Verified Purchase</div>
+                </div>
+                <div class="review-card fade-in" data-tags="setup quality">
+                    <div class="review-card-stars">★★★★★</div>
+                    <div class="review-card-title">Best Purchase Ever!</div>
+                    <div class="review-card-text">Amazing product! After 1 week using the mattress topper, my wife said 'best purchase ever!' Thanks for keeping me out of the doghouse.</div>
+                    <div class="review-card-author">Richard G.</div>
+                    <div class="review-card-verified"><span class="check-badge">✓</span> Verified Purchase</div>
+                </div>
+            </div>
+            <div class="reviews-cta fade-in">
+                <a href="https://perfectlysnug.com/products/the-smart-topper#reviews" class="btn">Read More Reviews</a>
             </div>
         </div>
     </section>
@@ -1415,35 +1625,23 @@
             observer.observe(el);
         });
         
-        // Testimonials slider
-        const testimonialsTrack = document.querySelector('.testimonials-track');
-        const navDots = document.querySelectorAll('.nav-dot');
-        let currentSlide = 0;
-        const totalSlides = navDots.length;
+        // Review category filters
+        const catButtons = document.querySelectorAll('.review-cat');
+        const reviewCards = document.querySelectorAll('.review-card');
         
-        function goToSlide(slideIndex) {
-            currentSlide = slideIndex;
-            testimonialsTrack.style.transform = `translateX(-${slideIndex * 100}%)`;
-            
-            navDots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === slideIndex);
-            });
-        }
-        
-        // Auto-advance testimonials every 5 seconds
-        function autoAdvance() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            goToSlide(currentSlide);
-        }
-        
-        let autoAdvanceInterval = setInterval(autoAdvance, 5000);
-        
-        // Manual navigation
-        navDots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                clearInterval(autoAdvanceInterval);
-                goToSlide(index);
-                autoAdvanceInterval = setInterval(autoAdvance, 5000);
+        catButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                catButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const cat = btn.dataset.cat;
+                
+                reviewCards.forEach(card => {
+                    if (cat === 'all' || (card.dataset.tags && card.dataset.tags.includes(cat))) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
             });
         });
         
