@@ -489,11 +489,20 @@
             width: 52px;
             height: 52px;
             border-radius: 50%;
-            background: var(--light-blue);
+            background: var(--dark-blue);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
+        }
+        
+        .spotlight-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--yellow);
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
         
         .spotlight-feature-text h4 {
@@ -1517,35 +1526,43 @@
         <div class="container">
             <div class="spotlight-layout fade-in">
                 <div class="spotlight-image">
-                    <img src="https://perfectlysnug.com/cdn/shop/files/home_module2_image1.webp" alt="Smart Topper with built-in sensors">
+                    <img src="https://perfectlysnug.com/cdn/shop/files/pdp_image4_abf9aea8-c23a-45d1-94a6-a01002fe0250.png" alt="Smart Topper on bed">
                 </div>
                 <div class="spotlight-text">
                     <div class="spotlight-eyebrow">The Smart Topper</div>
                     <h2 class="spotlight-heading">Everything you need for your best sleep, built right in.</h2>
                     <div class="spotlight-features">
                         <div class="spotlight-feature-item">
-                            <div class="spotlight-icon">🌬️</div>
+                            <div class="spotlight-icon">
+                                <svg viewBox="0 0 24 24"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
+                            </div>
                             <div class="spotlight-feature-text">
                                 <h4>Active Air Cooling</h4>
                                 <p>Draws heat from your body with quiet internal fans, not just surface cooling.</p>
                             </div>
                         </div>
                         <div class="spotlight-feature-item">
-                            <div class="spotlight-icon">❄️</div>
+                            <div class="spotlight-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>
+                            </div>
                             <div class="spotlight-feature-text">
                                 <h4>Instant Cold Burst</h4>
                                 <p>Immediate cooling relief in seconds when you need it most.</p>
                             </div>
                         </div>
                         <div class="spotlight-feature-item">
-                            <div class="spotlight-icon">🔄</div>
+                            <div class="spotlight-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
+                            </div>
                             <div class="spotlight-feature-text">
                                 <h4>Smart Auto-Adjust</h4>
                                 <p>Sensors monitor and adjust thousands of times per night automatically.</p>
                             </div>
                         </div>
                         <div class="spotlight-feature-item">
-                            <div class="spotlight-icon">👥</div>
+                            <div class="spotlight-icon">
+                                <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            </div>
                             <div class="spotlight-feature-text">
                                 <h4>Dual Zone Control</h4>
                                 <p>You and your partner each get your own perfect temperature zone.</p>
