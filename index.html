@@ -247,77 +247,96 @@
             margin-bottom: 0.5rem;
         }
         
-        /* Press Logos — Infinite Marquee */
-        .press-logos {
-            text-align: center;
+        /* Press Bar — Text-based */
+        .press-bar {
+            padding: 56px 0;
+            background: #F8FBFC;
+            border-top: 1px solid var(--light-blue);
+            border-bottom: 1px solid var(--light-blue);
+        }
+        @media (min-width: 768px) { .press-bar { padding: 64px 0; } }
+        
+        .press-bar-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 36px;
         }
         
-        .press-logos h2 {
-            margin-bottom: 40px;
+        .press-bar-top {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
         }
         
-        .marquee-wrapper {
-            overflow: hidden;
-            position: relative;
+        .press-award-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            border-radius: 9999px;
+            background: var(--dark-blue);
+            color: var(--yellow);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        
+        .press-award-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--yellow);
+            flex-shrink: 0;
+        }
+        
+        .press-eyebrow {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #697E8C;
+        }
+        
+        .press-logos-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 24px 40px;
             width: 100%;
         }
         
-        .marquee-wrapper::before,
-        .marquee-wrapper::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 100px;
-            z-index: 2;
-            pointer-events: none;
+        .press-pub {
+            font-size: clamp(14px, 2vw, 18px);
+            font-weight: 800;
+            letter-spacing: 0.02em;
+            color: #C3D4DA;
+            text-transform: uppercase;
+            transition: color 0.2s;
+            user-select: none;
+            cursor: default;
         }
         
-        .marquee-wrapper::before {
-            left: 0;
-            background: linear-gradient(to right, var(--light-blue), transparent);
+        .press-pub:hover {
+            color: #697E8C;
         }
         
-        .marquee-wrapper::after {
-            right: 0;
-            background: linear-gradient(to left, var(--light-blue), transparent);
-        }
-        
-        .marquee-track {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            width: max-content;
-            animation: marquee-scroll 30s linear infinite;
-        }
-        
-        .marquee-track:hover {
-            animation-play-state: paused;
-        }
-        
-        .marquee-track img {
-            height: 35px;
-            max-width: 140px;
-            object-fit: contain;
-            opacity: 0.6;
-            filter: grayscale(100%);
+        .press-dot-sep {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #C3E6EA;
             flex-shrink: 0;
-            transition: opacity 0.3s ease;
+            display: none;
         }
         
-        .marquee-track img:hover {
-            opacity: 1;
-        }
-        
-        .marquee-track img.oprah-badge {
-            height: 50px;
-            opacity: 0.8;
-        }
-        
-        @keyframes marquee-scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
+        @media (min-width: 640px) { .press-dot-sep { display: block; } }
         
         /* How It Works */
         .how-it-works-grid {
@@ -698,22 +717,12 @@
                 gap: 15px;
             }
             
-            .marquee-track {
-                gap: 40px;
+            .press-logos-row {
+                gap: 16px 24px;
             }
             
-            .marquee-track img {
-                height: 25px;
-                max-width: 100px;
-            }
-            
-            .marquee-track img.oprah-badge {
-                height: 40px;
-            }
-            
-            .marquee-wrapper::before,
-            .marquee-wrapper::after {
-                width: 40px;
+            .press-pub {
+                font-size: 13px;
             }
         }
         
@@ -801,42 +810,37 @@
         </div>
     </section>
     
-    <!-- As Seen In -->
-    <section class="section light">
-        <div class="container">
-            <div class="press-logos fade-in">
-                <h2>As Featured In</h2>
+    <!-- Press Bar -->
+    <section class="press-bar">
+        <div class="press-bar-inner fade-in">
+            <div class="press-bar-top">
+                <div class="press-award-pill">
+                    <span>★</span>
+                    <span>Oprah Daily Sleep Award Winner 2026</span>
+                    <div class="press-award-dot"></div>
+                </div>
+                <span class="press-eyebrow">As featured in</span>
             </div>
-        </div>
-        <div class="marquee-wrapper">
-            <div class="marquee-track">
-                <img src="assets/logos/house beautiful logo.png" alt="House Beautiful">
-                <img src="assets/logos/omc_oprah_daily logo.png" alt="Oprah Daily" class="oprah-badge">
-                <img src="assets/logos/cbc_dragon_den.png" alt="CBC Dragon's Den">
-                <img src="assets/logos/sleep foundation logo.png" alt="Sleep Foundation">
-                <img src="assets/logos/GQ logo.png" alt="GQ">
-                <img src="assets/logos/the_sleep_sherpo.png" alt="The Sleep Sherpa">
-                <img src="assets/logos/buzzfeed_logo.png" alt="BuzzFeed">
-                <img src="assets/logos/Inc._(business_magazine)_logo.svg.png" alt="Inc Magazine">
-                <img src="assets/logos/strategist logo.png" alt="The Strategist">
-                <img src="assets/logos/wired logo.png" alt="Wired">
-                <img src="assets/logos/mens-journal-logo.jpg" alt="Men's Journal">
-                <img src="assets/logos/town and country logo.png" alt="Town & Country">
-                <img src="assets/logos/yawnder logo.jpg" alt="Yawnder">
-                <!-- Duplicate set for seamless loop -->
-                <img src="assets/logos/house beautiful logo.png" alt="House Beautiful">
-                <img src="assets/logos/omc_oprah_daily logo.png" alt="Oprah Daily" class="oprah-badge">
-                <img src="assets/logos/cbc_dragon_den.png" alt="CBC Dragon's Den">
-                <img src="assets/logos/sleep foundation logo.png" alt="Sleep Foundation">
-                <img src="assets/logos/GQ logo.png" alt="GQ">
-                <img src="assets/logos/the_sleep_sherpo.png" alt="The Sleep Sherpa">
-                <img src="assets/logos/buzzfeed_logo.png" alt="BuzzFeed">
-                <img src="assets/logos/Inc._(business_magazine)_logo.svg.png" alt="Inc Magazine">
-                <img src="assets/logos/strategist logo.png" alt="The Strategist">
-                <img src="assets/logos/wired logo.png" alt="Wired">
-                <img src="assets/logos/mens-journal-logo.jpg" alt="Men's Journal">
-                <img src="assets/logos/town and country logo.png" alt="Town & Country">
-                <img src="assets/logos/yawnder logo.jpg" alt="Yawnder">
+            <div class="press-logos-row">
+                <span class="press-pub">House Beautiful</span>
+                <div class="press-dot-sep"></div>
+                <span class="press-pub">Men's Journal</span>
+                <div class="press-dot-sep"></div>
+                <span class="press-pub">Town & Country</span>
+                <div class="press-dot-sep"></div>
+                <span class="press-pub">the Strategist</span>
+                <div class="press-dot-sep"></div>
+                <span class="press-pub">WIRED</span>
+                <div class="press-dot-sep"></div>
+                <span class="press-pub">GQ</span>
+                <div class="press-dot-sep"></div>
+                <span class="press-pub">BuzzFeed</span>
+                <div class="press-dot-sep"></div>
+                <span class="press-pub">Inc.</span>
+                <div class="press-dot-sep"></div>
+                <span class="press-pub">Dragon's Den</span>
+                <div class="press-dot-sep"></div>
+                <span class="press-pub">Sleep Foundation</span>
             </div>
         </div>
     </section>
