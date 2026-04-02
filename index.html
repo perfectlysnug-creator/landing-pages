@@ -1133,6 +1133,111 @@
             transform: rotate(180deg);
         }
         
+        /* FAQ Categories */
+        .faq-section {
+            padding: 100px 0;
+            background: var(--dark-blue);
+        }
+        @media (min-width: 768px) { .faq-section { padding: 120px 0; } }
+        
+        .faq-section h2 {
+            color: var(--white);
+        }
+        
+        .faq-categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 48px;
+        }
+        
+        .faq-cat {
+            padding: 10px 22px;
+            border-radius: 9999px;
+            border: 1.5px solid rgba(255,255,255,0.25);
+            background: transparent;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .faq-cat:hover,
+        .faq-cat.active {
+            background: var(--white);
+            color: var(--dark-blue);
+            border-color: var(--white);
+        }
+        
+        /* Confidence Section */
+        .confidence-section {
+            padding: 100px 0;
+            background: var(--dark-blue);
+        }
+        @media (min-width: 768px) { .confidence-section { padding: 120px 0; } }
+        
+        .confidence-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            color: var(--white);
+            font-weight: 500;
+        }
+        
+        .confidence-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        @media (min-width: 640px) {
+            .confidence-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 48px;
+            }
+        }
+        
+        .confidence-item {
+            text-align: center;
+        }
+        
+        .confidence-icon {
+            margin: 0 auto 20px;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .confidence-icon svg {
+            width: 36px;
+            height: 36px;
+            stroke: rgba(255,255,255,0.6);
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        
+        .confidence-item h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+        
+        .confidence-item p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.6;
+            margin: 0;
+        }
+        
         /* Final CTA */
         .final-cta {
             text-align: center;
@@ -1705,139 +1810,36 @@
         </div>
     </section>
     
-    <!-- Risk-Free -->
-    <section class="risk-free-section">
-        <div class="container" style="position: relative;">
-            <div class="risk-free-img risk-free-img-left">
-                <img src="https://perfectlysnug.com/cdn/shop/files/hp-img-new.jpg" alt="Woman sleeping peacefully">
-            </div>
-            <div class="risk-free-img risk-free-img-right">
-                <img src="https://perfectlysnug.com/cdn/shop/files/IMG_couple.png" alt="Couple on Smart Topper">
-            </div>
-            <div class="risk-free-inner fade-in">
-                <h2>Try 30 Nights Risk Free</h2>
-                <p>We're so confident that The Smart Topper will improve your quality of sleep and eliminate or reduce night time sweats or hot flashes that we are offering a 30 Night Sleep Guarantee. If you don't love the Smart Topper within 30 nights, we'll cover the return shipping and refund you the purchase price.</p>
-                <a href="https://perfectlysnug.com/products/the-smart-topper" class="btn">Shop the Smart Topper</a>
-            </div>
-            <div class="perks-row fade-in">
-                <div class="perk-item">
-                    <div class="perk-icon">
-                        <svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+    <!-- Shop with Confidence -->
+    <section class="confidence-section">
+        <div class="container">
+            <h2 class="fade-in" style="text-align: center; margin-bottom: 12px;">Shop with Confidence</h2>
+            <p class="fade-in" style="text-align: center; color: rgba(255,255,255,0.5); margin-bottom: 56px; font-size: 0.95rem;">Try it risk-free. Love it or return it.</p>
+            <div class="confidence-grid fade-in">
+                <div class="confidence-item">
+                    <div class="confidence-icon">
+                        <svg viewBox="0 0 24 24"><path d="M16 3h5v5"/><path d="M21 3l-7 7"/><path d="M8 21H3v-5"/><path d="M3 21l7-7"/></svg>
                     </div>
                     <h4>Free Shipping</h4>
-                    <p>3-5 business days across North America</p>
+                    <p>Free shipping and returns anywhere in North America.</p>
                 </div>
-                <div class="perk-item">
-                    <div class="perk-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
+                <div class="confidence-item">
+                    <div class="confidence-icon">
+                        <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/><path d="M12 6v6l4 2"/></svg>
                     </div>
-                    <h4>1-Year Bumper-to-Bumper Warranty</h4>
-                    <p>Full coverage on all components</p>
+                    <h4>30-Night Risk-Free Trial</h4>
+                    <p>If you are not 100% happy, return it in 30 days for a full refund.</p>
                 </div>
-                <div class="perk-item">
-                    <div class="perk-icon">
-                        <svg viewBox="0 0 24 24"><path d="M19 5h-3V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"/><path d="M12 12v4"/><path d="M10 14h4"/></svg>
+                <div class="confidence-item">
+                    <div class="confidence-icon">
+                        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                     </div>
-                    <h4>HSA/FSA Eligible</h4>
-                    <p>Use your health savings account (US customers)</p>
+                    <h4>Shop with an Expert</h4>
+                    <p>Email us or give us a call with any questions you might have.</p>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- FAQ -->
-    <section id="faq" class="section dark">
-        <div class="container">
-            <h2 class="fade-in" style="text-align: center;">Frequently Asked Questions</h2>
-            <div class="faq-list">
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        How cold (or warm) does it get?
-                        <span class="faq-icon">▼</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>The Smart Topper can cool or warm ±10 degrees from your natural skin temperature. This range covers the vast majority of sleep comfort preferences and is clinically proven to improve sleep quality.</p>
-                    </div>
-                </div>
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        How loud is it?
-                        <span class="faq-icon">▼</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Nearly silent at low settings, like a quiet furnace at 50% speed, and like a gentle fan at full power. Most users sleep on low to medium settings which are virtually inaudible.</p>
-                    </div>
-                </div>
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        Does it work with my mattress?
-                        <span class="faq-icon">▼</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Yes! It works on any mattress. The 2-inch medium-firm topper sits on top of your existing mattress and works with any bed frame or foundation.</p>
-                    </div>
-                </div>
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        Is there maintenance required?
-                        <span class="faq-icon">▼</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>None whatsoever. Just plug it in and sleep. No water to refill, no filters to change, no cleaning required. It's designed for years of maintenance-free operation.</p>
-                    </div>
-                </div>
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        What about my sheets?
-                        <span class="faq-icon">▼</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Works best with breathable materials like cotton, bamboo, or linen. Lower thread count sheets (under 400) work better than high thread count. Avoid non-breathable materials like polyester blends.</p>
-                    </div>
-                </div>
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        Can I use my HSA/FSA?
-                        <span class="faq-icon">▼</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Yes! For US customers, select Flex at checkout to use your Health Savings Account or Flexible Spending Account. Sleep products qualify as medical expenses.</p>
-                    </div>
-                </div>
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        What if I don't like it?
-                        <span class="faq-icon">▼</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>30-night trial with free return shipping and full refund. We'll even arrange pickup. No questions asked, no restocking fees.</p>
-                    </div>
-                </div>
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        How much does it cost to run?
-                        <span class="faq-icon">▼</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Just $4.32 per year on average. The Smart Topper uses about as much electricity as a small LED light bulb, making it 25x more cost-effective than water-based systems.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Final CTA -->
-    <section class="section dark">
-        <div class="container">
-            <div class="final-cta fade-in">
-                <h2>Your Best Sleep Starts Tonight</h2>
-                <p style="font-size: 1.25rem; margin-bottom: 30px;">Use code EASTER26 — Save Up to $270</p>
-                <a href="https://perfectlysnug.com/products/the-smart-topper" class="btn">Shop the Smart Topper</a>
-                <div class="trust-reminders">
-                    <span>Free Shipping</span>
-                    <span>30-Night Trial</span>
-                    <span>1-Year Warranty</span>
-                </div>
+            <div class="fade-in" style="text-align: center; margin-top: 56px;">
+                <a href="https://perfectlysnug.com/products/the-smart-topper" class="btn" style="padding: 18px 48px; font-size: 1.1rem;">Shop the Smart Topper</a>
             </div>
         </div>
     </section>
@@ -1916,9 +1918,7 @@
             button.addEventListener('click', () => {
                 const faqItem = button.parentElement;
                 const faqAnswer = faqItem.querySelector('.faq-answer');
-                const isOpen = faqItem.classList.contains('open');
                 
-                // Close all other FAQ items
                 document.querySelectorAll('.faq-item').forEach(item => {
                     if (item !== faqItem) {
                         item.classList.remove('open');
@@ -1926,9 +1926,30 @@
                     }
                 });
                 
-                // Toggle current FAQ item
                 faqItem.classList.toggle('open');
                 faqAnswer.classList.toggle('open');
+            });
+        });
+        
+        // FAQ Category filters
+        const faqCatButtons = document.querySelectorAll('.faq-cat');
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqCatButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                faqCatButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const cat = btn.dataset.faqcat;
+                
+                faqItems.forEach(item => {
+                    item.classList.remove('open');
+                    item.querySelector('.faq-answer').classList.remove('open');
+                    if (cat === 'all' || (item.dataset.faqtags && item.dataset.faqtags.includes(cat))) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
             });
         });
         
