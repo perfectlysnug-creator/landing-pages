@@ -280,20 +280,22 @@
             text-transform: uppercase;
         }
         
-        .press-award-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--yellow);
-            flex-shrink: 0;
+        .press-award-star {
+            font-size: 14px;
         }
         
         .press-eyebrow {
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.12em;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
             text-transform: uppercase;
             color: #697E8C;
+        }
+        
+        @media (min-width: 768px) {
+            .press-eyebrow {
+                font-size: 17px;
+            }
         }
         
         .marquee-wrapper {
@@ -843,9 +845,9 @@
     <section class="press-bar">
         <div class="press-bar-top fade-in">
             <div class="press-award-pill">
-                <span>★</span>
+                <span class="press-award-star">★</span>
                 <span>Oprah Daily Sleep Award Winner 2026</span>
-                <div class="press-award-dot"></div>
+                <span class="press-award-star">★</span>
             </div>
             <span class="press-eyebrow">As featured in</span>
         </div>
