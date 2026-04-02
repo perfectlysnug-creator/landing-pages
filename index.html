@@ -390,24 +390,103 @@
             margin-bottom: 15px;
         }
         
-        /* Problem Section */
-        .problem-list {
+        /* Product Spotlight */
+        .product-spotlight {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        @media (min-width: 768px) { .product-spotlight { padding: 120px 0; } }
+        
+        .spotlight-eyebrow {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #697E8C;
+            margin-bottom: 16px;
+        }
+        
+        .spotlight-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            line-height: 1.15;
+            color: var(--dark-blue);
+            margin-bottom: 24px;
+        }
+        
+        .spotlight-layout {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+        @media (min-width: 768px) {
+            .spotlight-layout {
+                grid-template-columns: 1fr 1fr;
+                gap: 64px;
+            }
         }
         
-        .problem-item {
+        .spotlight-image {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        
+        .spotlight-image img {
+            width: 100%;
+            display: block;
+            border-radius: 16px;
+        }
+        
+        .spotlight-image-label {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            background: rgba(37, 52, 62, 0.8);
+            color: var(--white);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 8px 14px;
+            border-radius: 6px;
+            backdrop-filter: blur(4px);
+        }
+        
+        .spotlight-text p {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: var(--grey-text);
+            margin-bottom: 20px;
+        }
+        
+        .spotlight-features {
             display: flex;
-            align-items: flex-start;
-            gap: 15px;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 28px;
         }
         
-        .problem-item .check {
-            color: #EF4444;
-            font-size: 1.2rem;
-            margin-top: 2px;
+        .spotlight-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: var(--light-blue);
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--dark-blue);
+        }
+        
+        .spotlight-tag-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--yellow);
+            flex-shrink: 0;
         }
         
         /* Features Grid */
@@ -912,44 +991,24 @@
         </div>
     </section>
     
-    <!-- The Problem -->
-    <section class="section light">
+    <!-- Product Spotlight -->
+    <section class="product-spotlight">
         <div class="container">
-            <h2 class="fade-in" style="text-align: center;">Temperature is the #1 Reason People Can't Sleep Through the Night</h2>
-            <div class="problem-list">
-                <div class="problem-item fade-in">
-                    <span class="check">✗</span>
-                    <div>
-                        <strong>Wake up drenched in sweat</strong>
-                        <p>Hot flashes and night sweats ruin your sleep</p>
-                    </div>
+            <div class="spotlight-layout fade-in">
+                <div class="spotlight-image">
+                    <img src="https://perfectlysnug.com/cdn/shop/files/home_module2_image1.webp" alt="Smart Topper with built-in sensors glowing blue">
+                    <div class="spotlight-image-label">Built-in Sensors</div>
                 </div>
-                <div class="problem-item fade-in">
-                    <span class="check">✗</span>
-                    <div>
-                        <strong>Fan blows warm air, doesn't cool you</strong>
-                        <p>Surface cooling doesn't address body heat</p>
-                    </div>
-                </div>
-                <div class="problem-item fade-in">
-                    <span class="check">✗</span>
-                    <div>
-                        <strong>Toss and turn, never hit deep sleep</strong>
-                        <p>Temperature fluctuations prevent REM sleep</p>
-                    </div>
-                </div>
-                <div class="problem-item fade-in">
-                    <span class="check">✗</span>
-                    <div>
-                        <strong>Partner wants different temperature</strong>
-                        <p>Compromise means nobody sleeps well</p>
-                    </div>
-                </div>
-                <div class="problem-item fade-in">
-                    <span class="check">✗</span>
-                    <div>
-                        <strong>Morning brain fog and exhaustion</strong>
-                        <p>Poor temperature regulation affects recovery</p>
+                <div class="spotlight-text">
+                    <div class="spotlight-eyebrow">The Smart Topper</div>
+                    <h2 class="spotlight-heading">The world's first Smart Topper that adjusts cooling & heating while you sleep.</h2>
+                    <p>A 2-inch, dual zone active air cooling and heating sleep system. Quiet internal fans propel cooling air under and around your body, while cozy heating keeps you warm when you need it.</p>
+                    <p>Temperature automatically adjusts throughout the night, keeping you and your partner at your preferred settings. Includes a Cold Burst for instant cooling relief.</p>
+                    <div class="spotlight-features">
+                        <span class="spotlight-tag"><span class="spotlight-tag-dot"></span>Dual Zone Control</span>
+                        <span class="spotlight-tag"><span class="spotlight-tag-dot"></span>Auto-Adjusting</span>
+                        <span class="spotlight-tag"><span class="spotlight-tag-dot"></span>Cold Burst</span>
+                        <span class="spotlight-tag"><span class="spotlight-tag-dot"></span>Zero Maintenance</span>
                     </div>
                 </div>
             </div>
