@@ -731,6 +731,102 @@
             margin-bottom: 32px;
         }
         
+
+        .sleep-benefits-row {
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+            align-items: center;
+            margin-top: 80px;
+            padding-top: 80px;
+            border-top: 1px solid rgba(37, 52, 62, 0.1);
+        }
+        @media (min-width: 768px) {
+            .sleep-benefits-row {
+                flex-direction: row;
+                gap: 64px;
+                align-items: flex-start;
+            }
+        }
+        
+        .sleep-benefits-image {
+            flex-shrink: 0;
+            width: 100%;
+            max-width: 400px;
+        }
+        @media (min-width: 768px) {
+            .sleep-benefits-image {
+                width: 40%;
+                max-width: 440px;
+            }
+        }
+        
+        .sleep-benefits-image img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 12px 40px rgba(37, 52, 62, 0.12);
+        }
+        
+        .sleep-benefits-content {
+            flex: 1;
+        }
+        
+        .sleep-benefits-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+        }
+        @media (min-width: 768px) {
+            .sleep-benefits-heading {
+                font-size: 2.1rem;
+            }
+        }
+        
+        .sleep-benefits-intro {
+            font-size: 1rem;
+            color: var(--dark-blue);
+            margin-bottom: 8px;
+        }
+        
+        .sleep-benefits-content > p {
+            font-size: 0.95rem;
+            color: var(--grey-text);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+        
+        .sleep-benefits-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .sleep-benefits-list li {
+            font-size: 0.92rem;
+            line-height: 1.6;
+            color: var(--grey-text);
+            padding-left: 28px;
+            position: relative;
+        }
+        
+        .sleep-benefits-list li::before {
+            content: '\2713';
+            position: absolute;
+            left: 0;
+            color: #3a8f8b;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        
+        .sleep-benefits-list li strong {
+            color: var(--dark-blue);
+        }
+
         /* Features Grid */
         .features-section {
             padding: 100px 0;
@@ -2003,7 +2099,7 @@
         </div>
     </section>
     
-    <!-- Product Spotlight -->
+    <!-- Product Spotlight + Sleep Benefits Combined -->
     <section class="product-spotlight">
         <div class="container">
             <h2 class="spotlight-title fade-in">Imagine a Life with Consistently Great Sleep</h2>
@@ -2013,8 +2109,27 @@
                 </div>
                 <div class="spotlight-text">
                     <h3 class="spotlight-heading">The world's first Smart Topper that adjusts cooling & heating while you sleep.</h3>
-                    <p>The Perfectly Snug cooling mattress topper is a 2-inch, dual zone active air cooling & heating sleep system. Each zone is fully equipped with quiet internal fans that propel cooling air under and around your body, as well as cozy warm heating. Cooling and heating automatically adjust, keeping you and your partner at your preferred temperatures all night long. Includes a Cold Burst for instant cooling relief when you need it most, ideal for anyone suffering from night sweats. Better sleep tonight means more energy, better focus, and a better version of you tomorrow.</p>
-                    <a href="https://perfectlysnug.com/products/the-smart-topper" class="btn">Shop the Smart Topper</a>
+                    <p>The Perfectly Snug cooling mattress topper is a 2-inch, dual zone active air cooling & heating sleep system. Each zone is fully equipped with quiet internal fans that propel cooling air under and around your body, as well as cozy warm heating. Cooling and heating automatically adjust, keeping you and your partner at your preferred temperatures all night long. Includes a Cold Burst for instant cooling relief when you need it most, ideal for anyone suffering from night sweats.</p>
+                    <a href="https://perfectlysnug.com/products/the-smart-topper" class="btn" style="margin-bottom: 0;">Shop the Smart Topper</a>
+                </div>
+            </div>
+            
+            <!-- Sleep Benefits -->
+            <div class="sleep-benefits-row fade-in">
+                <div class="sleep-benefits-image">
+                    <img src="https://perfectlysnug.com/cdn/shop/files/hp-img-new.jpg" alt="Woman waking up refreshed">
+                </div>
+                <div class="sleep-benefits-content">
+                    <h3 class="sleep-benefits-heading">What Happens When You Finally Sleep Well</h3>
+                    <p class="sleep-benefits-intro"><strong>Imagine waking up clear-minded, calm, and re-energized.</strong></p>
+                    <p>When you finally sleep deeply, your body and mind work for you, not against you.</p>
+                    <ul class="sleep-benefits-list">
+                        <li><strong>Manage stress with ease</strong> - Rested brains regulate emotions better</li>
+                        <li><strong>Reduce anxiety naturally</strong> - Deep sleep lowers cortisol and resets your nervous system</li>
+                        <li><strong>Improve focus & memory</strong> - Your brain clears clutter and restores clarity overnight</li>
+                        <li><strong>Feel happier & more patient</strong> - Balanced sleep supports mood-stabilizing hormones</li>
+                        <li><strong>Show up better for yourself and others</strong> - From work to family, everything flows easier when you're rested</li>
+                    </ul>
                 </div>
             </div>
         </div>
