@@ -926,28 +926,18 @@
             opacity: 0.85;
         }
 
-        /* Clinical Results — Eight Sleep Style */
+        /* Clinical Results — Eight Sleep Timeline Style */
         .clinical-section {
-            padding: 100px 0;
-            background: linear-gradient(160deg, #1a2a33 0%, #25343E 30%, #2d4250 70%, #344d5c 100%);
+            padding: 100px 0 60px;
+            background: linear-gradient(180deg, #1a2a33 0%, #1e3340 40%, #243d4e 70%, #2a4558 100%);
             position: relative;
             overflow: hidden;
         }
-        @media (min-width: 768px) { .clinical-section { padding: 120px 0; } }
-        
-        .clinical-section::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 200px;
-            background: linear-gradient(to top, rgba(37,52,62,0.6), transparent);
-        }
+        @media (min-width: 768px) { .clinical-section { padding: 120px 0 80px; } }
         
         .clinical-header {
             text-align: center;
-            margin-bottom: 16px;
+            margin-bottom: 80px;
         }
         
         .clinical-header h2 {
@@ -959,55 +949,134 @@
         }
         
         .clinical-header p {
-            font-size: 1.05rem;
-            color: rgba(255,255,255,0.6);
-            max-width: 600px;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.5);
+            max-width: 550px;
             margin: 0 auto;
         }
         
-        .clinical-stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-top: 56px;
+        .clinical-timeline {
             position: relative;
-            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            height: 380px;
+            display: none;
         }
         @media (min-width: 768px) {
-            .clinical-stats {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 24px;
+            .clinical-timeline {
+                display: block;
             }
         }
         
-        .clinical-card {
+        /* Baseline */
+        .clinical-timeline::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: rgba(255,255,255,0.12);
+        }
+        
+        .timeline-card {
+            position: absolute;
             background: rgba(255,255,255,0.06);
             border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 16px;
-            padding: 32px 20px;
-            text-align: center;
-            backdrop-filter: blur(8px);
+            border-radius: 14px;
+            padding: 24px 20px;
+            backdrop-filter: blur(12px);
+            width: 180px;
             transition: transform 0.3s ease, background 0.3s ease;
         }
         
-        .clinical-card:hover {
-            transform: translateY(-4px);
+        .timeline-card:hover {
+            transform: translateY(-6px);
             background: rgba(255,255,255,0.1);
         }
         
-        .clinical-number {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            font-weight: 800;
-            color: var(--white);
-            line-height: 1;
-            margin-bottom: 10px;
+        .timeline-card .stat-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 4px;
         }
         
-        .clinical-label {
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: rgba(255,255,255,0.6);
-            line-height: 1.4;
+        .timeline-card .stat-number {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.2;
+            margin-bottom: 2px;
+        }
+        
+        .timeline-card .stat-desc {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.3;
+        }
+        
+        /* Pin stems */
+        .timeline-card::after {
+            content: '';
+            position: absolute;
+            bottom: -999px;
+            left: 24px;
+            width: 1px;
+            height: 999px;
+            background: rgba(255,255,255,0.15);
+        }
+        
+        .timeline-card::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            border: 2px solid rgba(255,255,255,0.5);
+        }
+        
+        /* Card positions - staggered */
+        .tc-1 { left: 2%; bottom: 200px; }
+        .tc-1::before { bottom: -56px; }
+        .tc-1::after { height: 46px; bottom: -46px; }
+        
+        .tc-2 { left: 24%; bottom: 100px; }
+        .tc-2::before { bottom: -156px; }
+        .tc-2::after { height: 146px; bottom: -146px; }
+        
+        .tc-3 { left: 46%; bottom: 220px; }
+        .tc-3::before { bottom: -36px; }
+        .tc-3::after { height: 26px; bottom: -26px; }
+        
+        .tc-4 { left: 72%; bottom: 140px; }
+        .tc-4::before { bottom: -116px; }
+        .tc-4::after { height: 106px; bottom: -106px; }
+        
+        /* Mobile fallback grid */
+        .clinical-grid-mobile {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        @media (min-width: 768px) {
+            .clinical-grid-mobile {
+                display: none;
+            }
+        }
+        
+        .clinical-grid-mobile .timeline-card {
+            position: relative;
+            width: auto;
+        }
+        .clinical-grid-mobile .timeline-card::after,
+        .clinical-grid-mobile .timeline-card::before {
+            display: none;
         }
         
         .clinical-callout {
@@ -1016,38 +1085,41 @@
             position: relative;
             z-index: 1;
         }
+        @media (min-width: 768px) {
+            .clinical-callout { margin-top: 64px; }
+        }
         
         .clinical-callout-box {
             display: inline-block;
             background: rgba(255,255,255,0.06);
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 16px;
-            padding: 32px 48px;
+            padding: 28px 44px;
             backdrop-filter: blur(8px);
         }
         
         .clinical-callout-stat {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             font-weight: 700;
             color: var(--white);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
         
         .clinical-callout-desc {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: rgba(255,255,255,0.5);
         }
         
         .clinical-citation {
             margin-top: 32px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-style: italic;
-            color: rgba(255,255,255,0.3);
+            color: rgba(255,255,255,0.25);
             text-align: center;
             position: relative;
             z-index: 1;
         }
-        
+
         /* Reviews Section — Card Grid + Categories */
         .reviews-section {
             padding: 100px 0;
@@ -2199,24 +2271,47 @@
                 <h2>Clinically Proven Results</h2>
                 <p>Better sleep changes everything. More energy, sharper focus, better mood. Here's the proof.</p>
             </div>
-            <div class="clinical-stats">
-                <div class="clinical-card fade-in">
-                    <div class="clinical-number">100%</div>
-                    <div class="clinical-label">of participants slept better</div>
+            
+            <!-- Desktop: Staggered timeline -->
+            <div class="clinical-timeline fade-in">
+                <div class="timeline-card tc-1">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-desc">of participants slept better</div>
                 </div>
-                <div class="clinical-card fade-in">
-                    <div class="clinical-number">90%</div>
-                    <div class="clinical-label">reported less tossing & turning</div>
+                <div class="timeline-card tc-2">
+                    <div class="stat-number">90%</div>
+                    <div class="stat-desc">reported less tossing & turning</div>
                 </div>
-                <div class="clinical-card fade-in">
-                    <div class="clinical-number">80%</div>
-                    <div class="clinical-label">said their partner slept better</div>
+                <div class="timeline-card tc-3">
+                    <div class="stat-number">80%</div>
+                    <div class="stat-desc">said their partner slept better</div>
                 </div>
-                <div class="clinical-card fade-in">
-                    <div class="clinical-number">75%</div>
-                    <div class="clinical-label">reported better dreams</div>
+                <div class="timeline-card tc-4">
+                    <div class="stat-number">75%</div>
+                    <div class="stat-desc">reported better dreams</div>
                 </div>
             </div>
+            
+            <!-- Mobile: Grid fallback -->
+            <div class="clinical-grid-mobile fade-in">
+                <div class="timeline-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-desc">of participants slept better</div>
+                </div>
+                <div class="timeline-card">
+                    <div class="stat-number">90%</div>
+                    <div class="stat-desc">reported less tossing & turning</div>
+                </div>
+                <div class="timeline-card">
+                    <div class="stat-number">80%</div>
+                    <div class="stat-desc">said their partner slept better</div>
+                </div>
+                <div class="timeline-card">
+                    <div class="stat-number">75%</div>
+                    <div class="stat-desc">reported better dreams</div>
+                </div>
+            </div>
+            
             <div class="clinical-callout fade-in">
                 <div class="clinical-callout-box">
                     <div class="clinical-callout-stat">5 rollovers/night vs 16 without</div>
