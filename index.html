@@ -623,6 +623,62 @@
             margin-bottom: 15px;
         }
         
+        .video-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            cursor: pointer;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s ease;
+            border-radius: 12px;
+        }
+        
+        .video-container:hover .video-overlay {
+            background: rgba(0, 0, 0, 0.35);
+        }
+        
+        .video-container.playing .video-overlay {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .play-button {
+            width: 72px;
+            height: 72px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+        
+        .video-container:hover .play-button {
+            transform: scale(1.08);
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .play-button svg {
+            width: 28px;
+            height: 28px;
+            margin-left: 3px;
+        }
+        
         /* Product Spotlight */
         .product-spotlight {
             padding: 100px 0;
@@ -1932,11 +1988,17 @@
                     <p>Smart sensors monitor and adjust thousands of times per night automatically.</p>
                 </div>
             </div>
-            <div style="text-align: center; margin-top: 40px;">
-                <video width="100%" max-width="600px" controls style="border-radius: 12px;">
-                    <source src="https://cdn.shopify.com/videos/c/o/v/39641574e0644c2a960eb7daf403bd5a.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+            <div class="video-wrapper" style="text-align: center; margin-top: 40px;">
+                <div class="video-container" onclick="var v=this.querySelector('video'); if(v.paused){this.classList.add('playing');v.setAttribute('controls','');v.play();}else{this.classList.remove('playing');v.pause();}">
+                    <video width="100%" style="border-radius: 12px; display: block;" playsinline>
+                        <source src="https://cdn.shopify.com/videos/c/o/v/39641574e0644c2a960eb7daf403bd5a.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-overlay">
+                        <div class="play-button">
+                            <svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21" fill="#fff"/></svg>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
