@@ -168,29 +168,54 @@
         
         /* Hero Section */
         .hero {
-            min-height: 100vh;
+            min-height: auto;
+            padding: 140px 0 100px;
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
-            margin-top: 96px;
+            background: var(--dark-blue);
+        }
+        @media (min-width: 768px) {
+            .hero { padding: 160px 0 120px; }
         }
         
-        .hero-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.3;
-            z-index: -1;
+        .hero-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            align-items: center;
+        }
+        @media (min-width: 768px) {
+            .hero-layout {
+                flex-direction: row;
+                gap: 60px;
+                align-items: center;
+            }
         }
         
         .hero-content {
+            flex: 1;
             position: relative;
             z-index: 2;
-            max-width: 65%;
+        }
+        
+        .hero-image-col {
+            flex-shrink: 0;
+            width: 100%;
+            max-width: 420px;
+        }
+        @media (min-width: 768px) {
+            .hero-image-col {
+                width: 42%;
+                max-width: 500px;
+            }
+        }
+        
+        .hero-image-col img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.25);
         }
         
         .hero-stars {
@@ -211,17 +236,18 @@
         }
         
         .hero-subhead {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             margin-bottom: 30px;
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
         }
         
         .hero-ctas {
             display: flex;
-            gap: 20px;
+            gap: 16px;
             flex-wrap: wrap;
         }
-        
+
         /* Trust Cards */
         .trust-cards-section {
             padding: 80px 0;
@@ -1530,12 +1556,15 @@
             }
             
             .hero-content {
-                max-width: 100%;
                 text-align: center;
             }
             
             .hero-ctas {
                 justify-content: center;
+            }
+            
+            .hero-image-col {
+                order: -1;
             }
             
             .expert-section {
@@ -1608,20 +1637,22 @@
     
     <!-- Hero Section -->
     <section class="hero section dark">
-        <video class="hero-video" autoplay muted loop playsinline>
-            <source src="assets/ps-3d-animation-compressed.mp4" type="video/mp4">
-        </video>
         <div class="container">
-            <div class="hero-content fade-in">
-                <div class="hero-stars">
-                    <span>★★★★★</span>
-                    <div class="hero-rating">4.87/5 from thousands of sleepers</div>
+            <div class="hero-layout">
+                <div class="hero-content fade-in">
+                    <div class="hero-stars">
+                        <span>★★★★★</span>
+                        <div class="hero-rating">4.87/5 from thousands of sleepers</div>
+                    </div>
+                    <h1>Sleep at Your Perfect Temperature.<br>Every Night.</h1>
+                    <p class="hero-subhead">Smart airflow technology that actively draws heat from your body, so you wake up feeling rested, focused, and ready to take on your day.</p>
+                    <div class="hero-ctas">
+                        <a href="https://perfectlysnug.com/products/the-smart-topper" class="btn">Shop the Smart Topper</a>
+                        <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+                    </div>
                 </div>
-                <h1>Sleep at Your Perfect Temperature.<br>Every Night.</h1>
-                <p class="hero-subhead">Smart airflow technology that actively draws heat from your body, so you wake up feeling rested, focused, and ready to take on your day.</p>
-                <div class="hero-ctas">
-                    <a href="https://perfectlysnug.com/products/the-smart-topper" class="btn">Shop the Smart Topper</a>
-                    <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+                <div class="hero-image-col fade-in">
+                    <img src="https://perfectlysnug.com/cdn/shop/files/PS_coupleinbed.png" alt="Couple sleeping comfortably with the Smart Topper">
                 </div>
             </div>
         </div>
