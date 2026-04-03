@@ -172,7 +172,7 @@
             padding: 120px 0 80px;
             background: var(--dark-blue);
             position: relative;
-            overflow: hidden;
+            overflow: visible;
         }
         @media (min-width: 768px) {
             .hero { padding: 140px 0 100px; }
@@ -296,13 +296,13 @@
             display: inline-block;
             background: var(--yellow);
             color: var(--dark-blue);
-            padding: 16px 36px;
+            padding: 14px 32px;
             border-radius: 9999px;
-            font-size: 1rem;
-            font-weight: 700;
+            font-size: 0.9rem;
+            font-weight: 600;
             text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
+            text-transform: none;
+            letter-spacing: 0;
             transition: opacity 0.2s ease;
         }
         .hero-cta-btn:hover { opacity: 0.85; }
@@ -339,6 +339,8 @@
             width: 100%;
             max-width: 420px;
             position: relative;
+            overflow: visible;
+            z-index: 2;
         }
         @media (min-width: 768px) {
             .hero-image-col {
@@ -356,8 +358,8 @@
         
         .hero-sale-badge {
             position: absolute;
-            top: -10px;
-            left: -10px;
+            top: -14px;
+            right: -14px;
             width: 100px;
             height: 100px;
             background: var(--yellow);
@@ -374,8 +376,8 @@
             .hero-sale-badge {
                 width: 120px;
                 height: 120px;
-                top: -16px;
-                left: -16px;
+                top: -18px;
+                right: -18px;
             }
         }
         
