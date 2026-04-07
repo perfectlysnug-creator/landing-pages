@@ -562,6 +562,7 @@
             gap: 48px;
             width: max-content;
             animation: marquee-scroll 30s linear infinite;
+            will-change: transform;
         }
         
         .marquee-track:hover {
@@ -590,7 +591,7 @@
         
         @keyframes marquee-scroll {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            100% { transform: translateX(calc(-50% - 24px)); }
         }
         
         /* How It Works */
@@ -2026,7 +2027,7 @@
                 <div class="logo-item"><img src="https://perfectlysnug.com/cdn/shop/files/wired_logo_b.png?width=400" alt="Wired"></div>
                 <div class="logo-item"><img src="https://perfectlysnug.com/cdn/shop/files/sleep_foundation_logo.png?width=400" alt="Sleep Foundation"></div>
                 <div class="logo-item"><img src="https://perfectlysnug.com/cdn/shop/files/Inc___business_magazine__logo_svg.png?width=400" alt="Inc."></div>
-                <!-- Duplicate for seamless loop -->
+                <!-- Duplicate set 1 for seamless loop -->
                 <div class="logo-item"><img src="https://perfectlysnug.com/cdn/shop/files/town_and_country_logo.png?width=400" alt="Town & Country"></div>
                 <div class="logo-item"><img src="https://perfectlysnug.com/cdn/shop/files/buzzfeed_logo.png?width=400" alt="BuzzFeed"></div>
                 <div class="logo-item"><img src="https://perfectlysnug.com/cdn/shop/files/strategist_logo_825f8752-adf8-4b42-8f15-ab985d023dfb.png?width=400" alt="The Strategist"></div>
