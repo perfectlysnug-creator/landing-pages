@@ -1403,27 +1403,20 @@
         }
         
         @media (max-width: 640px) {
-            .vs-table-wrap {
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-            }
             .vs-table {
-                font-size: 0.75rem;
-                min-width: 480px;
+                font-size: 0.7rem;
             }
             .vs-table thead th,
             .vs-table tbody td {
-                padding: 12px 8px;
+                padding: 10px 6px;
             }
-            .vs-table thead th:first-child,
-            .vs-table tbody td:first-child {
-                position: sticky;
-                left: 0;
-                background: #fff;
-                z-index: 1;
+            .vs-table thead th {
+                font-size: 0.65rem;
             }
-            .vs-table thead th:first-child {
-                background: #F8FBFC;
+            .vs-check {
+                width: 22px;
+                height: 22px;
+                font-size: 11px;
             }
         }
         
@@ -1891,6 +1884,14 @@
             gap: 30px;
             margin-bottom: 20px;
             flex-wrap: wrap;
+        }
+        @media (max-width: 768px) {
+            .footer-links {
+                gap: 16px;
+            }
+            .footer-links a {
+                font-size: 0.85rem;
+            }
         }
         
         .footer-links a {
