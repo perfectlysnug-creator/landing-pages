@@ -236,16 +236,107 @@ p { margin-bottom: 1rem; }
 .trust-item .tlabel { font-size: 0.78rem; font-weight: 600; color: var(--dark-blue); line-height: 1.3; }
 .trust-item .tsub { font-size: 0.72rem; color: var(--grey-text); }
 
-/* Press logos bar */
-.press-bar { background: var(--white); padding: 32px 0; border-top: 1px solid var(--grey-light); }
-.press-label { text-align: center; font-size: 0.72rem; font-weight: 600; color: var(--grey-text); text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 20px; }
-.press-logos {
-  display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
-  gap: 28px 40px;
-  filter: grayscale(1) opacity(0.65);
+/* Press logos bar — scrolling marquee */
+.press-bar {
+  padding: 48px 0;
+  background: #F8FBFC;
+  border-top: 1px solid var(--grey-light);
+  border-bottom: 1px solid var(--grey-light);
+  overflow: hidden;
 }
-.press-logos img { height: 26px; width: auto; object-fit: contain; }
-@media (min-width: 768px) { .press-logos img { height: 32px; } }
+@media (min-width: 768px) { .press-bar { padding: 60px 0; } }
+
+.press-bar-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 32px;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.press-award-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 26px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #B8860B 0%, #DAA520 50%, #B8860B 100%);
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 20px rgba(218, 165, 32, 0.3), 0 2px 8px rgba(0,0,0,0.08);
+}
+.press-award-pill .star { color: #FFFFFF; font-size: 13px; }
+@media (max-width: 640px) {
+  .press-award-pill { font-size: 10px; padding: 8px 18px; gap: 6px; }
+  .press-award-pill .star { font-size: 10px; }
+}
+
+.press-eyebrow {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #697E8C;
+}
+@media (min-width: 768px) { .press-eyebrow { font-size: 16px; } }
+
+.marquee-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.marquee-wrapper::before,
+.marquee-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+.marquee-wrapper::before { left: 0; background: linear-gradient(to right, #F8FBFC, transparent); }
+.marquee-wrapper::after { right: 0; background: linear-gradient(to left, #F8FBFC, transparent); }
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  width: max-content;
+  animation: marquee-scroll 30s linear infinite;
+  will-change: transform;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+.logo-item {
+  flex-shrink: 0;
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-item img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.45;
+  filter: grayscale(100%);
+  transition: opacity 0.3s ease;
+}
+.logo-item img:hover { opacity: 0.75; }
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 24px)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
 
 /* Intro strip */
 .intro-strip { background: var(--mint); padding: 36px 0; text-align: center; }
@@ -533,18 +624,39 @@ footer a:hover { text-decoration: underline; }
   </div>
 </section>
 
-<!-- PRESS LOGOS -->
+<!-- PRESS LOGOS — rotating marquee -->
 <section class="press-bar">
-  <div class="container">
-    <div class="press-label">As Seen In</div>
-    <div class="press-logos">
-      <img src="https://perfectlysnug.com/cdn/shop/files/town_and_country_logo.png?width=400" alt="Town & Country">
-      <img src="https://perfectlysnug.com/cdn/shop/files/buzzfeed_logo.png?width=400" alt="BuzzFeed">
-      <img src="https://perfectlysnug.com/cdn/shop/files/house_beautiful_logo.png?width=400" alt="House Beautiful">
-      <img src="https://perfectlysnug.com/cdn/shop/files/GQ_logo_b.png?width=400" alt="GQ">
-      <img src="https://perfectlysnug.com/cdn/shop/files/wired_logo_b.png?width=400" alt="Wired">
-      <img src="https://perfectlysnug.com/cdn/shop/files/mens-journal.png?width=400" alt="Men's Journal">
-      <img src="https://perfectlysnug.com/cdn/shop/files/sleep_foundation_logo.png?width=400" alt="Sleep Foundation">
+  <div class="press-bar-top">
+    <div class="press-award-pill">
+      <span class="star">★</span>
+      <span>Oprah Daily Sleep Award Winner 2026</span>
+      <span class="star">★</span>
+    </div>
+    <span class="press-eyebrow">As Featured In</span>
+  </div>
+  <div class="marquee-wrapper">
+    <div class="marquee-track" aria-hidden="true">
+      <div class="logo-item"><img src="https://perfectlysnug.com/cdn/shop/files/town_and_country_logo.png?width=400" alt="Town & Country"></div>
+      <div class="logo-item"><img src="https://perfectlysnug.com/cdn/shop/files/buzzfeed_logo.png?width=400" alt="BuzzFeed"></div>
+      <div class="logo-item"><img src="https://perfectlysnug.com/cdn/shop/files/strategist_logo_825f8752-adf8-4b42-8f15-ab985d023dfb.png?width=400" alt="The Strategist"></div>
+      <div class="logo-item"><img src="https://perfectlysnug.com/cdn/shop/files/mens-journal.png?width=400" alt="Men's Journal"></div>
+      <div class="logo-item"><img src="https://perfectlysnug.com/cdn/shop/files/house_beautiful_logo.png?width=400" alt="House Beautiful"></div>
+      <div class="logo-item"><img src="https://perfectlysnug.com/cdn/shop/files/GQ_logo_b.png?width=400" alt="GQ"></div>
+      <div class="logo-item"><img src="https://perfectlysnug.com/cdn/shop/files/dargon_s_den_logo.png?width=400" alt="Dragon's Den"></div>
+      <div class="logo-item"><img src="https://perfectlysnug.com/cdn/shop/files/wired_logo_b.png?width=400" alt="Wired"></div>
+      <div class="logo-item"><img src="https://perfectlysnug.com/cdn/shop/files/sleep_foundation_logo.png?width=400" alt="Sleep Foundation"></div>
+      <div class="logo-item"><img src="https://perfectlysnug.com/cdn/shop/files/Inc___business_magazine__logo_svg.png?width=400" alt="Inc."></div>
+      <!-- Duplicate set for seamless loop -->
+      <div class="logo-item"><img src="https://perfectlysnug.com/cdn/shop/files/town_and_country_logo.png?width=400" alt=""></div>
+      <div class="logo-item"><img src="https://perfectlysnug.com/cdn/shop/files/buzzfeed_logo.png?width=400" alt=""></div>
+      <div class="logo-item"><img src="https://perfectlysnug.com/cdn/shop/files/strategist_logo_825f8752-adf8-4b42-8f15-ab985d023dfb.png?width=400" alt=""></div>
+      <div class="logo-item"><img src="https://perfectlysnug.com/cdn/shop/files/mens-journal.png?width=400" alt=""></div>
+      <div class="logo-item"><img src="https://perfectlysnug.com/cdn/shop/files/house_beautiful_logo.png?width=400" alt=""></div>
+      <div class="logo-item"><img src="https://perfectlysnug.com/cdn/shop/files/GQ_logo_b.png?width=400" alt=""></div>
+      <div class="logo-item"><img src="https://perfectlysnug.com/cdn/shop/files/dargon_s_den_logo.png?width=400" alt=""></div>
+      <div class="logo-item"><img src="https://perfectlysnug.com/cdn/shop/files/wired_logo_b.png?width=400" alt=""></div>
+      <div class="logo-item"><img src="https://perfectlysnug.com/cdn/shop/files/sleep_foundation_logo.png?width=400" alt=""></div>
+      <div class="logo-item"><img src="https://perfectlysnug.com/cdn/shop/files/Inc___business_magazine__logo_svg.png?width=400" alt=""></div>
     </div>
   </div>
 </section>
