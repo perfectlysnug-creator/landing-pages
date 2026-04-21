@@ -6,7 +6,31 @@
     <title>Perfectly Snug Smart Topper | Best Cooling Mattress Topper with Temperature Control</title>
     <meta name="description" content="The #1 active cooling mattress topper that heats and cools. Temperature controlled mattress topper with dual zone, smart sensors, and zero maintenance. Better than BedJet and Eight Sleep alternatives. Try risk-free for 30 nights.">
     <meta name="keywords" content="cooling mattress topper, active cooling mattress pad, temperature controlled mattress topper, cooling bed topper, plug in cooling mattress topper, mattress topper with temperature control, mattress with heating and cooling, bedjet alternative, eight sleep alternative, air conditioned bed topper, smart topper, perfectly snug">
-    
+
+    <!-- Shopify Trekkie: registers GitHub-hosted LP visits in Shopify analytics -->
+    <script src="https://cdn.shopify.com/s/javascripts/tricorder/trekkie.storefront.min.js" async></script>
+
+    <!-- UTM passthrough: forwards incoming ad UTMs onto all perfectlysnug.com links so attribution follows the click to Shopify -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.toString().length === 0) return;
+
+        var links = document.querySelectorAll('a[href*="perfectlysnug.com"]');
+        links.forEach(function(link) {
+            try {
+                var linkUrl = new URL(link.href);
+                urlParams.forEach(function(value, key) {
+                    linkUrl.searchParams.set(key, value);
+                });
+                link.href = linkUrl.toString();
+            } catch (e) {
+                console.warn("Could not append UTMs to link:", link.href);
+            }
+        });
+    });
+    </script>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

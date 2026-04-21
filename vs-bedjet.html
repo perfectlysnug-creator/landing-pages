@@ -7,6 +7,30 @@
 <meta name="description" content="BedJet blows air at you through a hose. Perfectly Snug cools the mattress underneath, where your body heat actually gets trapped. See the full comparison.">
 <meta name="keywords" content="bedjet alternative, bedjet vs perfectly snug, bed cooling system comparison, best bedjet alternative, cooling mattress topper">
 
+<!-- Shopify Trekkie: registers GitHub-hosted LP visits in Shopify analytics -->
+<script src="https://cdn.shopify.com/s/javascripts/tricorder/trekkie.storefront.min.js" async></script>
+
+<!-- UTM passthrough: forwards incoming ad UTMs onto all perfectlysnug.com links so attribution follows the click to Shopify -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.toString().length === 0) return;
+
+    var links = document.querySelectorAll('a[href*="perfectlysnug.com"]');
+    links.forEach(function(link) {
+        try {
+            var linkUrl = new URL(link.href);
+            urlParams.forEach(function(value, key) {
+                linkUrl.searchParams.set(key, value);
+            });
+            link.href = linkUrl.toString();
+        } catch (e) {
+            console.warn("Could not append UTMs to link:", link.href);
+        }
+    });
+});
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
