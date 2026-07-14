@@ -94,8 +94,8 @@
     .hero-image {
       order: -1;
       position: relative;
-      flex: 0 0 58vh;
-      height: 58vh;
+      flex: 0 0 45vh;
+      height: 45vh;
       overflow: hidden;
     }
     .hero-image img {
@@ -124,12 +124,12 @@
     /* Mobile text — sits below, merges with gradient */
     .hero-content {
       flex: 1 1 auto;
-      padding: 4px 28px 48px;
+      padding: 12px 24px 40px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      gap: 16px;
+      justify-content: center;
+      gap: 12px;
       background: var(--dark-blue);
     }
 
@@ -164,8 +164,8 @@
     .hero-headline {
       font-family: 'Recoleta', Georgia, serif;
       font-weight: 500;
-      font-size: clamp(2.8rem, 11vw, 4.5rem);
-      line-height: 1.08;
+      font-size: clamp(2rem, 8vw, 2.8rem);
+      line-height: 1.1;
       color: var(--white);
       letter-spacing: -0.01em;
       text-align: center;
@@ -243,25 +243,27 @@
     @media (min-width: 768px) {
       .hero {
         flex-direction: row;
-        min-height: 100vh;
+        min-height: auto;
+        height: 620px;
+        max-height: 680px;
       }
       .hero-content {
-        flex: 0 0 50%;
-        max-width: 580px;
-        min-height: 100vh;
-        padding: 80px 60px 80px 72px;
+        flex: 0 0 48%;
+        height: 100%;
+        min-height: auto;
+        padding: 60px 48px 60px 64px;
         align-items: flex-start;
         justify-content: center;
-        gap: 28px;
+        gap: 22px;
       }
       .hero-headline {
-        font-size: clamp(3rem, 4.5vw, 5rem);
+        font-size: clamp(2.2rem, 3.2vw, 3.4rem);
         text-align: left;
       }
       .hero-subhead {
-        font-size: 1.05rem;
+        font-size: 1rem;
         text-align: left;
-        max-width: 460px;
+        max-width: 420px;
         color: rgba(255,255,255,0.75);
       }
       .hero-stars {
@@ -272,14 +274,16 @@
         display: inline-block;
         text-transform: none;
         font-size: 0.95rem;
-        padding: 16px 36px;
+        padding: 14px 32px;
         margin-top: 0;
       }
       .hero-image {
         order: 0;
-        flex: 1 1 50%;
-        max-height: none;
-        min-height: 100vh;
+        position: relative;
+        flex: 1 1 52%;
+        height: 100%;
+        min-height: auto;
+        overflow: hidden;
       }
       .hero-image::before {
         display: block;
@@ -289,15 +293,11 @@
         background: linear-gradient(to right, var(--dark-blue) 0%, transparent 40%);
         pointer-events: none;
       }
-      .hero-image {
-        position: relative;
-        overflow: hidden;
-      }
     }
 
     @media (min-width: 1200px) {
       .hero-content {
-        padding: 80px 80px 80px 100px;
+        padding: 60px 60px 60px 80px;
       }
     }
   </style>
