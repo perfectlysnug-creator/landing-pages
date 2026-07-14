@@ -83,19 +83,19 @@
       min-height: 100vh;
     }
 
-    /* ── HERO LAYOUT — MOBILE: image top / text bottom ── */
+    /* ── HERO LAYOUT — MOBILE: big image, blue bleeds over bottom ── */
     .hero {
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
 
-    /* Mobile image — top half */
+    /* Mobile image — large, with gradient eating bottom 25% */
     .hero-image {
       order: -1;
-      flex: 0 0 48vw;
-      min-height: 48vw;
-      max-height: 55vh;
+      position: relative;
+      flex: 0 0 58vh;
+      height: 58vh;
       overflow: hidden;
     }
     .hero-image img {
@@ -105,17 +105,31 @@
       object-position: center 20%;
       display: block;
     }
-    .hero-image::before { display: none; }
+    /* Dark blue bleeds up from bottom of image */
+    .hero-image::before {
+      display: block;
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        transparent 55%,
+        rgba(37,52,62,0.55) 75%,
+        var(--dark-blue) 100%
+      );
+      z-index: 1;
+      pointer-events: none;
+    }
 
-    /* Mobile text — bottom half */
+    /* Mobile text — sits below, merges with gradient */
     .hero-content {
       flex: 1 1 auto;
-      padding: 36px 28px 48px;
+      padding: 4px 28px 48px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 18px;
+      justify-content: flex-start;
+      gap: 16px;
       background: var(--dark-blue);
     }
 
@@ -201,18 +215,18 @@
 
     /* CTA button */
     .hero-cta {
-      display: block;
-      width: 100%;
+      display: inline-block;
+      width: auto;
       background: var(--yellow);
       color: var(--dark-blue);
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 0.9rem;
       letter-spacing: 0.04em;
       text-transform: uppercase;
       text-decoration: none;
       text-align: center;
-      padding: 15px 36px;
+      padding: 13px 32px;
       border-radius: 999px;
       transition: background 0.2s, transform 0.15s;
       margin-top: 4px;
