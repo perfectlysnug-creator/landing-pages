@@ -83,23 +83,40 @@
       min-height: 100vh;
     }
 
-    /* ── HERO LAYOUT — MOBILE: full-bleed background ── */
+    /* ── HERO LAYOUT — MOBILE: image top / text bottom ── */
     .hero {
-      position: relative;
+      display: flex;
+      flex-direction: column;
       min-height: 100vh;
-      overflow: hidden;
     }
 
+    /* Mobile image — top half */
+    .hero-image {
+      order: -1;
+      flex: 0 0 48vw;
+      min-height: 48vw;
+      max-height: 55vh;
+      overflow: hidden;
+    }
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+    }
+    .hero-image::before { display: none; }
+
+    /* Mobile text — bottom half */
     .hero-content {
-      position: relative;
-      z-index: 2;
-      min-height: 100vh;
-      padding: 52px 28px 52px;
+      flex: 1 1 auto;
+      padding: 36px 28px 48px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 18px;
+      background: var(--dark-blue);
     }
 
     /* Award badge */
@@ -208,48 +225,16 @@
       transform: translateY(0);
     }
 
-    /* Hero image — mobile: absolute full-bleed background */
-    .hero-image {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center center;
-      display: block;
-    }
-    /* Dark gradient overlay for text readability */
-    .hero-image::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(37,52,62,0.88) 0%,
-        rgba(37,52,62,0.72) 55%,
-        rgba(37,52,62,0.30) 100%
-      );
-      z-index: 1;
-      pointer-events: none;
-    }
-
     /* ── DESKTOP: side-by-side ── */
     @media (min-width: 768px) {
       .hero {
-        display: flex;
         flex-direction: row;
         min-height: 100vh;
-        overflow: visible;
       }
       .hero-content {
-        position: relative;
-        z-index: 2;
         flex: 0 0 50%;
         max-width: 580px;
-        min-height: auto;
+        min-height: 100vh;
         padding: 80px 60px 80px 72px;
         align-items: flex-start;
         justify-content: center;
@@ -277,15 +262,22 @@
         margin-top: 0;
       }
       .hero-image {
-        position: relative;
+        order: 0;
         flex: 1 1 50%;
+        max-height: none;
         min-height: 100vh;
-        inset: auto;
       }
       .hero-image::before {
+        display: block;
+        content: '';
+        position: absolute;
         inset: 0;
         background: linear-gradient(to right, var(--dark-blue) 0%, transparent 40%);
-        border-radius: 0;
+        pointer-events: none;
+      }
+      .hero-image {
+        position: relative;
+        overflow: hidden;
       }
     }
 
