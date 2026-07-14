@@ -243,21 +243,19 @@
     @media (min-width: 768px) {
       .hero {
         flex-direction: row;
-        min-height: auto;
-        height: 620px;
-        max-height: 680px;
+        min-height: 100vh;
       }
       .hero-content {
-        flex: 0 0 48%;
-        height: 100%;
-        min-height: auto;
-        padding: 60px 48px 60px 64px;
+        flex: 0 0 50%;
+        max-width: 580px;
+        min-height: 100vh;
+        padding: 72px 52px 72px 64px;
         align-items: flex-start;
         justify-content: center;
-        gap: 22px;
+        gap: 24px;
       }
       .hero-headline {
-        font-size: clamp(2.2rem, 3.2vw, 3.4rem);
+        font-size: clamp(2.4rem, 3.2vw, 3.8rem);
         text-align: left;
       }
       .hero-subhead {
@@ -280,9 +278,9 @@
       .hero-image {
         order: 0;
         position: relative;
-        flex: 1 1 52%;
-        height: 100%;
-        min-height: auto;
+        flex: 1 1 50%;
+        height: auto;
+        min-height: 100vh;
         overflow: hidden;
       }
       .hero-image::before {
@@ -297,7 +295,7 @@
 
     @media (min-width: 1200px) {
       .hero-content {
-        padding: 60px 60px 60px 80px;
+        padding: 72px 64px 72px 96px;
       }
     }
   </style>
