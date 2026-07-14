@@ -93,11 +93,12 @@
     /* Text content block */
     .hero-content {
       flex: 0 0 auto;
-      padding: 48px 28px 40px;
+      padding: 48px 24px 36px;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      gap: 24px;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
     }
 
     /* Award badge */
@@ -148,7 +149,7 @@
       line-height: 1.6;
       color: rgba(255,255,255,0.75);
       max-width: 480px;
-      margin: 0;
+      margin: 0 auto;
     }
 
     /* Stars */
@@ -176,18 +177,20 @@
 
     /* CTA button */
     .hero-cta {
-      display: inline-block;
+      display: block;
+      width: 100%;
+      max-width: 420px;
       background: var(--yellow);
       color: var(--dark-blue);
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 1rem;
       letter-spacing: 0.03em;
       text-decoration: none;
-      padding: 16px 36px;
+      text-align: center;
+      padding: 18px 36px;
       border-radius: 999px;
       transition: background 0.2s, transform 0.15s;
-      white-space: nowrap;
     }
     .hero-cta:hover {
       background: #e8ca6a;
@@ -197,11 +200,11 @@
       transform: translateY(0);
     }
 
-    /* Hero image */
+    /* Hero image — mobile: fixed height below text */
     .hero-image {
       flex: 1 1 auto;
       position: relative;
-      min-height: 320px;
+      min-height: 340px;
     }
     .hero-image img {
       width: 100%;
@@ -215,7 +218,7 @@
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
-      height: 80px;
+      height: 60px;
       background: linear-gradient(to bottom, var(--dark-blue), transparent);
       z-index: 1;
       pointer-events: none;
@@ -231,8 +234,17 @@
         flex: 0 0 50%;
         max-width: 580px;
         padding: 80px 60px 80px 72px;
+        align-items: flex-start;
+        text-align: left;
         justify-content: center;
         gap: 28px;
+      }
+      .hero-subhead {
+        margin: 0;
+      }
+      .hero-cta {
+        width: auto;
+        display: inline-block;
       }
       .hero-image {
         flex: 1 1 50%;
