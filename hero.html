@@ -1,345 +1,304 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perfectly Snug Smart Topper | Better Sleep. Better Life.</title>
-  <meta name="description" content="The Smart Topper by Perfectly Snug. Proven temperature regulation for deep sleep and better recovery. Winner of the Oprah Daily 2026 Sleep Award.">
-  <link rel="canonical" href="https://choose.perfectlysnug.com/hero">
+<!-- Recoleta + Montserrat fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V6ZVEJVL1H"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-V6ZVEJVL1H');
-  </script>
+<style>
+  @font-face {
+    font-family: 'Recoleta';
+    src: url('https://choose.perfectlysnug.com/assets/fonts/recoleta/Recoleta-Regular/Recoleta-Regular.ttf') format('truetype');
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'Recoleta';
+    src: url('https://choose.perfectlysnug.com/assets/fonts/recoleta/Recoleta-Medium/Recoleta-Medium.ttf') format('truetype');
+    font-weight: 500; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'Recoleta';
+    src: url('https://choose.perfectlysnug.com/assets/fonts/recoleta/Recoleta-Bold/Recoleta-Bold.ttf') format('truetype');
+    font-weight: 700; font-style: normal; font-display: swap;
+  }
 
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  #ps-partner-lander *,
+  #ps-partner-lander *::before,
+  #ps-partner-lander *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ── HERO LAYOUT — MOBILE: big image, blue bleeds over bottom ── */
+  #ps-partner-lander .hero {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #25343E;
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  /* Mobile image — large, with gradient eating bottom 25% */
+  #ps-partner-lander .hero-image {
+    order: -1;
+    position: relative;
+    flex: 0 0 45vh;
+    height: 45vh;
+    overflow: hidden;
+  }
+  #ps-partner-lander .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    display: block;
+  }
+  #ps-partner-lander .hero-image::before {
+    display: block;
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 55%,
+      rgba(37,52,62,0.55) 75%,
+      #25343E 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* Mobile text — sits below, merges with gradient */
+  #ps-partner-lander .hero-content {
+    flex: 1 1 auto;
+    padding: 20px 24px 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    background: #25343E;
+  }
+
+  /* Award badge */
+  #ps-partner-lander .award-badge {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1.5px solid rgba(255,255,255,0.35);
+    border-radius: 999px;
+    padding: 9px 20px;
+    text-align: center;
+    gap: 1px;
+  }
+  #ps-partner-lander .badge-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #F2D980;
+  }
+  #ps-partner-lander .badge-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.3;
+  }
+
+  /* Headline */
+  #ps-partner-lander .hero-headline {
+    font-family: 'Recoleta', Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(2rem, 8vw, 2.8rem);
+    line-height: 1.1;
+    color: #FFFFFF;
+    letter-spacing: -0.01em;
+    text-align: center;
+    width: 100%;
+  }
+  #ps-partner-lander .hero-headline .accent {
+    color: #F2D980;
+  }
+
+  /* Subhead */
+  #ps-partner-lander .hero-subhead {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    max-width: 88%;
+    margin: 0;
+  }
+
+  /* Stars */
+  #ps-partner-lander .hero-stars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+  }
+  #ps-partner-lander .stars-icons {
+    color: #F2D980;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+  }
+  #ps-partner-lander .stars-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.8);
+  }
+  #ps-partner-lander .stars-text strong {
+    color: #FFFFFF;
+    font-weight: 700;
+  }
+
+  /* CTA button */
+  #ps-partner-lander .hero-cta {
+    align-self: center;
+    display: block;
+    width: auto;
+    background: #F2D980;
+    color: #25343E;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 24px;
+    border-radius: 999px;
+    transition: background 0.2s, transform 0.15s;
+    margin-top: 4px;
+  }
+  #ps-partner-lander .hero-cta:hover {
+    background: #e8ca6a;
+    transform: translateY(-1px);
+  }
+  #ps-partner-lander .hero-cta:active {
+    transform: translateY(0);
+  }
+
+  /* ── DESKTOP: side-by-side ── */
+  @media (min-width: 768px) {
+    #ps-partner-lander .hero {
+      flex-direction: row;
+      min-height: 100vh;
+    }
+    #ps-partner-lander .hero-content {
+      flex: 0 0 54%;
+      max-width: 680px;
+      min-height: 100vh;
+      padding: 72px 52px 72px 64px;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 28px;
+    }
+    #ps-partner-lander .hero-headline {
+      font-size: clamp(3rem, 4vw, 4.8rem);
+      text-align: left;
+    }
+    #ps-partner-lander .hero-subhead {
+      font-size: 1.1rem;
+      text-align: left;
+      max-width: 460px;
+      color: rgba(255,255,255,0.75);
+    }
+    #ps-partner-lander .hero-stars {
+      justify-content: flex-start;
+      font-size: 1rem;
+    }
+    #ps-partner-lander .hero-cta {
+      align-self: flex-start;
+      display: inline-block;
+      text-transform: none;
+      font-size: 1rem;
+      padding: 16px 40px;
+      margin-top: 0;
+    }
+    #ps-partner-lander .hero-image {
+      order: 0;
+      position: relative;
+      flex: 1 1 50%;
+      height: auto;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    #ps-partner-lander .hero-image::before {
+      display: block;
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, #25343E 0%, transparent 40%);
+      pointer-events: none;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    #ps-partner-lander .hero-content {
+      padding: 72px 64px 72px 96px;
+    }
+  }
+</style>
+
+<div id="ps-partner-lander">
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="award-badge">
+        <span class="badge-label">Winner</span>
+        <span class="badge-title">Oprah Daily 2026 Sleep Award</span>
+      </div>
+
+      <h1 class="hero-headline">
+        Better Sleep.<br>
+        <span class="accent">Better Life.</span>
+      </h1>
+
+      <p class="hero-subhead">
+        The Smart Topper.<br>Proven temperature regulation for deep sleep and better recovery.
+      </p>
+
+      <div class="hero-stars">
+        <span class="stars-icons">★★★★★</span>
+        <span class="stars-text"><strong>4.87</strong> &nbsp;·&nbsp; Thousands of happy sleepers</span>
+      </div>
+
+      <a href="https://perfectlysnug.com/products/smart-topper" class="hero-cta">
+        Shop the Smart Topper
+      </a>
+
+    </div>
+
+    <div class="hero-image">
+      <img src="/ps-lifestyle.jpg" alt="Perfectly Snug Smart Topper lifestyle">
+    </div>
+
+  </section>
+
+</div>
+
+<script>
+  // UTM passthrough — appends all URL params to any perfectlysnug.com link
+  (function() {
     var urlParams = new URLSearchParams(window.location.search);
     if (urlParams.toString().length === 0) return;
-    document.querySelectorAll('a[href*="perfectlysnug.com"]').forEach(function(link) {
+    document.querySelectorAll('#ps-partner-lander a[href*="perfectlysnug.com"]').forEach(function(link) {
       try {
         var linkUrl = new URL(link.href);
         urlParams.forEach(function(value, key) { linkUrl.searchParams.set(key, value); });
         link.href = linkUrl.toString();
       } catch(e) {}
     });
-  });
-  </script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <script>
-  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '179379766679669');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=179379766679669&ev=PageView&noscript=1"/></noscript>
-
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","k5v80w1s6t");
-  </script>
-
-  <link rel="icon" href="https://choose.perfectlysnug.com/assets/images/favicon.png" type="image/png">
-
-  <style>
-    @font-face {
-      font-family: 'Recoleta';
-      src: url('https://choose.perfectlysnug.com/assets/fonts/recoleta/Recoleta-Regular/Recoleta-Regular.ttf') format('truetype');
-      font-weight: 400; font-style: normal; font-display: swap;
-    }
-    @font-face {
-      font-family: 'Recoleta';
-      src: url('https://choose.perfectlysnug.com/assets/fonts/recoleta/Recoleta-Medium/Recoleta-Medium.ttf') format('truetype');
-      font-weight: 500; font-style: normal; font-display: swap;
-    }
-    @font-face {
-      font-family: 'Recoleta';
-      src: url('https://choose.perfectlysnug.com/assets/fonts/recoleta/Recoleta-Bold/Recoleta-Bold.ttf') format('truetype');
-      font-weight: 700; font-style: normal; font-display: swap;
-    }
-
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      --dark-blue: #25343E;
-      --light-blue: #E0F0F2;
-      --yellow: #F2D980;
-      --white: #FFFFFF;
-      --grey: #667085;
-      --body-text: #3d4a52;
-    }
-    html, body {
-      overflow-x: hidden;
-      height: 100%;
-    }
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: var(--dark-blue);
-      color: var(--white);
-      min-height: 100vh;
-    }
-
-    /* ── HERO LAYOUT — MOBILE: big image, blue bleeds over bottom ── */
-    .hero {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    /* Mobile image — large, with gradient eating bottom 25% */
-    .hero-image {
-      order: -1;
-      position: relative;
-      flex: 0 0 45vh;
-      height: 45vh;
-      overflow: hidden;
-    }
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 20%;
-      display: block;
-    }
-    /* Dark blue bleeds up from bottom of image */
-    .hero-image::before {
-      display: block;
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        transparent 55%,
-        rgba(37,52,62,0.55) 75%,
-        var(--dark-blue) 100%
-      );
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    /* Mobile text — sits below, merges with gradient */
-    .hero-content {
-      flex: 1 1 auto;
-      padding: 20px 24px 56px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 12px;
-      background: var(--dark-blue);
-    }
-
-    /* Award badge */
-    .award-badge {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      border: 1.5px solid rgba(255,255,255,0.35);
-      border-radius: 999px;
-      padding: 9px 20px;
-      text-align: center;
-      gap: 1px;
-    }
-    .award-badge .badge-label {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 0.6rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--yellow);
-    }
-    .award-badge .badge-title {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 500;
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.9);
-      line-height: 1.3;
-    }
-
-    /* Headline */
-    .hero-headline {
-      font-family: 'Recoleta', Georgia, serif;
-      font-weight: 500;
-      font-size: clamp(2rem, 8vw, 2.8rem);
-      line-height: 1.1;
-      color: var(--white);
-      letter-spacing: -0.01em;
-      text-align: center;
-      width: 100%;
-    }
-    .hero-headline .accent {
-      color: var(--yellow);
-    }
-
-    /* Subhead */
-    .hero-subhead {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 400;
-      font-size: 0.95rem;
-      line-height: 1.65;
-      color: rgba(255,255,255,0.7);
-      text-align: center;
-      max-width: 88%;
-      margin: 0;
-    }
-
-    /* Stars */
-    .hero-stars {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 7px;
-      flex-wrap: nowrap;
-      white-space: nowrap;
-    }
-    .stars-icons {
-      color: var(--yellow);
-      font-size: 1rem;
-      letter-spacing: 1px;
-      flex-shrink: 0;
-    }
-    .stars-text {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: rgba(255,255,255,0.8);
-    }
-    .stars-text strong {
-      color: var(--white);
-      font-weight: 700;
-    }
-
-    /* CTA button */
-    .hero-cta {
-      align-self: center;
-      display: block;
-      width: auto;
-      background: var(--yellow);
-      color: var(--dark-blue);
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 0.75rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      text-decoration: none;
-      text-align: center;
-      padding: 10px 24px;
-      border-radius: 999px;
-      transition: background 0.2s, transform 0.15s;
-      margin-top: 4px;
-    }
-    .hero-cta:hover {
-      background: #e8ca6a;
-      transform: translateY(-1px);
-    }
-    .hero-cta:active {
-      transform: translateY(0);
-    }
-
-    /* ── DESKTOP: side-by-side ── */
-    @media (min-width: 768px) {
-      .hero {
-        flex-direction: row;
-        min-height: 100vh;
-      }
-      .hero-content {
-        flex: 0 0 54%;
-        max-width: 680px;
-        min-height: 100vh;
-        padding: 72px 52px 72px 64px;
-        align-items: flex-start;
-        justify-content: center;
-        gap: 28px;
-      }
-      .hero-headline {
-        font-size: clamp(3rem, 4vw, 4.8rem);
-        text-align: left;
-      }
-      .hero-subhead {
-        font-size: 1.1rem;
-        text-align: left;
-        max-width: 460px;
-        color: rgba(255,255,255,0.75);
-      }
-      .hero-stars {
-        justify-content: flex-start;
-        font-size: 1rem;
-      }
-      .hero-cta {
-        align-self: flex-start;
-        width: auto;
-        display: inline-block;
-        text-transform: none;
-        font-size: 1rem;
-        padding: 16px 40px;
-        margin-top: 0;
-      }
-      .hero-image {
-        order: 0;
-        position: relative;
-        flex: 1 1 50%;
-        height: auto;
-        min-height: 100vh;
-        overflow: hidden;
-      }
-      .hero-image::before {
-        display: block;
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(to right, var(--dark-blue) 0%, transparent 40%);
-        pointer-events: none;
-      }
-    }
-
-    @media (min-width: 1200px) {
-      .hero-content {
-        padding: 72px 64px 72px 96px;
-      }
-    }
-  </style>
-</head>
-<body>
-
-<section class="hero">
-
-  <div class="hero-content">
-
-    <div class="award-badge">
-      <span class="badge-label">Winner</span>
-      <span class="badge-title">Oprah Daily 2026 Sleep Award</span>
-    </div>
-
-    <h1 class="hero-headline">
-      Better Sleep.<br>
-      <span class="accent">Better Life.</span>
-    </h1>
-
-    <p class="hero-subhead">
-      The Smart Topper.<br>Proven temperature regulation for deep sleep and better recovery.
-    </p>
-
-    <div class="hero-stars">
-      <span class="stars-icons">★★★★★</span>
-      <span class="stars-text"><strong>4.87</strong> &nbsp;·&nbsp; Thousands of happy sleepers</span>
-    </div>
-
-    <a href="https://perfectlysnug.com/products/smart-topper" class="hero-cta">
-      Shop the Smart Topper
-    </a>
-
-  </div>
-
-  <div class="hero-image">
-    <!-- SWAP src below for the real hero image once received -->
-    <img src="ps-lifestyle.jpg" alt="Perfectly Snug Smart Topper lifestyle">
-  </div>
-
-</section>
-
-</body>
-</html>
+  })();
+</script>
