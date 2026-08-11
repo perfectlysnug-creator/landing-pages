@@ -240,6 +240,46 @@
       transform: translateY(0);
     }
 
+    /* Trust bar */
+    .trust-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px 18px;
+      margin-top: 6px;
+      width: 100%;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.72);
+      white-space: nowrap;
+    }
+    .trust-item svg {
+      flex-shrink: 0;
+      opacity: 0.8;
+    }
+    .trust-item img {
+      height: 18px;
+      width: auto;
+      display: block;
+      opacity: 0.85;
+    }
+    .trust-item.afterpay img {
+      height: 22px;
+    }
+    .trust-divider {
+      width: 1px;
+      height: 18px;
+      background: rgba(255,255,255,0.2);
+      display: none;
+    }
+
     /* ── DESKTOP: side-by-side ── */
     @media (min-width: 768px) {
       .hero {
@@ -277,6 +317,13 @@
         font-size: 1rem;
         padding: 16px 40px;
         margin-top: 0;
+      }
+      .trust-bar {
+        justify-content: flex-start;
+        gap: 8px 14px;
+      }
+      .trust-divider {
+        display: block;
       }
       .hero-image {
         order: 0;
@@ -332,11 +379,45 @@
       Shop the Smart Topper
     </a>
 
+    <div class="trust-bar">
+
+      <div class="trust-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        30-Night Risk-Free Trial
+      </div>
+
+      <div class="trust-divider"></div>
+
+      <div class="trust-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        Free Shipping &amp; Returns
+      </div>
+
+      <div class="trust-divider"></div>
+
+      <div class="trust-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Bumper-to-Bumper Warranty
+      </div>
+
+      <div class="trust-divider"></div>
+
+      <div class="trust-item">
+        <img src="icon-hsa-fsa.jpg" alt="HSA/FSA Eligible">
+      </div>
+
+      <div class="trust-divider"></div>
+
+      <div class="trust-item afterpay">
+        <img src="icon-afterpay.jpg" alt="Afterpay available">
+      </div>
+
+    </div>
+
   </div>
 
   <div class="hero-image">
-    <!-- SWAP src below for the real hero image once received -->
-    <img src="ps-lifestyle.jpg" alt="Perfectly Snug Smart Topper lifestyle">
+    <img src="ps-couple.jpg" alt="Perfectly Snug Smart Topper — couple sleeping cool and warm">
   </div>
 
 </section>
