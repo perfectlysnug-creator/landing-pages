@@ -265,13 +265,19 @@
       opacity: 0.8;
     }
     .trust-item img {
-      height: 18px;
+      height: 20px;
       width: auto;
       display: block;
-      opacity: 0.85;
+      mix-blend-mode: screen;
     }
     .trust-item.afterpay img {
       height: 22px;
+    }
+    .trust-item.oprah img {
+      height: 28px;
+      border-radius: 50%;
+      object-fit: cover;
+      mix-blend-mode: normal;
     }
     .trust-divider {
       width: 1px;
@@ -404,16 +410,19 @@
       <div class="trust-divider"></div>
 
       <div class="trust-item">
-        <!-- HSA/FSA: checkmark in circle -->
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
-        HSA/FSA Eligible
+        <img src="icon-hsa-fsa.jpg" alt="HSA/FSA Eligible">
       </div>
 
       <div class="trust-divider"></div>
 
-      <div class="trust-item">
-        <!-- Afterpay: styled text badge -->
-        <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.68rem;color:rgba(255,255,255,0.72);letter-spacing:0.02em;">Buy now,</span>&nbsp;<span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.68rem;color:#B2FCE4;letter-spacing:0.02em;">Afterpay</span>
+      <div class="trust-item afterpay">
+        <img src="icon-afterpay.jpg" alt="Afterpay available">
+      </div>
+
+      <div class="trust-divider"></div>
+
+      <div class="trust-item oprah">
+        <img src="icon-oprah-badge.jpg" alt="Oprah Daily 2026 Sleep Award">
       </div>
 
     </div>
@@ -421,7 +430,7 @@
   </div>
 
   <div class="hero-image">
-    <img src="ps-couple.jpg" alt="Perfectly Snug Smart Topper — couple sleeping cool and warm">
+    <img src="ps-lifestyle.jpg" alt="Perfectly Snug Smart Topper — couple sleeping cool and warm">
   </div>
 
 </section>
