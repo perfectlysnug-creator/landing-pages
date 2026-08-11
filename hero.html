@@ -292,8 +292,9 @@
         min-height: 100vh;
         padding: 56px 52px 40px 64px;
         align-items: flex-start;
-        justify-content: center;
+        justify-content: flex-start;
         gap: 20px;
+        padding-top: max(56px, calc(50vh - 280px));
       }
       .hero-headline {
         font-size: clamp(3rem, 4vw, 4.8rem);
@@ -403,13 +404,16 @@
       <div class="trust-divider"></div>
 
       <div class="trust-item">
-        <img src="icon-hsa-fsa.jpg" alt="HSA/FSA Eligible">
+        <!-- HSA/FSA: checkmark in circle -->
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+        HSA/FSA Eligible
       </div>
 
       <div class="trust-divider"></div>
 
-      <div class="trust-item afterpay">
-        <img src="icon-afterpay.jpg" alt="Afterpay available">
+      <div class="trust-item">
+        <!-- Afterpay: styled text badge -->
+        <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.68rem;color:rgba(255,255,255,0.72);letter-spacing:0.02em;">Buy now,</span>&nbsp;<span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.68rem;color:#B2FCE4;letter-spacing:0.02em;">Afterpay</span>
       </div>
 
     </div>
