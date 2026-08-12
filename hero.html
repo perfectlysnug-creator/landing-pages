@@ -133,27 +133,25 @@
       background: var(--dark-blue);
     }
 
-    /* Award badge — slim text, no border */
+    /* Award badge — Oprah logo + award text */
     .award-badge {
       display: flex;
       align-items: center;
-      gap: 6px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.04em;
+      gap: 8px;
     }
-    .award-badge .badge-label {
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--yellow);
-    }
-    .award-badge .badge-sep {
-      color: rgba(255,255,255,0.3);
+    .award-badge img {
+      height: 32px;
+      width: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
     }
     .award-badge .badge-title {
-      font-weight: 500;
-      color: rgba(255,255,255,0.75);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.7rem;
+      letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.85);
     }
 
     /* Headline */
@@ -356,9 +354,8 @@
   <div class="hero-content">
 
     <div class="award-badge">
-      <span class="badge-label">Winner</span>
-      <span class="badge-sep">·</span>
-      <span class="badge-title">Oprah Daily 2026 Sleep Award</span>
+      <img src="icon-oprah-badge.jpg" alt="Oprah Daily">
+      <span class="badge-title">2026 Sleep O'ward</span>
     </div>
 
     <div class="hero-stars">
