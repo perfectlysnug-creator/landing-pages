@@ -139,19 +139,13 @@
       align-items: center;
       gap: 8px;
     }
-    .oprah-logo-wrap {
-      background: rgba(255,255,255,0.92);
-      border-radius: 4px;
-      padding: 3px 7px;
-      display: inline-flex;
-      align-items: center;
-      flex-shrink: 0;
-    }
-    .oprah-logo-wrap img {
-      height: 16px;
+    .award-badge > img {
+      height: 48px;
       width: auto;
       display: block;
-      filter: brightness(0);
+      flex-shrink: 0;
+      filter: invert(1) brightness(2.5);
+      mix-blend-mode: screen;
     }
     .award-badge .badge-title {
       font-family: 'Montserrat', sans-serif;
@@ -345,9 +339,7 @@
   <div class="hero-content">
 
     <div class="award-badge">
-      <span class="oprah-logo-wrap">
-        <img src="icon-oprah-wordmark.jpg" alt="Oprah Daily">
-      </span>
+      <img src="icon-oprah-wordmark.jpg" alt="Oprah Daily">
       <span class="badge-title">2026 Sleep O'ward</span>
     </div>
 
