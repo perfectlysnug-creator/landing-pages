@@ -234,47 +234,28 @@
       transform: translateY(0);
     }
 
-    /* Trust section wrapper — keeps both rows close together */
+    /* All trust pills in one wrapping row */
     .trust-section {
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-      width: 100%;
-    }
-
-    /* Trust pills */
-    .trust-pills {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 7px;
+      gap: 5px;
       width: 100%;
-      margin-top: 4px;
     }
     .trust-pill {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       border: 1.5px solid rgba(255,255,255,0.28);
       border-radius: 999px;
-      padding: 6px 13px;
+      padding: 5px 10px;
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.64rem;
+      font-size: 0.6rem;
       font-weight: 500;
       color: rgba(255,255,255,0.85);
       white-space: nowrap;
     }
     .trust-pill svg { flex-shrink: 0; }
-
-    /* Trust logos */
-    .trust-logos {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 7px;
-      width: 100%;
-      margin-top: 0;
-    }
 
 
     /* ── DESKTOP: side-by-side ── */
@@ -315,12 +296,14 @@
         padding: 16px 40px;
         margin-top: 0;
       }
-      .trust-pills {
-        flex-wrap: nowrap;
+      .trust-section {
         justify-content: flex-start;
+        gap: 7px;
       }
-      .trust-logos {
-        justify-content: flex-start;
+      .trust-pill {
+        padding: 6px 13px;
+        font-size: 0.64rem;
+        gap: 6px;
       }
       .hero-image {
         order: 0;
@@ -377,31 +360,25 @@
     </a>
 
     <div class="trust-section">
-      <!-- Pill trust signals -->
-      <div class="trust-pills">
-        <div class="trust-pill">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          30-Night Risk-Free Trial
-        </div>
-        <div class="trust-pill">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          Free Shipping &amp; Returns
-        </div>
-        <div class="trust-pill">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          Bumper-to-Bumper Warranty
-        </div>
+      <div class="trust-pill">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        30-Night Risk-Free Trial
       </div>
-      <!-- Logo row: Afterpay + HSA/FSA -->
-      <div class="trust-logos">
-        <div class="trust-pill">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.75rem;color:white;letter-spacing:-0.01em;">afterpay</span>
-        </div>
-        <div class="trust-pill">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          HSA/FSA Eligible
-        </div>
+      <div class="trust-pill">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Free Shipping &amp; Returns
+      </div>
+      <div class="trust-pill">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Bumper-to-Bumper Warranty
+      </div>
+      <div class="trust-pill">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <span style="font-weight:700;letter-spacing:-0.01em;">afterpay</span>
+      </div>
+      <div class="trust-pill">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        HSA/FSA Eligible
       </div>
     </div>
 
