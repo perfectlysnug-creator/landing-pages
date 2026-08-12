@@ -274,18 +274,6 @@
       margin-top: 6px;
     }
 
-    /* Oprah badge overlay on the photo */
-    .oprah-badge-overlay {
-      position: absolute;
-      top: 24px;
-      right: 24px;
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      object-fit: cover;
-      z-index: 2;
-      box-shadow: 0 2px 14px rgba(0,0,0,0.35);
-    }
 
     /* ── DESKTOP: side-by-side ── */
     @media (min-width: 768px) {
@@ -326,17 +314,8 @@
         padding: 16px 40px;
         margin-top: 0;
       }
-      .trust-pills {
-        justify-content: flex-start;
-      }
       .trust-logos {
         justify-content: flex-start;
-      }
-      .oprah-badge-overlay {
-        top: 32px;
-        right: 32px;
-        width: 88px;
-        height: 88px;
       }
       .hero-image {
         order: 0;
@@ -410,24 +389,18 @@
 
     <!-- Logo row: Afterpay + HSA/FSA -->
     <div class="trust-logos">
-      <!-- Afterpay wordmark -->
-      <svg height="18" viewBox="0 0 90 18" xmlns="http://www.w3.org/2000/svg">
-        <text y="14" font-family="Montserrat,sans-serif" font-size="14" font-weight="700" fill="white" letter-spacing="-0.3">afterpay</text>
-      </svg>
-      <span style="color:rgba(255,255,255,0.2);font-size:1rem;">|</span>
-      <!-- HSA/FSA Eligible -->
-      <svg height="18" viewBox="0 0 130 18" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="9" cy="9" r="8" stroke="white" stroke-width="1.5" fill="none"/>
-        <polyline points="5,9 8,12 13,6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <text x="22" y="13" font-family="Montserrat,sans-serif" font-size="11" font-weight="600" fill="white">HSA/FSA Eligible</text>
-      </svg>
+      <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.85rem;color:white;letter-spacing:-0.02em;">afterpay</span>
+      <span style="color:rgba(255,255,255,0.25);font-size:0.9rem;line-height:1;">|</span>
+      <span style="display:inline-flex;align-items:center;gap:6px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.78rem;color:white;">HSA/FSA Eligible</span>
+      </span>
     </div>
 
   </div>
 
   <div class="hero-image">
     <img src="ps-lifestyle.jpg" alt="Perfectly Snug Smart Topper — couple sleeping cool and warm">
-    <img src="icon-oprah-badge.jpg" class="oprah-badge-overlay" alt="Oprah Daily 2026 Sleep Award">
   </div>
 
 </section>
