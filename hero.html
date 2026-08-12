@@ -133,18 +133,24 @@
       background: var(--dark-blue);
     }
 
-    /* Award badge — Oprah logo + award text */
+    /* Award badge — Oprah wordmark + award text */
     .award-badge {
       display: flex;
       align-items: center;
       gap: 8px;
     }
-    .award-badge img {
-      height: 32px;
-      width: 32px;
-      border-radius: 50%;
-      object-fit: cover;
+    .oprah-logo-wrap {
+      background: rgba(255,255,255,0.92);
+      border-radius: 4px;
+      padding: 3px 7px;
+      display: inline-flex;
+      align-items: center;
       flex-shrink: 0;
+    }
+    .oprah-logo-wrap img {
+      height: 14px;
+      width: auto;
+      display: block;
     }
     .award-badge .badge-title {
       font-family: 'Montserrat', sans-serif;
@@ -245,12 +251,12 @@
     .trust-pill {
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 4px;
       border: 1.5px solid rgba(255,255,255,0.28);
       border-radius: 999px;
-      padding: 5px 10px;
+      padding: 5px 9px;
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.6rem;
+      font-size: 0.56rem;
       font-weight: 500;
       color: rgba(255,255,255,0.85);
       white-space: nowrap;
@@ -337,7 +343,9 @@
   <div class="hero-content">
 
     <div class="award-badge">
-      <img src="icon-oprah-badge.jpg" alt="Oprah Daily">
+      <span class="oprah-logo-wrap">
+        <img src="icon-oprah-wordmark.jpg" alt="Oprah Daily">
+      </span>
       <span class="badge-title">2026 Sleep O'ward</span>
     </div>
 
