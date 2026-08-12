@@ -1,0 +1,378 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  @font-face {
+    font-family: 'Recoleta';
+    src: url('https://choose.perfectlysnug.com/assets/fonts/recoleta/Recoleta-Regular/Recoleta-Regular.ttf') format('truetype');
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'Recoleta';
+    src: url('https://choose.perfectlysnug.com/assets/fonts/recoleta/Recoleta-Medium/Recoleta-Medium.ttf') format('truetype');
+    font-weight: 500; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'Recoleta';
+    src: url('https://choose.perfectlysnug.com/assets/fonts/recoleta/Recoleta-Bold/Recoleta-Bold.ttf') format('truetype');
+    font-weight: 700; font-style: normal; font-display: swap;
+  }
+
+  #ps-partner-lander {
+    --ps-dark-blue: #25343E;
+    --ps-yellow: #F2D980;
+    --ps-white: #FFFFFF;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    background: var(--ps-dark-blue);
+    color: var(--ps-white);
+    overflow-x: hidden;
+  }
+
+  #ps-partner-lander *, #ps-partner-lander *::before, #ps-partner-lander *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ── HERO LAYOUT — MOBILE ── */
+  #ps-partner-lander .hero {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  #ps-partner-lander .hero-image {
+    order: -1;
+    position: relative;
+    flex: 0 0 45vh;
+    height: 45vh;
+    overflow: hidden;
+  }
+
+  #ps-partner-lander .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    display: block;
+  }
+
+  #ps-partner-lander .hero-image::before {
+    display: block;
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 55%,
+      rgba(37,52,62,0.55) 75%,
+      var(--ps-dark-blue) 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  #ps-partner-lander .hero-content {
+    flex: 1 1 auto;
+    padding: 20px 24px 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    background: var(--ps-dark-blue);
+  }
+
+  /* Award badge */
+  #ps-partner-lander .award-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.85);
+    white-space: nowrap;
+  }
+
+  #ps-partner-lander .award-badge .oprah-wordmark {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.9);
+  }
+
+  /* Stars */
+  #ps-partner-lander .hero-stars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+  }
+
+  #ps-partner-lander .stars-icons {
+    color: var(--ps-yellow);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+  }
+
+  #ps-partner-lander .stars-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.8);
+  }
+
+  #ps-partner-lander .stars-text strong {
+    color: var(--ps-white);
+    font-weight: 700;
+  }
+
+  /* Headline */
+  #ps-partner-lander .hero-headline {
+    font-family: 'Recoleta', Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(2.6rem, 10vw, 3.4rem);
+    line-height: 1.1;
+    color: var(--ps-white);
+    letter-spacing: -0.01em;
+    text-align: center;
+    width: 100%;
+  }
+
+  #ps-partner-lander .hero-headline .accent {
+    color: var(--ps-yellow);
+  }
+
+  /* Subhead */
+  #ps-partner-lander .hero-subhead {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  /* CTA */
+  #ps-partner-lander .hero-cta {
+    align-self: center;
+    display: block;
+    width: auto;
+    background: var(--ps-yellow);
+    color: var(--ps-dark-blue);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    padding: 14px 32px;
+    border-radius: 999px;
+    transition: background 0.2s, transform 0.15s;
+    margin-top: 15px;
+    margin-bottom: 5px;
+  }
+
+  #ps-partner-lander .hero-cta:hover {
+    background: #e8ca6a;
+    transform: translateY(-1px);
+  }
+
+  #ps-partner-lander .hero-cta:active {
+    transform: translateY(0);
+  }
+
+  /* Trust pills */
+  #ps-partner-lander .trust-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+  }
+
+  #ps-partner-lander .trust-pill {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border: 1.5px solid rgba(255,255,255,0.28);
+    border-radius: 999px;
+    padding: 5px 9px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.56rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.85);
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  #ps-partner-lander .trust-pill svg {
+    flex-shrink: 0;
+  }
+
+  /* ── DESKTOP ── */
+  @media (min-width: 768px) {
+    #ps-partner-lander .hero {
+      flex-direction: row;
+      min-height: 100vh;
+    }
+
+    #ps-partner-lander .hero-content {
+      flex: 0 0 54%;
+      max-width: 680px;
+      min-height: 100vh;
+      padding: 72px 52px 72px 64px;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    #ps-partner-lander .hero-headline {
+      font-size: clamp(3rem, 4vw, 4.8rem);
+      text-align: left;
+    }
+
+    #ps-partner-lander .hero-subhead {
+      font-size: 1.1rem;
+      text-align: left;
+      max-width: 460px;
+      color: rgba(255,255,255,0.75);
+    }
+
+    #ps-partner-lander .hero-stars {
+      justify-content: flex-start;
+      font-size: 1rem;
+    }
+
+    #ps-partner-lander .hero-cta {
+      align-self: flex-start;
+      width: auto;
+      display: inline-block;
+      text-transform: none;
+      font-size: 1rem;
+      padding: 16px 40px;
+      margin-top: 0;
+    }
+
+    #ps-partner-lander .trust-section {
+      justify-content: flex-start;
+      gap: 7px;
+    }
+
+    #ps-partner-lander .trust-pill {
+      padding: 6px 13px;
+      font-size: 0.64rem;
+      gap: 6px;
+    }
+
+    #ps-partner-lander .hero-image {
+      order: 0;
+      position: relative;
+      flex: 1 1 50%;
+      height: auto;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    #ps-partner-lander .hero-image::before {
+      display: block;
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, var(--ps-dark-blue) 0%, transparent 40%);
+      pointer-events: none;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    #ps-partner-lander .hero-content {
+      padding: 72px 64px 72px 96px;
+    }
+  }
+</style>
+
+<div id="ps-partner-lander">
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="award-badge">
+        ✦ <span class="oprah-wordmark">&nbsp;Oprah Daily&nbsp;</span> · 2026 Sleep O'ward ✦
+      </div>
+
+      <div class="hero-stars">
+        <span class="stars-icons">★★★★★</span>
+        <span class="stars-text"><strong>4.87</strong> &nbsp;·&nbsp; Thousands of happy sleepers</span>
+      </div>
+
+      <h1 class="hero-headline">
+        Better Sleep.<br>
+        <span class="accent">Better Life.</span>
+      </h1>
+
+      <p class="hero-subhead">
+        The Smart Topper. Proven temperature regulation for deep sleep and better recovery.
+      </p>
+
+      <a href="https://perfectlysnug.com/products/smart-topper" class="hero-cta">
+        Shop the Smart Topper
+      </a>
+
+      <div class="trust-section">
+        <div class="trust-pill">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          30-Night Risk-Free Trial
+        </div>
+        <div class="trust-pill">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Free Shipping &amp; Returns
+        </div>
+        <div class="trust-pill">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Bumper-to-Bumper Warranty
+        </div>
+        <div class="trust-pill">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span style="font-weight:700;letter-spacing:-0.01em;">afterpay</span>
+        </div>
+        <a href="https://perfectlysnug.com/pages/hsa-fsa" class="trust-pill" target="_blank" rel="noopener">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          HSA/FSA Eligible
+        </a>
+      </div>
+
+    </div>
+
+    <div class="hero-image">
+      <img src="https://choose.perfectlysnug.com/ps-lifestyle.jpg" alt="Perfectly Snug Smart Topper — couple sleeping cool and warm">
+    </div>
+
+  </section>
+
+</div>
+
+<script>
+  // Forward UTM/query params to all PS links
+  (function() {
+    var urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.toString().length === 0) return;
+    document.querySelectorAll('#ps-partner-lander a[href*="perfectlysnug.com"]').forEach(function(link) {
+      try {
+        var linkUrl = new URL(link.href);
+        urlParams.forEach(function(value, key) { linkUrl.searchParams.set(key, value); });
+        link.href = linkUrl.toString();
+      } catch(e) {}
+    });
+  })();
+</script>
