@@ -133,27 +133,26 @@
       background: var(--dark-blue);
     }
 
-    /* Award badge — Oprah wordmark + award text */
+    /* Award badge — single pill */
     .award-badge {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 0;
+      border: 1.5px solid rgba(255,255,255,0.28);
+      border-radius: 999px;
+      padding: 5px 14px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      white-space: nowrap;
     }
-    .oprah-wordmark {
+    .award-badge .oprah-wordmark {
       font-family: Georgia, 'Times New Roman', serif;
       font-style: italic;
       font-weight: 400;
-      font-size: 1rem;
+      font-size: 0.78rem;
       color: rgba(255,255,255,0.9);
-      letter-spacing: 0.01em;
-      flex-shrink: 0;
-    }
-    .award-badge .badge-title {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      font-size: 0.7rem;
-      letter-spacing: 0.04em;
-      color: rgba(255,255,255,0.85);
     }
 
     /* Headline */
@@ -340,8 +339,7 @@
   <div class="hero-content">
 
     <div class="award-badge">
-      <span class="oprah-wordmark">Oprah Daily</span>
-      <span class="badge-title">2026 Sleep O'ward</span>
+      ✦ <span class="oprah-wordmark">&nbsp;Oprah Daily&nbsp;</span> · 2026 Sleep O'ward ✦
     </div>
 
     <div class="hero-stars">
