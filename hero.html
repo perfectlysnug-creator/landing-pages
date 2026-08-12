@@ -102,7 +102,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: 80% top;
+      object-position: center 20%;
       display: block;
     }
     /* Dark blue bleeds up from bottom of image */
@@ -358,13 +358,15 @@
       </div>
     </div>
 
-    <!-- Logo row: Afterpay + HSA/FSA -->
+    <!-- Logo row: Afterpay + HSA/FSA — same pill style -->
     <div class="trust-logos">
-      <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.85rem;color:white;letter-spacing:-0.02em;">afterpay</span>
-      <span style="display:inline-flex;align-items:center;gap:6px;">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
-        <span style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.78rem;color:white;">HSA/FSA Eligible</span>
-      </span>
+      <div class="trust-pill">
+        <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.75rem;color:white;letter-spacing:-0.01em;">afterpay</span>
+      </div>
+      <div class="trust-pill">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+        HSA/FSA Eligible
+      </div>
     </div>
 
   </div>
