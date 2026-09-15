@@ -155,6 +155,11 @@
     .footer { background: var(--navy-deep); color: rgba(255,255,255,0.6); font-size: 12px; text-align: center; padding: 22px 20px; }
     .footer a { color: rgba(255,255,255,0.8); }
 
+    @media (max-width: 899px) {
+      .hero-image { display: none; }
+      .hero-grid { gap: 20px; }
+      .hero-rating { margin-top: 0; }
+    }
     @media (min-width: 900px) {
       .hero { padding: 64px 0 80px; min-height: calc(100vh - 110px); display: flex; align-items: center; }
       .hero > .container { width: 100%; }
