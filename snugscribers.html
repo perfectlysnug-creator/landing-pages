@@ -65,7 +65,7 @@
     :root {
       --navy: #25343E;
       --navy-deep: #1B272F;
-      --yellow: #F3FF34;
+      --yellow: #F2D980;
       --white: #FFFFFF;
       --cream: #F7F8F9;
       --border: #E8EAED;
@@ -81,7 +81,7 @@
     body {
       font-family: var(--font-body);
       color: var(--navy);
-      background: var(--white);
+      background: var(--navy);
       font-size: 16px;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
@@ -92,21 +92,6 @@
 
     h1, h2 { font-family: var(--font-heading); font-weight: 500; line-height: 1.12; letter-spacing: -0.01em; }
     h1 em, h2 em { font-style: normal; color: var(--yellow); }
-
-    .btn {
-      display: inline-block;
-      background: var(--yellow);
-      color: var(--navy);
-      font-weight: 800;
-      font-size: 15px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 18px 40px;
-      border-radius: 4px;
-      transition: transform 0.15s, opacity 0.2s;
-    }
-    .btn:hover { opacity: 0.9; transform: translateY(-1px); }
 
     /* ---------- Top bar + header ---------- */
     .topbar {
@@ -132,7 +117,7 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--yellow);
-      border: 1px solid rgba(243,255,52,0.45);
+      border: 1px solid rgba(242,217,128,0.5);
       border-radius: 100px;
       padding: 6px 14px;
       margin-bottom: 18px;
@@ -166,65 +151,14 @@
     .hero-rating { margin-top: 14px; font-size: 13px; color: rgba(255,255,255,0.8); text-align: center; }
     .hero-rating .stars { color: var(--yellow); letter-spacing: 2px; margin-right: 6px; }
 
-    /* ---------- Perks ---------- */
-    .perks { padding: 64px 0; background: var(--cream); }
-    .section-head { text-align: center; max-width: 640px; margin: 0 auto 36px; }
-    .section-head h2 { font-size: clamp(28px, 6vw, 40px); margin-bottom: 10px; }
-    .section-head p { color: var(--muted); }
-    .perks-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
-    .perk { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 26px 24px; }
-    .perk-num {
-      width: 34px; height: 34px; border-radius: 50%;
-      background: var(--navy); color: var(--yellow);
-      font-weight: 800; font-size: 15px;
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 14px;
-    }
-    .perk h3 { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
-    .perk p { font-size: 15px; color: #475467; }
-
-    /* ---------- Product ---------- */
-    .product { padding: 68px 0; }
-    .product-grid { display: grid; grid-template-columns: 1fr; gap: 32px; align-items: center; }
-    .product-img { border-radius: 10px; overflow: hidden; }
-    .product-img img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
-    .product h2 { font-size: clamp(28px, 6vw, 40px); margin-bottom: 16px; }
-    .product p { margin-bottom: 14px; color: #475467; }
-    .product p strong { color: var(--navy); }
-    .facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
-    .fact {
-      font-size: 13px; font-weight: 600;
-      background: var(--cream); border: 1px solid var(--border);
-      border-radius: 100px; padding: 7px 14px;
-    }
-
-    /* ---------- Reviews ---------- */
-    .reviews { padding: 64px 0; background: var(--cream); }
-    .reviews-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
-    .review { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 24px; display: flex; flex-direction: column; }
-    .review .stars { color: #F5B301; letter-spacing: 2px; margin-bottom: 8px; }
-    .review-title { font-weight: 700; margin-bottom: 8px; }
-    .review-body { font-size: 15px; color: #475467; flex: 1; margin-bottom: 14px; }
-    .review-author { font-size: 14px; font-weight: 700; }
-    .review-verified { font-size: 12px; color: var(--teal); font-weight: 600; }
-
-    /* ---------- Final CTA ---------- */
-    .final { background: var(--navy); color: var(--white); text-align: center; padding: 72px 0; }
-    .final h2 { font-size: clamp(30px, 7vw, 46px); margin-bottom: 14px; }
-    .final p { color: rgba(255,255,255,0.82); max-width: 520px; margin: 0 auto 28px; }
-
     .footer { background: var(--navy-deep); color: rgba(255,255,255,0.6); font-size: 12px; text-align: center; padding: 22px 20px; }
     .footer a { color: rgba(255,255,255,0.8); }
 
     @media (min-width: 900px) {
-      .hero { padding: 64px 0 80px; }
+      .hero { padding: 64px 0 80px; min-height: calc(100vh - 110px); display: flex; align-items: center; }
+      .hero > .container { width: 100%; }
       .hero-grid { grid-template-columns: 1.05fr 1fr; gap: 56px; }
       .hero-image img { aspect-ratio: 4 / 5; }
-      .perks-grid, .reviews-grid { grid-template-columns: repeat(3, 1fr); }
-      .product-grid { grid-template-columns: 1fr 1fr; gap: 56px; }
-      .perks, .reviews { padding: 88px 0; }
-      .product { padding: 96px 0; }
-      .final { padding: 96px 0; }
     }
   </style>
 </head>
@@ -263,93 +197,6 @@
         </div>
         <div class="hero-rating"><span class="stars">★★★★★</span>4.87 from thousands of happy sleepers</div>
       </div>
-    </div>
-  </section>
-
-  <!-- ================= PERKS ================= -->
-  <section class="perks">
-    <div class="container">
-      <div class="section-head">
-        <h2>Why join the Snugscribers?</h2>
-        <p>Same sale everyone else gets. You just get there first.</p>
-      </div>
-      <div class="perks-grid">
-        <div class="perk">
-          <div class="perk-num">1</div>
-          <h3>First dibs on the sale</h3>
-          <p>You get in before the sale opens to the public, so you can shop our best pricing of the year without the crowd.</p>
-        </div>
-        <div class="perk">
-          <div class="perk-num">2</div>
-          <h3>Less waiting to sleep better</h3>
-          <p>Order early and your topper is on its way while everyone else is still deciding. The sooner it shows up, the sooner those sweaty 3 AM wake-ups are done.</p>
-        </div>
-        <div class="perk">
-          <div class="perk-num">3</div>
-          <h3>A heads up in your inbox</h3>
-          <p>We'll email you the minute early access opens. No reminders to set, no checking back.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= PRODUCT ================= -->
-  <section class="product">
-    <div class="container product-grid">
-      <div class="product-img">
-        <img src="https://choose.perfectlysnug.com/hero-3am.jpg" alt="Man tossing in bed at night, too hot to sleep">
-      </div>
-      <div>
-        <h2>If you sleep hot, you know how long a night can feel.</h2>
-        <p>Covers off. Covers back on. Flipping the pillow to find the cool side at 2 AM. Sound familiar?</p>
-        <p>The <strong>Smart Topper</strong> sits on top of your mattress and pulls heat away from your body with air, so the cooling reaches you directly. No water tank and no hoses. It adjusts on its own through the night, and each side has its own settings, which means you and your partner can finally stop fighting over the blankets.</p>
-        <div class="facts">
-          <span class="fact">Dual-zone control</span>
-          <span class="fact">Air-based, no water</span>
-          <span class="fact">30-night risk-free trial</span>
-          <span class="fact">Free shipping</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= REVIEWS (verbatim, do not edit) ================= -->
-  <section class="reviews">
-    <div class="container">
-      <div class="section-head">
-        <h2>Real sleepers, real nights</h2>
-      </div>
-      <div class="reviews-grid">
-        <div class="review">
-          <div class="stars">★★★★★</div>
-          <div class="review-body">Absolutely lived up to everything that they promoted on their sales ads. It is expensive, but absolutely worth the money. We love to travel, but now we can't wait to get home. Easy to install, and it did not take us but 2 nights to decide that we would not be returning it.</div>
-          <div class="review-author">Mark and Kim Jarrett</div>
-          <div class="review-verified">✓ Verified Buyers</div>
-        </div>
-        <div class="review">
-          <div class="stars">★★★★★</div>
-          <div class="review-title">Finally!</div>
-          <div class="review-body">After suffering for months from hot sweats, and my husband always feeling hot, we bought the split king toppers, and we both love them!</div>
-          <div class="review-author">Ellen W.</div>
-          <div class="review-verified">✓ Verified Purchase</div>
-        </div>
-        <div class="review">
-          <div class="stars">★★★★★</div>
-          <div class="review-title">Best Thing I've Ever Done For Myself</div>
-          <div class="review-body">I actually sleep through the night now. I use to toss and turn, throw off the covers, and start over again. Now, when I get up, I can easily make my bed because I hardly move during the night. Amazing!</div>
-          <div class="review-author">Maggie</div>
-          <div class="review-verified">✓ Verified Purchase</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= FINAL CTA ================= -->
-  <section class="final">
-    <div class="container">
-      <h2>The sale's coming. <em>Be first in line.</em></h2>
-      <p>Join the Snugscribers and we'll send you early access before our biggest sale of the year opens to everyone else.</p>
-      <a href="#join" class="btn">Join the Snugscribers</a>
     </div>
   </section>
 
