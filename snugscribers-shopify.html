@@ -1,0 +1,153 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lora:wght@500&display=swap" rel="stylesheet">
+
+<style>
+  @font-face {
+    font-family: 'Recoleta';
+    src: url('https://choose.perfectlysnug.com/assets/fonts/recoleta/Recoleta-Medium/Recoleta-Medium.ttf') format('truetype');
+    font-weight: 500; font-style: normal; font-display: swap;
+  }
+
+  #ps-snugscribers-lander {
+    --ps-navy: #25343E;
+    --ps-yellow: #F2D980;
+    --ps-white: #FFFFFF;
+    --ps-border: #E8EAED;
+    --ps-muted: #667085;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background: var(--ps-navy);
+    color: var(--ps-white);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* box-sizing only: a margin/padding reset here would also strip the Klaviyo form's own spacing */
+  #ps-snugscribers-lander *, #ps-snugscribers-lander *::before, #ps-snugscribers-lander *::after { box-sizing: border-box; }
+  #ps-snugscribers-lander .psl-hero,
+  #ps-snugscribers-lander .psl-container,
+  #ps-snugscribers-lander .psl-hero-grid { background: transparent; border: 0; box-shadow: none; }
+  #ps-snugscribers-lander .psl-hero-image img { max-width: 100%; display: block; border: 0; border-radius: 0; margin: 0; padding: 0; }
+
+  /* ── HERO LAYOUT - MOBILE ── */
+  #ps-snugscribers-lander .psl-hero { padding: 44px 0 56px; }
+  #ps-snugscribers-lander .psl-container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+  #ps-snugscribers-lander .psl-hero-grid { display: grid; grid-template-columns: 1fr; gap: 20px; align-items: center; }
+
+  #ps-snugscribers-lander .psl-eyebrow {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ps-yellow);
+    border: 1px solid rgba(242,217,128,0.5);
+    border-radius: 100px;
+    padding: 6px 14px;
+    margin: 0 0 18px;
+  }
+
+  #ps-snugscribers-lander h1 {
+    font-family: 'Recoleta', 'Lora', Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(34px, 8.5vw, 56px);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    text-transform: none;
+    color: var(--ps-white);
+    margin: 0 0 18px;
+  }
+  #ps-snugscribers-lander h1 em { font-style: normal; color: var(--ps-yellow); }
+
+  #ps-snugscribers-lander .psl-hero-sub {
+    font-size: 17px;
+    color: rgba(255,255,255,0.85);
+    max-width: 520px;
+    margin: 0 0 26px;
+    padding: 0;
+  }
+
+  /* ── FORM CARD ── */
+  #ps-snugscribers-lander .psl-form-card {
+    background: var(--ps-white);
+    color: var(--ps-navy);
+    border-radius: 10px;
+    padding: 24px 22px 18px;
+    box-shadow: 0 18px 50px rgba(0,0,0,0.28);
+    max-width: 520px;
+  }
+  #ps-snugscribers-lander .psl-form-card-title {
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    color: var(--ps-navy);
+  }
+  #ps-snugscribers-lander .psl-form-card-note { font-size: 14px; color: var(--ps-muted); margin-bottom: 14px; }
+  #ps-snugscribers-lander .psl-form-slot { min-height: 120px; }
+  #ps-snugscribers-lander .klaviyo-form-XeB8z2 input,
+  #ps-snugscribers-lander .klaviyo-form-XeB8z2 button { font-family: 'Montserrat', sans-serif !important; }
+  #ps-snugscribers-lander .psl-form-fine { font-size: 12px; line-height: 1.5; color: var(--ps-muted); margin-top: 10px; }
+
+  /* ── IMAGE + RATING ── */
+  #ps-snugscribers-lander .psl-hero-image { display: none; border-radius: 10px; overflow: hidden; box-shadow: 0 18px 50px rgba(0,0,0,0.35); }
+  #ps-snugscribers-lander .psl-hero-image img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+  #ps-snugscribers-lander .psl-hero-rating { font-size: 13px; color: rgba(255,255,255,0.8); text-align: center; }
+  #ps-snugscribers-lander .psl-hero-rating .psl-stars { color: var(--ps-yellow); letter-spacing: 2px; margin-right: 6px; }
+
+  /* ── HERO LAYOUT - DESKTOP ── */
+  @media (min-width: 900px) {
+    #ps-snugscribers-lander .psl-hero { padding: 80px 0 88px; }
+    #ps-snugscribers-lander .psl-hero-grid { grid-template-columns: 1.05fr 1fr; gap: 56px; }
+    #ps-snugscribers-lander .psl-hero-image { display: block; }
+    #ps-snugscribers-lander .psl-hero-rating { margin-top: 14px; }
+  }
+</style>
+
+<div id="ps-snugscribers-lander">
+
+  <section class="psl-hero">
+    <div class="psl-container psl-hero-grid">
+
+      <div>
+        <span class="psl-eyebrow">Snugscribers shop first</span>
+        <h1>Our biggest sale of the year is coming. <em>Get in early.</em></h1>
+        <p class="psl-hero-sub">Join the Snugscribers and you'll get early access to our Black Friday and Cyber Monday sale on the Smart Topper. Skip the holiday rush and start sleeping cooler sooner.</p>
+
+        <div class="psl-form-card">
+          <div class="psl-form-card-title">Become a Snugscriber</div>
+          <div class="psl-form-card-note">Free to join. Takes about ten seconds.</div>
+          <div class="psl-form-slot">
+            <!-- Klaviyo embedded form: Snugscribers BFCM early access (klaviyo.js already loads sitewide on Shopify) -->
+            <div class="klaviyo-form-XeB8z2"></div>
+          </div>
+          <div class="psl-form-fine">We'll email you when early access opens, plus the occasional sleep tip. Unsubscribe anytime.</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="psl-hero-image">
+          <img src="https://choose.perfectlysnug.com/ps-lifestyle.jpg" alt="Couple sleeping comfortably on the Perfectly Snug Smart Topper with dual-zone cooling and warming">
+        </div>
+        <div class="psl-hero-rating"><span class="psl-stars">★★★★★</span>4.87 from thousands of happy sleepers</div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<script>
+  // Fire a Lead event for Meta + GA when the Snugscribers Klaviyo form is submitted
+  (function() {
+    window.addEventListener('klaviyoForms', function(e) {
+      if (!e.detail || e.detail.type !== 'submit' || e.detail.formId !== 'XeB8z2') return;
+      if (window.fbq) fbq('track', 'Lead', { content_name: 'Snugscribers BFCM Early Access' });
+      if (window.gtag) gtag('event', 'generate_lead', { form: 'snugscribers_bfcm' });
+    });
+  })();
+</script>
