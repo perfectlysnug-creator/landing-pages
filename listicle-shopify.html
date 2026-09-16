@@ -1,8 +1,5 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
   @font-face {
     font-family: 'Recoleta';
     src: url('https://choose.perfectlysnug.com/assets/fonts/recoleta/Recoleta-Regular/Recoleta-Regular.ttf') format('truetype');
@@ -39,6 +36,8 @@
   }
   #ps-partner-lander h1, #ps-partner-lander h2, #ps-partner-lander h3 { font-family: 'Recoleta', Georgia, serif; font-weight: 500; line-height: 1.2; }
   #ps-partner-lander h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+  #ps-partner-lander h1, #ps-partner-lander h2, #ps-partner-lander h3, #ps-partner-lander h4 { color: inherit; text-transform: none; letter-spacing: normal; }
+  #ps-partner-lander table, #ps-partner-lander th, #ps-partner-lander td { border: 0; }
   #ps-partner-lander p { margin-bottom: 1rem; color: var(--body-text); }
   #ps-partner-lander a { color: var(--dark-blue); }
   #ps-partner-lander .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
@@ -437,14 +436,14 @@
 </header>
 
 <!-- Jump bar -->
-<nav class="jump-bar" aria-label="Jump to a review">
+<div class="jump-bar" role="navigation" aria-label="Jump to a review">
   <div class="container jump-bar-inner">
     <span class="jump-label">Jump to:</span>
     <a href="#perfectly-snug" class="jump-link">Perfectly Snug</a>
     <a href="#bedjet" class="jump-link">BedJet</a>
     <a href="#eight-sleep" class="jump-link">Eight Sleep</a>
   </div>
-</nav>
+</div>
 
 <!-- Quick Picks Table -->
 <section class="quick-picks">
@@ -1371,54 +1370,36 @@ Needless to say, I'm so happy with my purchase. Investing in better sleep and be
 </div><!-- /#ps-partner-lander -->
 
 <script>
-  /* === Tracking: Google Tag Manager === */
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-V6ZVEJVL1H');
-  (function(){
-    var s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-V6ZVEJVL1H';
-    document.head.appendChild(s);
-  })();
-
-  /* === Tracking: Facebook Pixel === */
-  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '179379766679669');
-  fbq('track', 'PageView');
-
-  /* === Tracking: Microsoft Clarity === */
-  (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","k5v80w1s6t");
-
-  /* === URL param forwarding === */
-  document.addEventListener('DOMContentLoaded', function() {
-    var urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.toString().length === 0) return;
-    document.querySelectorAll('a[href*="perfectlysnug.com"]').forEach(function(link) {
-      try {
-        var linkUrl = new URL(link.href);
-        urlParams.forEach(function(value, key) { linkUrl.searchParams.set(key, value); });
-        link.href = linkUrl.toString();
-      } catch(e) {}
-    });
-  });
-
-  /* === FAQ accordion === */
-  document.querySelectorAll('.faq-q').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var item = this.closest('.faq-item');
-      var wasOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
-      if (!wasOpen) item.classList.add('open');
-    });
-  });
-</script>
-
-<script>
   (function () {
     var root = document.getElementById('ps-partner-lander');
     if (!root) return;
+
+    /* === Tracking: Microsoft Clarity === */
+    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","k5v80w1s6t");
+
+    /* === URL param forwarding === */
+    var urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.toString().length > 0) {
+      root.querySelectorAll('a[href*="perfectlysnug.com"]').forEach(function (link) {
+        try {
+          var linkUrl = new URL(link.href);
+          urlParams.forEach(function (value, key) { linkUrl.searchParams.set(key, value); });
+          link.href = linkUrl.toString();
+        } catch (e) {}
+      });
+    }
+
+    /* === FAQ accordion === */
+    root.querySelectorAll('.faq-q').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var item = this.closest('.faq-item');
+        var wasOpen = item.classList.contains('open');
+        root.querySelectorAll('.faq-item').forEach(function (i) { i.classList.remove('open'); });
+        if (!wasOpen) item.classList.add('open');
+      });
+    });
+
+    /* === Jump links: smooth scroll to product reviews === */
     root.addEventListener('click', function (e) {
       var link = e.target.closest('a[href^="#"]');
       if (!link || !root.contains(link)) return;
