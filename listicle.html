@@ -87,6 +87,7 @@
       --passive-bg: #f0f4f7;
     }
     html, body { overflow-x: hidden; }
+    html { scroll-behavior: smooth; }
     body { font-family: 'Montserrat', sans-serif; color: var(--dark-blue); line-height: 1.7; background: #fff; }
     h1, h2, h3 { font-family: 'Recoleta', Georgia, serif; font-weight: 500; line-height: 1.2; }
     h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
@@ -95,44 +96,7 @@
     .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
     .article-container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
 
-    /* Site header */
-    .site-header {
-      background: var(--light-blue);
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      padding: 14px 0;
-      border-bottom: 1px solid #c4dde0;
-    }
-    .site-header-inner {
-      display: flex; align-items: center; justify-content: center;
-      gap: 24px; flex-wrap: wrap;
-    }
-    .header-copy {
-      text-align: center;
-      color: var(--dark-blue);
-    }
-    .header-copy .eyebrow {
-      font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.1em; color: #1a7a58; margin-bottom: 2px;
-    }
-    .header-copy .headline {
-      font-size: 0.92rem; font-weight: 700; line-height: 1.3; color: var(--dark-blue);
-    }
-    .header-copy .subline {
-      font-size: 0.78rem; color: rgba(37,52,62,0.6); margin-top: 1px;
-    }
-    .header-btn {
-      display: inline-block;
-      background: var(--dark-blue); color: var(--white);
-      padding: 10px 22px; border-radius: 9999px;
-      font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.82rem;
-      text-decoration: none; white-space: nowrap;
-      transition: opacity 0.2s;
-    }
-    .header-btn:hover { opacity: 0.82; }
-    @media (max-width: 520px) {
-      .site-header-inner { gap: 12px; }
-      .header-copy .headline { font-size: 0.82rem; }
-    }
+
     .btn {
       display: inline-block;
       background: var(--yellow); color: var(--dark-blue);
@@ -144,10 +108,6 @@
     .btn:hover { opacity: 0.88; transform: translateY(-1px); }
     .btn-dark { background: var(--dark-blue); color: var(--white); }
     .btn-outline { background: transparent; color: var(--dark-blue); border: 2px solid var(--dark-blue); }
-
-    /* Page offset for fixed header */
-    .page-offset { padding-top: 82px; }
-    @media (max-width: 520px) { .page-offset { padding-top: 96px; } }
 
     /* Article header */
     .article-header {
@@ -509,24 +469,22 @@
       .tech-badge { font-size: 0.7rem; padding: 3px 6px; }
       .picks-table td:first-child { white-space: normal; min-width: 120px; }
     }
+    /* Jump bar */
+    .jump-bar { background: var(--light-blue); border-bottom: 1px solid #c4dde0; padding: 14px 0; }
+    .jump-bar-inner { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; }
+    .jump-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--dark-blue); margin-right: 4px; }
+    .jump-link { display: inline-block; background: var(--white); color: var(--dark-blue); border: 1.5px solid var(--dark-blue); padding: 7px 18px; border-radius: 9999px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.82rem; text-decoration: none; white-space: nowrap; transition: background 0.2s, color 0.2s; }
+    .jump-link:hover { background: var(--dark-blue); color: var(--white); }
+    @media (max-width: 520px) { .jump-label { width: 100%; text-align: center; margin: 0; } .jump-link { padding: 6px 14px; font-size: 0.78rem; } }
+    .picks-table a.product-link { color: inherit; text-decoration: underline; text-decoration-color: rgba(37,52,62,0.3); text-underline-offset: 3px; }
+    .picks-table a.product-link:hover { text-decoration-color: currentColor; }
+    .product-section { scroll-margin-top: 16px; }
+
   </style>
 </head>
 <body>
 
-<!-- Site header -->
-<header class="site-header">
-  <div class="container site-header-inner">
-    <div class="header-copy">
-      <div class="eyebrow">Exclusive Savings</div>
-      <div class="headline">Save up to $270 with code BESTCOOL26</div>
-      <div class="subline">Free shipping &middot; 30-night trial &middot; HSA/FSA eligible</div>
-    </div>
-    <a href="https://perfectlysnug.com/products/the-smart-topper?variant=29376563937344" class="header-btn">Shop the Smart Topper</a>
-  </div>
-</header>
 
-<!-- Page offset -->
-<div class="page-offset"></div>
 
 <!-- Article header -->
 <header class="article-header">
@@ -542,6 +500,16 @@
     </div>
   </div>
 </header>
+
+<!-- Jump bar -->
+<nav class="jump-bar" aria-label="Jump to a review">
+  <div class="container jump-bar-inner">
+    <span class="jump-label">Jump to:</span>
+    <a href="#perfectly-snug" class="jump-link">Perfectly Snug</a>
+    <a href="#bedjet" class="jump-link">BedJet</a>
+    <a href="#eight-sleep" class="jump-link">Eight Sleep</a>
+  </div>
+</nav>
 
 <!-- Quick Picks Table -->
 <section class="quick-picks">
@@ -577,7 +545,7 @@
         </thead>
         <tbody>
           <tr class="ps-row">
-            <td>Perfectly Snug Smart Topper <span class="ps-badge">#1</span></td>
+            <td><a class="product-link" href="#perfectly-snug">Perfectly Snug Smart Topper</a> <span class="ps-badge">#1</span></td>
             <td>$1,999</td>
             <td><span class="tech-badge active">Active (air)</span></td>
             <td class="yes-icon">Yes</td>
@@ -586,7 +554,7 @@
             <td>Best overall, couples, menopause, automatic temperature adjustment</td>
           </tr>
           <tr>
-            <td>BedJet 3</td>
+            <td><a class="product-link" href="#bedjet">BedJet 3</a></td>
             <td>$699</td>
             <td><span class="tech-badge active">Active (air)</span></td>
             <td class="yes-icon">Yes</td>
@@ -595,7 +563,7 @@
             <td>Budget active cooling</td>
           </tr>
           <tr>
-            <td>Chilipad 2.0 by SleepMe</td>
+            <td><a class="product-link" href="#chilipad">Chilipad 2.0 by SleepMe</a></td>
             <td>$2,998</td>
             <td><span class="tech-badge active">Active (water)</span></td>
             <td class="yes-icon">Yes</td>
@@ -604,7 +572,7 @@
             <td>Widest temp range (55-115&deg;F)</td>
           </tr>
           <tr>
-            <td>Eight Sleep Pod 5</td>
+            <td><a class="product-link" href="#eight-sleep">Eight Sleep Pod 5</a></td>
             <td>$2,999</td>
             <td><span class="tech-badge active">Active (water)</span></td>
             <td class="yes-icon">Yes</td>
@@ -613,7 +581,7 @@
             <td>Sleep tracking + cooling</td>
           </tr>
           <tr>
-            <td>Sleep Number DualTemp Layer</td>
+            <td><a class="product-link" href="#sleep-number-dualtemp">Sleep Number DualTemp Layer</a></td>
             <td>$1,099.99/side</td>
             <td><span class="tech-badge active">Active (air)</span></td>
             <td class="yes-icon">Yes</td>
@@ -622,7 +590,7 @@
             <td>Standalone active layer, any mattress</td>
           </tr>
           <tr>
-            <td>Sleep Number Climate360</td>
+            <td><a class="product-link" href="#sleep-number-climate360">Sleep Number Climate360</a></td>
             <td>$10,249</td>
             <td><span class="tech-badge active">Active (in-bed)</span></td>
             <td class="yes-icon">Yes</td>
@@ -631,7 +599,7 @@
             <td>Full mattress replacement</td>
           </tr>
           <tr>
-            <td>Saatva Graphite Topper</td>
+            <td><a class="product-link" href="#saatva">Saatva Graphite Topper</a></td>
             <td>$305</td>
             <td><span class="tech-badge passive">Passive</span></td>
             <td class="no-icon">No</td>
@@ -640,7 +608,7 @@
             <td>Best passive, budget-friendly</td>
           </tr>
           <tr>
-            <td>Tempur-Pedic TEMPUR-Adapt</td>
+            <td><a class="product-link" href="#tempur-adapt">Tempur-Pedic TEMPUR-Adapt</a></td>
             <td>$429</td>
             <td><span class="tech-badge passive">Passive</span></td>
             <td class="no-icon">No</td>
@@ -649,22 +617,13 @@
             <td>Memory foam feel</td>
           </tr>
           <tr>
-            <td>TEMPUR-ActiveBreeze</td>
+            <td><a class="product-link" href="#tempur-activebreeze">TEMPUR-ActiveBreeze</a></td>
             <td>$10,398</td>
             <td><span class="tech-badge active">Active (in-mattress)</span></td>
             <td class="yes-icon">Yes</td>
             <td>Yes</td>
             <td>90 nights</td>
             <td>Full mattress + active cooling</td>
-          </tr>
-          <tr>
-            <td>Helix Premium Topper w/ GlacioTex</td>
-            <td>$465</td>
-            <td><span class="tech-badge passive">Passive (GlacioTex)</span></td>
-            <td class="no-icon">No</td>
-            <td class="no-icon">No</td>
-            <td>120 nights</td>
-            <td>Deep cushion + passive cooling</td>
           </tr>
         </tbody>
       </table>
@@ -699,7 +658,7 @@
 <!-- ===================== PRODUCT ENTRIES ===================== -->
 
 <!-- 1. Perfectly Snug Smart Topper -->
-<section class="product-section ps-product">
+<section id="perfectly-snug" class="product-section ps-product">
   <div class="article-container">
     <div class="product-number">1 of 9</div>
     <h2>Perfectly Snug Smart Topper</h2>
@@ -799,7 +758,7 @@ Needless to say, I'm so happy with my purchase. Investing in better sleep and be
 </section>
 
 <!-- 2. BedJet 3 -->
-<section class="product-section">
+<section id="bedjet" class="product-section">
   <div class="article-container">
     <div class="product-number">2 of 9</div>
     <h2>BedJet 3</h2>
@@ -869,7 +828,7 @@ Needless to say, I'm so happy with my purchase. Investing in better sleep and be
 </section>
 
 <!-- 3. Chilipad 2.0 -->
-<section class="product-section" style="background:#f7f8f9;">
+<section id="chilipad" class="product-section" style="background:#f7f8f9;">
   <div class="article-container">
     <div class="product-number">3 of 9</div>
     <h2>Chilipad 2.0 by SleepMe</h2>
@@ -937,7 +896,7 @@ Needless to say, I'm so happy with my purchase. Investing in better sleep and be
 </section>
 
 <!-- 4. Eight Sleep Pod 5 -->
-<section class="product-section">
+<section id="eight-sleep" class="product-section">
   <div class="article-container">
     <div class="product-number">4 of 9</div>
     <h2>Eight Sleep Pod 5</h2>
@@ -1011,7 +970,7 @@ Needless to say, I'm so happy with my purchase. Investing in better sleep and be
 </section>
 
 <!-- 5. Sleep Number DualTemp Layer -->
-<section class="product-section" style="background:#f7f8f9;">
+<section id="sleep-number-dualtemp" class="product-section" style="background:#f7f8f9;">
   <div class="article-container">
     <div class="product-number">5 of 9</div>
     <h2>Sleep Number DualTemp Layer</h2>
@@ -1075,7 +1034,7 @@ Needless to say, I'm so happy with my purchase. Investing in better sleep and be
 </section>
 
 <!-- 6. Sleep Number Climate360 -->
-<section class="product-section">
+<section id="sleep-number-climate360" class="product-section">
   <div class="article-container">
     <div class="product-number">6 of 9</div>
     <h2>Sleep Number Climate360</h2>
@@ -1139,7 +1098,7 @@ Needless to say, I'm so happy with my purchase. Investing in better sleep and be
 </section>
 
 <!-- 7. Saatva Graphite Topper -->
-<section class="product-section" style="background:#f7f8f9;">
+<section id="saatva" class="product-section" style="background:#f7f8f9;">
   <div class="article-container">
     <div class="product-number">7 of 9</div>
     <h2>Saatva Graphite Memory Foam Topper</h2>
@@ -1204,7 +1163,7 @@ Needless to say, I'm so happy with my purchase. Investing in better sleep and be
 </section>
 
 <!-- 8. Tempur-Adapt + Cooling Topper -->
-<section class="product-section">
+<section id="tempur-adapt" class="product-section">
   <div class="article-container">
     <div class="product-number">8 of 9</div>
     <h2>Tempur-Pedic TEMPUR-Adapt + Cooling Topper</h2>
@@ -1265,7 +1224,7 @@ Needless to say, I'm so happy with my purchase. Investing in better sleep and be
 </section>
 
 <!-- 9. TEMPUR-ActiveBreeze -->
-<section class="product-section" style="background:#f7f8f9;">
+<section id="tempur-activebreeze" class="product-section" style="background:#f7f8f9;">
   <div class="article-container">
     <div class="product-number">9 of 9</div>
     <h2>TEMPUR-ActiveBreeze</h2>
@@ -1449,7 +1408,7 @@ Needless to say, I'm so happy with my purchase. Investing in better sleep and be
     <h2>For most hot sleepers, the Smart Topper is the right answer.</h2>
     <p>Active air cooling, zero maintenance, 20 temperature levels, automatic temperature adjustment, dual-zone for couples, no annual subscription and best-in-class customer service. It is less of an investment than Chilipad and Eight Sleep without the water maintenance or the recurring costs.</p>
 
-    <p>If your problem is mild and you want to start without a large upfront investment, Saatva's Graphite and the Helix Topper are the strongest passive options.</p>
+    <p>If your problem is mild and you want to start without a large upfront investment, Saatva's Graphite is the strongest passive option.</p>
     <p>The one outcome to avoid: buying a cool-to-the-touch topper expecting it to solve night sweats. Start with the right category and you'll actually sleep better.</p>
 
     <div class="rec-cta-card">
