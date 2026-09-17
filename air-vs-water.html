@@ -94,6 +94,46 @@
     .reveal-delay-3 { transition-delay: 0.3s; }
     .reveal-delay-4 { transition-delay: 0.4s; }
 
+    /* ── Press ticker ── */
+    .press-ticker {
+      background: #EEF2F5;
+      padding: 14px 0;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+    .press-ticker-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .press-track {
+      display: flex;
+      gap: 56px;
+      align-items: center;
+      width: max-content;
+      animation: ticker 28s linear infinite;
+    }
+    .press-track:hover { animation-play-state: paused; }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .press-logo {
+      font-family: Georgia, serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #8a9aab;
+      white-space: nowrap;
+      letter-spacing: 0.03em;
+      user-select: none;
+    }
+    .press-logo.serif-bold { font-family: 'Times New Roman', serif; font-size: 15px; }
+    .press-logo.sans { font-family: var(--font-body); letter-spacing: 0.06em; font-size: 12px; }
+
     /* ── Header ── */
     .header {
       background: var(--navy);
@@ -671,6 +711,40 @@
       </div>
     </div>
   </section>
+
+  <!-- ══ PRESS TICKER ══ -->
+  <div class="press-ticker">
+    <div class="press-ticker-label">As seen in</div>
+    <div style="overflow:hidden;">
+      <div class="press-track">
+        <span class="press-logo serif-bold">House Beautiful</span>
+        <span class="press-logo sans">GQ</span>
+        <span class="press-logo sans">CBC DRAGONS' DEN</span>
+        <span class="press-logo sans">WIRED</span>
+        <span class="press-logo">Sleep Foundation</span>
+        <span class="press-logo sans" style="font-weight:800;">Inc.</span>
+        <span class="press-logo">Reader's Digest</span>
+        <span class="press-logo sans">TOWN&amp;COUNTRY</span>
+        <span class="press-logo" style="font-style:italic;">Oprah Daily</span>
+        <span class="press-logo sans" style="font-weight:800;">BuzzFeed</span>
+        <span class="press-logo">The Strategist</span>
+        <span class="press-logo sans">MEN'S JOURNAL</span>
+        <!-- duplicate for seamless loop -->
+        <span class="press-logo serif-bold">House Beautiful</span>
+        <span class="press-logo sans">GQ</span>
+        <span class="press-logo sans">CBC DRAGONS' DEN</span>
+        <span class="press-logo sans">WIRED</span>
+        <span class="press-logo">Sleep Foundation</span>
+        <span class="press-logo sans" style="font-weight:800;">Inc.</span>
+        <span class="press-logo">Reader's Digest</span>
+        <span class="press-logo sans">TOWN&amp;COUNTRY</span>
+        <span class="press-logo" style="font-style:italic;">Oprah Daily</span>
+        <span class="press-logo sans" style="font-weight:800;">BuzzFeed</span>
+        <span class="press-logo">The Strategist</span>
+        <span class="press-logo sans">MEN'S JOURNAL</span>
+      </div>
+    </div>
+  </div>
 
   <!-- ══ WATER PROBLEMS ══ -->
   <section class="sec-white">
