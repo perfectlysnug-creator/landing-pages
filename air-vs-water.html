@@ -583,6 +583,32 @@
     .label-water { color: var(--red); }
     .label-air   { color: var(--teal); }
 
+    /* ── Comparison stat strip ── */
+    .stat-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 28px 0 8px;
+    }
+    .stat-strip-item {
+      flex: 1;
+      min-width: 140px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+    .stat-strip-num {
+      font-family: var(--font-heading);
+      font-size: clamp(34px, 6vw, 50px);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-strip-label { font-size: 13px; color: var(--muted); line-height: 1.4; }
+
     /* ── Payment badges ── */
     .payment-pill img { height: 22px; width: auto; object-fit: contain; }
 
@@ -615,6 +641,7 @@
         <a href="https://perfectlysnug.com/products/the-smart-topper" class="btn btn-lg">Start My 30-Night Trial</a>
         <div class="trust-strip">
           <span>30-night trial from arrival</span>
+          <span>Cooling in 20 seconds</span>
           <span>Free return shipping</span>
           <span>HSA/FSA Eligible</span>
         </div>
@@ -711,6 +738,11 @@
           <div class="feature-title">Wi-Fi optional</div>
           <div class="feature-desc">Can be turned off completely for EMF-conscious sleepers. No cloud server. Privately hosted, stable app.</div>
         </div>
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="feature-icon">🌡️</div>
+          <div class="feature-title">Cold Burst</div>
+          <div class="feature-desc">Instant relief for hot flashes. The only cooling topper with Cold Burst, designed to respond the moment your body temperature spikes.</div>
+        </div>
       </div>
     </div>
   </section>
@@ -738,6 +770,12 @@
         </video>
       </div>
 
+      <div class="compare-video-wrap reveal" style="margin-top:28px;">
+        <video autoplay loop muted playsinline style="width:100%;display:block;">
+          <source src="https://choose.perfectlysnug.com/air-vs-water-thermal.mp4" type="video/mp4">
+        </video>
+      </div>
+
       <div class="compare-video-wrap reveal">
         <video autoplay loop muted playsinline style="width:100%;display:block;">
           <source src="https://choose.perfectlysnug.com/air-vs-water-compare.mp4" type="video/mp4">
@@ -755,6 +793,22 @@
     <div class="container">
       <p class="sec-label reveal">Side by side</p>
       <h2 class="sec-h2 reveal">See the difference clearly.</h2>
+
+      <div class="stat-strip reveal">
+        <div class="stat-strip-item">
+          <div class="stat-strip-num">102%</div>
+          <div class="stat-strip-label">more cooling power than Eight Sleep</div>
+        </div>
+        <div class="stat-strip-item">
+          <div class="stat-strip-num">360x</div>
+          <div class="stat-strip-label">faster than water-based systems</div>
+        </div>
+        <div class="stat-strip-item">
+          <div class="stat-strip-num">2x</div>
+          <div class="stat-strip-label">the cooling power of water-based systems</div>
+        </div>
+      </div>
+
       <div class="compare-table-wrap reveal">
         <table class="compare">
           <thead>
