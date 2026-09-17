@@ -528,6 +528,40 @@
     }
     .final-trust span::before { content: '✓ '; color: var(--yellow); }
 
+    /* ── Testimonial grid ── */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    @media (min-width: 700px) { .testimonial-grid { grid-template-columns: 1fr 1fr; } }
+    .t-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .t-body {
+      position: relative;
+      overflow: hidden;
+    }
+    .t-body.clamped { max-height: 88px; }
+    .t-body.clamped::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0; height: 48px;
+      background: linear-gradient(transparent, rgba(37,52,62,0.96));
+      pointer-events: none;
+    }
+    .t-read-more {
+      background: none; border: none; padding: 0;
+      color: var(--yellow); font-size: 13px; font-weight: 600;
+      cursor: pointer; margin-top: 8px; display: none;
+      font-family: var(--font-body);
+      text-decoration: underline; text-underline-offset: 2px;
+    }
+
     /* ── Compare video ── */
     .compare-video-wrap {
       border-radius: 16px;
@@ -811,11 +845,46 @@
         </div>
       </div>
 
-      <div class="testimonial-card reveal">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"It seems like a miracle...He woke up the first morning perfectly dry!!!"</p>
-        <div class="testimonial-author">Verified Perfectly Snug Customer</div>
-        <div class="stat-source" style="margin-top:4px;">After 10+ years of night sweats</div>
+      <div class="testimonial-grid">
+
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="t-body">
+            <p class="testimonial-text">"It seems like a miracle...He woke up the first morning perfectly dry!!!"</p>
+          </div>
+          <div class="testimonial-author">Verified Perfectly Snug Customer</div>
+          <div class="stat-source" style="margin-top:4px;">After 10+ years of night sweats</div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="t-title">Wish I had found Perfectly Snug first!</div>
+          <div class="t-body">
+            <p class="testimonial-text">"I have had Two Eight Sleep systems, and One Chilipad…nothing but trouble and limited warranties. Products always seemed to start having trouble just out of limited warranty or after an update. I finally came across Perfectly Snug and I have been blown away with how simple the system is, how great the cooling and heating work (and without WiFi!!) great warranty and outstanding customer service. I have been using this mattress topper since October 2025 and I am finally getting the sleep I need without the hassle. I'm not paid for this- I'm not affiliated with this company- I'm just a customer that is so happy and who is looking forward to years of comfort."</p>
+          </div>
+          <button class="t-read-more">Read more</button>
+          <div class="testimonial-author">Jennifer L. — Verified Customer · Dec 2025</div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="t-title">Bed Blowy</div>
+          <div class="t-body">
+            <p class="testimonial-text">"We had the Chill Pad system for years and constantly had to monitor and change out water and deal with leaks. This one has no water, no leaks, no maintenance. It takes a bit to get the setting just right so I don't wake up too cold or too hot. Definitely a great purchase and so far it's well worth the money."</p>
+          </div>
+          <div class="testimonial-author">Marcus S. — Verified Customer · Aug 2026</div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-3">
+          <div class="testimonial-stars">★★★★☆</div>
+          <div class="t-title">Feedback on Perfectly Snug replacing Eight Sleep</div>
+          <div class="t-body">
+            <p class="testimonial-text">"I just spent my first night on the Perfectly Snug smart topper that replace my Eight Sleep Pod 3, which I have had for years (and an older version before that). The Eight Sleep Pod does work very well for creating a cooling and heating surface and you can program with an app. The downsides are numerous: 1) the cumbersome water tubes and Pod water chamber that spits out some heat in order to cool the water. However, it does alter the feel of your mattress surface by making it slightly stiffer. You also have to go through quite a bit to wrap your mattress. If you put anything at all on top of it to soften the surface, you block the heating and cooling. The Perfectly Snug did work well for cooling and I loved the ability to adjust the temp with a button on the side of the mattress. For Eight Sleep, you have to turn on your phone and call up the app. That can be awkward in the middle of the night and also the phone screen can be bright, even on the dimmest setting. The cooling effect was not drafty as I had feared. The fan noise cannot be heard over an air conditioner and is not bad when the ac is not on. It is a low-level white noise once temp equilibrium is reached. The app for Perfectly Snug is much simpler than Eight Sleep and has no subscription. They have 3 stages (used to be four) but you can't really control the length. Eight uses sensors and AI to regulate the temp, but you have to pay a subscription for that unless you were grandfathered in as I was from an early version. For Eight, I don't think that it did that a good job and it was hassle to try and second guess or preselect my temperatures. Huge advantage here for Perfectly Snug. For the sleeping feel, I was very anxious to see how the Perfectly Snug would feel and how it was constructed. I am happy to say the I was quite impressed with the unique structure. The cover consists of an open grid that that is about 1/8-1/4" thick. While the material feels like hard nylon, it is quite elastic and the structure gives into pressure. As a result, I did not find that it created pressure points on my skin. In other words it feels soft, but not mushy, like a pillow top. The Eight Sleep cover has almost no padding and is not elastic. Underneath the cover layer is a layer of non-descript memory foam, about 1/2-3/4". This was my one disappointment, since I am not a fan of memory foam, since it gets too soft when warmed up. Since the foam layer is a relatively small part of the overall structure, it is not that integral to its functioning. Underneath the memory foam is another structure that circulates the air from the fans. Overall, the topper did not interfere with the deeper support levels of my mattress and actually enhanced the more surface level feel with the unique structure described above. I am glad to be rid of the overhead of dealing with the Eight Sleep and having the simpler and perhaps better type of cooling for the Perfectly Snug."</p>
+          </div>
+          <button class="t-read-more">Read more</button>
+          <div class="testimonial-author">Rob K. — Verified Customer · Aug 2026</div>
+        </div>
+
       </div>
 
       <div style="text-align:center; margin-top:36px;" class="reveal">
@@ -982,6 +1051,21 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ── Testimonial read-more ──
+    document.querySelectorAll('.t-body').forEach(body => {
+      if (body.scrollHeight > 92) {
+        body.classList.add('clamped');
+        const btn = body.nextElementSibling;
+        if (btn && btn.classList.contains('t-read-more')) {
+          btn.style.display = 'inline';
+          btn.addEventListener('click', () => {
+            body.classList.toggle('clamped');
+            btn.textContent = body.classList.contains('clamped') ? 'Read more' : 'Show less';
+          });
+        }
+      }
+    });
 
     // ── FAQ accordion ──
     document.querySelectorAll('.faq-q').forEach(btn => {
