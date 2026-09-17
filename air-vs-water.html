@@ -358,10 +358,12 @@
     }
     .stat-card {
       background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.13);
       border-radius: 12px;
       padding: 24px 20px;
       text-align: center;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
     .stat-number {
       font-family: var(--font-heading);
@@ -376,10 +378,12 @@
 
     .testimonial-card {
       background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.13);
       border-radius: 12px;
       padding: 28px 26px;
       margin-top: 20px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
     .testimonial-stars { color: var(--yellow); font-size: 18px; letter-spacing: 3px; margin-bottom: 14px; }
     .testimonial-text {
