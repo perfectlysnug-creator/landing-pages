@@ -112,27 +112,25 @@
     }
     .press-track {
       display: flex;
-      gap: 56px;
+      gap: 48px;
       align-items: center;
       width: max-content;
-      animation: ticker 28s linear infinite;
+      animation: ticker 32s linear infinite;
     }
     .press-track:hover { animation-play-state: paused; }
     @keyframes ticker {
       from { transform: translateX(0); }
       to   { transform: translateX(-50%); }
     }
-    .press-logo {
-      font-family: Georgia, serif;
-      font-size: 14px;
-      font-weight: 700;
-      color: #8a9aab;
-      white-space: nowrap;
-      letter-spacing: 0.03em;
-      user-select: none;
+    .press-logo img {
+      height: 22px;
+      width: auto;
+      max-width: 120px;
+      object-fit: contain;
+      opacity: 0.55;
+      filter: grayscale(100%);
+      display: block;
     }
-    .press-logo.serif-bold { font-family: 'Times New Roman', serif; font-size: 15px; }
-    .press-logo.sans { font-family: var(--font-body); letter-spacing: 0.06em; font-size: 12px; }
 
     /* ── Header ── */
     .header {
@@ -718,31 +716,31 @@
     <div class="press-ticker-label">As seen in</div>
     <div style="overflow:hidden;">
       <div class="press-track">
-        <span class="press-logo serif-bold">House Beautiful</span>
-        <span class="press-logo sans">GQ</span>
-        <span class="press-logo sans">CBC DRAGONS' DEN</span>
-        <span class="press-logo sans">WIRED</span>
-        <span class="press-logo">Sleep Foundation</span>
-        <span class="press-logo sans" style="font-weight:800;">Inc.</span>
-        <span class="press-logo">Reader's Digest</span>
-        <span class="press-logo sans">TOWN&amp;COUNTRY</span>
-        <span class="press-logo" style="font-style:italic;">Oprah Daily</span>
-        <span class="press-logo sans" style="font-weight:800;">BuzzFeed</span>
-        <span class="press-logo">The Strategist</span>
-        <span class="press-logo sans">MEN'S JOURNAL</span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/house_beautiful_logo.png?v=1757623891" alt="House Beautiful"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/GQ_logo_b.png?v=1771533714" alt="GQ"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/dargon_s_den_logo.png?v=1771533002" alt="CBC Dragons' Den"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/wired_logo_b.png?v=1771532807" alt="WIRED"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/sleep_foundation_logo.png?v=1771532498" alt="Sleep Foundation"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/Inc___business_magazine__logo_svg.png?v=1771011573" alt="Inc."></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/readersdigest-logo.svg?v=1788366471" alt="Reader's Digest"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/town_and_country_logo.png?v=1771008825" alt="Town&Country"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/omc_oprah_daily_logo.png?v=1773349198" alt="Oprah Daily"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/buzzfeed_logo.png?v=1771008825" alt="BuzzFeed"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/strategist_logo_825f8752-adf8-4b42-8f15-ab985d023dfb.png?v=1771008825" alt="The Strategist"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/mens-journal.png?v=1662953525" alt="Men's Journal"></span>
         <!-- duplicate for seamless loop -->
-        <span class="press-logo serif-bold">House Beautiful</span>
-        <span class="press-logo sans">GQ</span>
-        <span class="press-logo sans">CBC DRAGONS' DEN</span>
-        <span class="press-logo sans">WIRED</span>
-        <span class="press-logo">Sleep Foundation</span>
-        <span class="press-logo sans" style="font-weight:800;">Inc.</span>
-        <span class="press-logo">Reader's Digest</span>
-        <span class="press-logo sans">TOWN&amp;COUNTRY</span>
-        <span class="press-logo" style="font-style:italic;">Oprah Daily</span>
-        <span class="press-logo sans" style="font-weight:800;">BuzzFeed</span>
-        <span class="press-logo">The Strategist</span>
-        <span class="press-logo sans">MEN'S JOURNAL</span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/house_beautiful_logo.png?v=1757623891" alt="House Beautiful"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/GQ_logo_b.png?v=1771533714" alt="GQ"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/dargon_s_den_logo.png?v=1771533002" alt="CBC Dragons' Den"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/wired_logo_b.png?v=1771532807" alt="WIRED"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/sleep_foundation_logo.png?v=1771532498" alt="Sleep Foundation"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/Inc___business_magazine__logo_svg.png?v=1771011573" alt="Inc."></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/readersdigest-logo.svg?v=1788366471" alt="Reader's Digest"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/town_and_country_logo.png?v=1771008825" alt="Town&Country"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/omc_oprah_daily_logo.png?v=1773349198" alt="Oprah Daily"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/buzzfeed_logo.png?v=1771008825" alt="BuzzFeed"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/strategist_logo_825f8752-adf8-4b42-8f15-ab985d023dfb.png?v=1771008825" alt="The Strategist"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/mens-journal.png?v=1662953525" alt="Men's Journal"></span>
       </div>
     </div>
   </div>
