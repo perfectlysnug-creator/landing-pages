@@ -609,8 +609,20 @@
     }
     .stat-strip-label { font-size: 13px; color: var(--muted); line-height: 1.4; }
 
+    /* ── Smart Topper intro 2-col ── */
+    .st-intro-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    @media (min-width: 700px) {
+      .st-intro-grid { grid-template-columns: 1fr 1fr; gap: 56px; }
+    }
+
     /* ── Payment badges ── */
-    .payment-pill img { height: 14px; width: auto; object-fit: contain; }
+    .payment-pill img { height: 18px; width: auto; object-fit: contain; }
 
     /* ── Footer ── */
     .footer {
@@ -742,17 +754,22 @@
   <!-- ══ SMART TOPPER INTRO ══ -->
   <section class="sec-cream">
     <div class="container">
-      <p class="sec-label reveal">The product</p>
-      <h2 class="sec-h2 reveal">Meet the Perfectly Snug Smart Topper.</h2>
-      <p class="sec-body reveal">The Smart Topper sits on top of your existing mattress. No machines on the floor, no water, no plumbing. Temperature-controlled air circulates through a breathable surface directly against your skin. Most people are up and running in under 15 minutes.</p>
-
-      <div class="mechanism-video reveal" style="max-width:560px; margin: 32px auto 0;">
-        <video autoplay loop muted playsinline>
-          <source src="https://choose.perfectlysnug.com/air-vs-water-product.mp4" type="video/mp4">
-        </video>
+      <div class="st-intro-grid">
+        <div>
+          <p class="sec-label reveal">The product</p>
+          <h2 class="sec-h2 reveal">Meet the Perfectly Snug Smart Topper.</h2>
+          <p class="sec-body reveal">The Smart Topper sits on top of your existing mattress. No machines on the floor, no water, no plumbing. Temperature-controlled air circulates through a breathable surface directly against your skin. Most people are up and running in under 15 minutes.</p>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div class="mechanism-video" style="margin:0; max-width:100%;">
+            <video autoplay loop muted playsinline>
+              <source src="https://choose.perfectlysnug.com/air-vs-water-product.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
       </div>
 
-      <div class="feature-grid" style="margin-top:32px;">
+      <div class="feature-grid">
         <div class="feature-card reveal" style="background:rgba(37,52,62,0.05); border-color:var(--border);">
           <div class="feature-icon">🎛️</div>
           <div class="feature-title" style="color:var(--navy);">20 temperature levels</div>
@@ -788,7 +805,7 @@
   </section>
 
   <!-- ══ COMPARISON TABLE ══ -->
-  <section class="sec-cream">
+  <section class="sec-white">
     <div class="container">
       <p class="sec-label reveal">Side by side</p>
       <h2 class="sec-h2 reveal">See the difference clearly.</h2>
