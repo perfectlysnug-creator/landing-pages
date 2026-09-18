@@ -561,25 +561,14 @@
 
     /* ── Air background animation ── */
     .sec-air { position: relative; overflow: hidden; }
-    .sec-air::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 45% 35% at 15% 50%, rgba(46,158,123,0.12) 0%, transparent 60%),
-        radial-gradient(ellipse 35% 28% at 82% 38%, rgba(46,158,123,0.09) 0%, transparent 60%),
-        radial-gradient(ellipse 28% 40% at 52% 85%, rgba(46,158,123,0.07) 0%, transparent 55%);
-      animation: airDrift 28s ease-in-out infinite;
-      pointer-events: none;
-    }
-    @keyframes airDrift {
-      0%   { transform: translateX(0)   translateY(0);   opacity: 1;    }
-      25%  { transform: translateX(3%)  translateY(-2%); opacity: 0.82; }
-      50%  { transform: translateX(1%)  translateY(3%);  opacity: 0.90; }
-      75%  { transform: translateX(-2%) translateY(1%);  opacity: 0.84; }
-      100% { transform: translateX(0)   translateY(0);   opacity: 1;    }
-    }
+    #air-bg { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; display: block; pointer-events: none; }
     .sec-air .container { position: relative; z-index: 1; }
+
+    /* ── Trial mobile center ── */
+    @media (max-width: 699px) {
+      .trial-grid { text-align: center; }
+      .trial-grid .btn { display: inline-block; }
+    }
 
     /* ── Final CTA ── */
     .final-cta { text-align: center; }
@@ -819,10 +808,11 @@
 
   <!-- ══ AIR ADVANTAGE ══ -->
   <section class="sec-navy sec-air">
+    <canvas id="air-bg"></canvas>
     <div class="container">
       <p class="sec-label sec-label-yellow reveal">Why air is different</p>
       <h2 class="sec-h2 reveal" style="color:var(--white);">Air cooling works differently.<br><em>Here's why it matters.</em></h2>
-      <p class="sec-body reveal">The Smart Topper sends perfectly calibrated airflow directly against your skin: through your fitted sheet from head to toe, right where heat builds up most. When this active airflow reaches your skin and sleep microclimate it absorbs heat and then gets pushed out of your bed, taking your excess body heat with it. This is the primary cooling mechanism, removing up to 122W of body heat per night – more than the human body can produce. In addition to this cooling mechanism our sleepers benefit from evaporative cooling and a windchill effect that circulates around you (a fan limit can be set to ensure it's not too much!). Your body loses heat faster than it would lying on a cold surface slowly warming back up.</p>
+      <p class="sec-body reveal" style="max-width:none;">The Smart Topper sends perfectly calibrated airflow directly against your skin: through your fitted sheet from head to toe, right where heat builds up most. When this active airflow reaches your skin and sleep microclimate it absorbs heat and then gets pushed out of your bed, taking your excess body heat with it. This is the primary cooling mechanism, removing up to 122W of body heat per night – more than the human body can produce. In addition to this cooling mechanism our sleepers benefit from evaporative cooling and a windchill effect that circulates around you (a fan limit can be set to ensure it's not too much!). Your body loses heat faster than it would lying on a cold surface slowly warming back up.</p>
 
       <div class="feature-grid">
         <div class="feature-card reveal" style="background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.20); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); box-shadow:0 8px 32px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.13);">
@@ -865,6 +855,8 @@
       </div>
     </div>
   </section>
+
+  <div style="height:3px; background:linear-gradient(90deg, transparent 0%, var(--teal) 25%, var(--yellow) 50%, var(--teal) 75%, transparent 100%);"></div>
 
   <!-- ══ SMART TOPPER INTRO ══ -->
   <section class="sec-deep">
@@ -1000,6 +992,11 @@
               <td class="col-label">Leak or mold risk</td>
               <td class="col-ps-cell"><span class="check">✓</span> None</td>
               <td><span class="cross">✕</span> Yes</td>
+            </tr>
+            <tr>
+              <td class="col-label">Heating</td>
+              <td class="col-ps-cell"><span class="check">✓</span> Yes</td>
+              <td><span class="check">✓</span> Yes</td>
             </tr>
             <tr>
               <td class="col-label">Dual zones</td>
@@ -1147,7 +1144,7 @@
   <section class="sec-cream">
     <div class="container" style="max-width:780px;">
       <p class="sec-label reveal">Questions</p>
-      <h2 class="sec-h2 reveal">Everything you'd want to know first.</h2>
+      <h2 class="sec-h2 reveal">Everything you'd want to<br>know first.</h2>
 
       <div class="faq-list reveal">
 
@@ -1364,6 +1361,71 @@
         btn.setAttribute('aria-expanded', !isOpen);
       });
     });
+  </script>
+
+  <script>
+    // Air flow canvas animation
+    (function() {
+      const canvas = document.getElementById('air-bg');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let w, h, pts, tick = 0;
+
+      function resize() {
+        w = canvas.width  = canvas.offsetWidth;
+        h = canvas.height = canvas.offsetHeight;
+        spawnPts();
+      }
+
+      function mkPt() {
+        return {
+          x: Math.random() * w,
+          y: Math.random() * h,
+          vx: (0.4 + Math.random() * 0.7) * (Math.random() < 0.7 ? 1 : -1),
+          vy: (Math.random() - 0.5) * 0.25,
+          life: Math.floor(Math.random() * 80),
+          maxLife: 90 + Math.random() * 110,
+          a: 0.05 + Math.random() * 0.11,
+          lw: 0.5 + Math.random() * 1.1
+        };
+      }
+
+      function spawnPts() { pts = Array.from({length: 75}, mkPt); }
+
+      function frame() {
+        tick += 0.004;
+        ctx.clearRect(0, 0, w, h);
+
+        pts.forEach((p, i) => {
+          const angle = Math.sin(p.x / w * 3.5 + tick) * 0.35
+                      + Math.cos(p.y / h * 2.8 + tick * 0.6) * 0.18;
+          const ox = p.x, oy = p.y;
+          p.x += Math.cos(angle) * 0.85 + p.vx * 0.18;
+          p.y += Math.sin(angle) * 0.28 + p.vy;
+          p.life++;
+
+          const prog = p.life / p.maxLife;
+          const alpha = p.a * Math.sin(prog * Math.PI);
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(46,158,123,${alpha.toFixed(3)})`;
+          ctx.lineWidth = p.lw;
+          ctx.moveTo(ox, oy);
+          ctx.lineTo(p.x, p.y);
+          ctx.stroke();
+
+          if (p.life > p.maxLife || p.x < -30 || p.x > w + 30 || p.y < -30 || p.y > h + 30) {
+            pts[i] = mkPt();
+            if (Math.random() < 0.5) pts[i].x = -2; // mostly enter from left
+          }
+        });
+
+        requestAnimationFrame(frame);
+      }
+
+      new ResizeObserver(resize).observe(canvas);
+      resize();
+      frame();
+    })();
   </script>
 
 </body>
