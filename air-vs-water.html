@@ -245,8 +245,8 @@
     /* ── Section shells ── */
     .sec-white  { background: var(--white);  padding: var(--section-pad) 0; }
     .sec-cream  { background: var(--cream);  padding: var(--section-pad) 0; }
-    .sec-navy   { background: var(--navy);   padding: var(--section-pad) 0; color: var(--white); }
-    .sec-deep   { background: var(--navy-deep); padding: var(--section-pad) 0; color: var(--white); }
+    .sec-navy   { background: linear-gradient(145deg, #2C3F4E 0%, #25343E 50%, #1E2E39 100%); padding: var(--section-pad) 0; color: var(--white); }
+    .sec-deep   { background: linear-gradient(145deg, #20303C 0%, #1B272F 50%, #182028 100%); padding: var(--section-pad) 0; color: var(--white); }
 
     .sec-label {
       font-size: 11px;
@@ -304,10 +304,13 @@
       margin-top: 36px;
     }
     .feature-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.20);
       border-radius: 12px;
       padding: 24px 22px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.13);
     }
     .feature-icon {
       font-size: 26px;
@@ -395,13 +398,14 @@
       margin-top: 36px;
     }
     .stat-card {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.13);
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.20);
       border-radius: 12px;
       padding: 24px 20px;
       text-align: center;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.13);
     }
     .stat-number {
       font-family: var(--font-heading);
@@ -415,13 +419,14 @@
     .stat-source { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 6px; }
 
     .testimonial-card {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.13);
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.20);
       border-radius: 12px;
       padding: 28px 26px;
       margin-top: 20px;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.13);
     }
     .testimonial-stars { color: var(--yellow); font-size: 18px; letter-spacing: 3px; margin-bottom: 14px; }
     .testimonial-text {
@@ -552,7 +557,29 @@
       overflow: hidden;
       transition: max-height 0.35s ease, padding 0.25s ease;
     }
-    .faq-item.open .faq-a { max-height: 400px; padding-bottom: 20px; }
+    .faq-item.open .faq-a { max-height: 600px; padding-bottom: 20px; }
+
+    /* ── Air background animation ── */
+    .sec-air { position: relative; overflow: hidden; }
+    .sec-air::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 45% 35% at 15% 50%, rgba(46,158,123,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 35% 28% at 82% 38%, rgba(46,158,123,0.09) 0%, transparent 60%),
+        radial-gradient(ellipse 28% 40% at 52% 85%, rgba(46,158,123,0.07) 0%, transparent 55%);
+      animation: airDrift 28s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes airDrift {
+      0%   { transform: translateX(0)   translateY(0);   opacity: 1;    }
+      25%  { transform: translateX(3%)  translateY(-2%); opacity: 0.82; }
+      50%  { transform: translateX(1%)  translateY(3%);  opacity: 0.90; }
+      75%  { transform: translateX(-2%) translateY(1%);  opacity: 0.84; }
+      100% { transform: translateX(0)   translateY(0);   opacity: 1;    }
+    }
+    .sec-air .container { position: relative; z-index: 1; }
 
     /* ── Final CTA ── */
     .final-cta { text-align: center; }
@@ -791,28 +818,28 @@
   </section>
 
   <!-- ══ AIR ADVANTAGE ══ -->
-  <section class="sec-navy">
+  <section class="sec-navy sec-air">
     <div class="container">
       <p class="sec-label sec-label-yellow reveal">Why air is different</p>
       <h2 class="sec-h2 reveal" style="color:var(--white);">Air cooling works differently.<br><em>Here's why it matters.</em></h2>
       <p class="sec-body reveal">The Smart Topper sends perfectly calibrated airflow directly against your skin: through your fitted sheet from head to toe, right where heat builds up most. When this active airflow reaches your skin and sleep microclimate it absorbs heat and then gets pushed out of your bed, taking your excess body heat with it. This is the primary cooling mechanism, removing up to 122W of body heat per night – more than the human body can produce. In addition to this cooling mechanism our sleepers benefit from evaporative cooling and a windchill effect that circulates around you (a fan limit can be set to ensure it's not too much!). Your body loses heat faster than it would lying on a cold surface slowly warming back up.</p>
 
       <div class="feature-grid">
-        <div class="feature-card reveal" style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.13); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);">
+        <div class="feature-card reveal" style="background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.20); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); box-shadow:0 8px 32px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.13);">
           <div class="feature-icon" style="color:var(--yellow);">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <div class="feature-title">In contact with your skin</div>
           <div class="feature-desc">Water's cooling effect has to travel through a waterproof pad and your sheets before it can reach you. Air flows directly against your skin through your sheets — nothing in between. That's a fundamentally shorter path from source to body.</div>
         </div>
-        <div class="feature-card reveal reveal-delay-1" style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.13); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);">
+        <div class="feature-card reveal reveal-delay-1" style="background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.20); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); box-shadow:0 8px 32px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.13);">
           <div class="feature-icon" style="color:var(--yellow);">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><line x1="12" y1="19" x2="12" y2="5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><polyline points="5 12 12 5 19 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <div class="feature-title">Removes heat instead of chilling a surface</div>
           <div class="feature-desc">Cold water sits underneath you and waits. Moving air absorbs heat from your body and carries it out of the sleep environment. Evaporative cooling and windchill provide additional cooling benefits. Your body loses heat faster than it would on a cold surface slowly warming back up.</div>
         </div>
-        <div class="feature-card reveal reveal-delay-2" style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.13); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);">
+        <div class="feature-card reveal reveal-delay-2" style="background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.20); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); box-shadow:0 8px 32px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.13);">
           <div class="feature-icon" style="color:var(--yellow);">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="2" y1="2" x2="22" y2="22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
           </div>
@@ -858,42 +885,42 @@
       </div>
 
       <div class="feature-grid">
-        <div class="feature-card reveal" style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.13); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);">
+        <div class="feature-card reveal" style="background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.20); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); box-shadow:0 8px 32px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.13);">
           <div class="feature-icon" style="color:var(--yellow);">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <div class="feature-title">20 temperature levels</div>
           <div class="feature-desc">Cooling and heating in both directions. It heats like a car seat, gentle even warmth from the air around you, not a blast. Thermostat-like adjustments throughout the night.</div>
         </div>
-        <div class="feature-card reveal reveal-delay-1" style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.13); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);">
+        <div class="feature-card reveal reveal-delay-1" style="background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.20); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); box-shadow:0 8px 32px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.13);">
           <div class="feature-icon" style="color:var(--yellow);">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><line x1="12" y1="2" x2="12" y2="22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="2" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="19.07" y1="4.93" x2="4.93" y2="19.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
           </div>
           <div class="feature-title">Cold Burst</div>
           <div class="feature-desc">Instant relief for hot flashes. The only cooling topper with Cold Burst, designed to respond the moment your body temperature spikes.</div>
         </div>
-        <div class="feature-card reveal reveal-delay-2" style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.13); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);">
+        <div class="feature-card reveal reveal-delay-2" style="background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.20); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); box-shadow:0 8px 32px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.13);">
           <div class="feature-icon" style="color:var(--yellow);">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M11 5L6 9H2v6h4l5 4V5z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
           </div>
           <div class="feature-title">Virtually silent</div>
           <div class="feature-desc">Smart Topper has adjustable fan speed. A fan limiter can be set in the app to limit wind chill and fan volume for sensitive sleepers.</div>
         </div>
-        <div class="feature-card reveal reveal-delay-3" style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.13); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);">
+        <div class="feature-card reveal reveal-delay-3" style="background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.20); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); box-shadow:0 8px 32px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.13);">
           <div class="feature-icon" style="color:var(--yellow);">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="9 12 11 14 15 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <div class="feature-title">Zero maintenance</div>
           <div class="feature-desc">No filters, no water treatment, no cleaning schedule. Set it and sleep.</div>
         </div>
-        <div class="feature-card reveal reveal-delay-1" style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.13); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);">
+        <div class="feature-card reveal reveal-delay-1" style="background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.20); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); box-shadow:0 8px 32px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.13);">
           <div class="feature-icon" style="color:var(--yellow);">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5 12.55a11 11 0 0 1 14.08 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M1.42 9a16 16 0 0 1 21.16 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="20" r="1" fill="currentColor"/></svg>
           </div>
           <div class="feature-title">Wi-Fi optional</div>
           <div class="feature-desc">Can be turned off completely for EMF-conscious sleepers. No cloud server. Privately hosted, stable app.</div>
         </div>
-        <div class="feature-card reveal reveal-delay-2" style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.13); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);">
+        <div class="feature-card reveal reveal-delay-2" style="background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.20); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); box-shadow:0 8px 32px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.13);">
           <div class="feature-icon" style="color:var(--yellow);">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><polygon points="12 2 2 7 12 12 22 7 12 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="2 17 12 22 22 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="2 12 12 17 22 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
@@ -957,7 +984,7 @@
             <tr>
               <td class="col-label">Room temperature</td>
               <td class="col-ps-cell"><span class="check">✓</span> No change (0°F increase)</td>
-              <td><span class="cross">✕</span> Machine raises room temperature, causing condensation</td>
+              <td><span class="cross">✕</span> Machine raises room temperature</td>
             </tr>
             <tr>
               <td class="col-label">Setup</td>
@@ -973,6 +1000,11 @@
               <td class="col-label">Leak or mold risk</td>
               <td class="col-ps-cell"><span class="check">✓</span> None</td>
               <td><span class="cross">✕</span> Yes</td>
+            </tr>
+            <tr>
+              <td class="col-label">Dual zones</td>
+              <td class="col-ps-cell"><span class="check">✓</span> Custom temperatures for each side</td>
+              <td><span class="check">✓</span> Custom temperatures for each side</td>
             </tr>
             <tr>
               <td class="col-label">Cold Burst</td>
@@ -1125,6 +1157,21 @@
         </div>
 
         <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Does it work for both hot and cold sleepers?<span class="faq-chevron">&#8964;</span></button>
+          <div class="faq-a">Yes. The Smart Topper has dual zones for personalized temperature control, with a range of 20 levels that adjust for both heating and cooling. If you and your partner run at different temperatures, ask us about options for your setup. Sleepers can also customize multiple phases of the night on their own side of the bed, eg: start with warming when they first get into bed and then shift to more cooling overnight, or vice-versa.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">What if my mattress is thick?<span class="faq-chevron">&#8964;</span></button>
+          <div class="faq-a">The Perfectly Snug Smart Topper sits on top of your mattress so it doesn't matter. If you might need extra long corner straps for mattresses thicker than 12", add a note to your order or email our customer service team and we'll make it happen.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">How is this different from a fan?<span class="faq-chevron">&#8964;</span></button>
+          <div class="faq-a">A fan moves air around your room outside your bed. The Smart Topper circulates perfectly calibrated active airflow directly against your skin from head to toe through your fitted sheet. The cooling source is ambient air coming into contact with your body and bedding, absorbing large amounts of heat, then being pushed out of the sleep environment, taking the heat with it. You and your bed are left cool and dry.</div>
+        </div>
+
+        <div class="faq-item">
           <button class="faq-q" aria-expanded="false">What size should I order?<span class="faq-chevron">&#8964;</span></button>
           <div class="faq-a">Smart Toppers come in many sizes: Twin, Twin-XL, Double, Queen, King, California King, and Split King. Shop for your Smart Topper and view our size chart <a href="https://perfectlysnug.com/products/the-smart-topper" style="color:var(--teal);">here</a>.</div>
         </div>
@@ -1135,8 +1182,8 @@
         </div>
 
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false">What sheets does it work with?<span class="faq-chevron">&#8964;</span></button>
-          <div class="faq-a">The Smart Topper works with all breathable sheets. We recommend a tight-fitting cotton, bamboo or linen with lower thread count. Try breathing through the sheets and if it is easy then it will work! We don't recommend using mattress protectors over the Smart Topper or it will hinder the airflow.<br><br>The manual controller is embedded in the side of the Smart Topper and is designed to be used by touch through your fitted sheet.</div>
+          <button class="faq-q" aria-expanded="false">Can I use my existing sheets and mattress?<span class="faq-chevron">&#8964;</span></button>
+          <div class="faq-a">Yes. The topper fits your existing mattress and works with any sheets. Breathable sheets are required but you likely have these already. For a quick test, hold the sheet over your mouth and try breathing through it. If you can, so can your Smart Topper.<br><br>Cotton or bamboo percale weave are recommended if you're unsure. For added softness, cotton flannel works too.</div>
         </div>
 
         <div class="faq-item">
@@ -1150,8 +1197,8 @@
         </div>
 
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false">Does it work in a hot room?<span class="faq-chevron">&#8964;</span></button>
-          <div class="faq-a">Yes! Perfectly Snug is the best and fastest cooling mattress topper at all room temperatures.<br><br>All cooling systems (including subcooling &amp; water systems) are impacted by heat. At room temperatures of 80F, Perfectly Snug had 102% more cooling power than our water-based competitor with only one side on; and 256% more cooling power than our water-based competitor while one side of the bed was set to cooling and the other set to heating mode. (Our full Performance &amp; Specs can be found on our <a href="https://perfectlysnug.com/products/the-smart-topper" style="color:var(--teal);">Shop page</a>.) We're the best for couples!<br><br>Water based &amp; subcooling systems can create condensation in warm environments, and their machines can increase the temperature of your room as the night progresses. The Smart Topper's cooling technology ensures your bed will be the coolest place in your room. Please note that the Smart Topper does not replace air conditioning or heating as it does not change the temperature of the room overall.</div>
+          <button class="faq-q" aria-expanded="false">Does it work in a warm room?<span class="faq-chevron">&#8964;</span></button>
+          <div class="faq-a">Yes. The Perfectly Snug Smart Topper can make you cold enough to shiver in a room up to about 75F, and up to 80F it will still make your bed the coolest place in the room. It is common for sleepers to have "summer settings" and "winter settings," adjusting their cooling set point to be cooler as it warms up outside. The chilliest cooling effects are experienced in a room under 72F. Many sleepers report using less AC at night once they have their Smart Topper.<br><br>It is worth noting that water systems subcool your bed surface. If the cooling set point of that water-filled topper is lower than the dewpoint in a warm and humid room, there is a risk of condensation. This can lead to mold, and is something to be aware of if you live in a humid region without AC. There is zero risk of condensation or mold with an air-cooled / air-based mattress topper.</div>
         </div>
 
         <div class="faq-item">
@@ -1160,13 +1207,13 @@
         </div>
 
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false">Are there any external components/machines/hoses?<span class="faq-chevron">&#8964;</span></button>
-          <div class="faq-a">Nope! Aside from the simple cord and plug that hide behind the head of your bed, the Smart Topper is entirely self-contained. No hoses, no machines on your floor.<br><br>The manual controller is embedded in the side of the Smart Topper and is designed to be used by touch through your fitted sheet.</div>
+          <button class="faq-q" aria-expanded="false">Is the setup complicated?<span class="faq-chevron">&#8964;</span></button>
+          <div class="faq-a">No machines, no floor equipment, no plumbing. Most people are set up in under 5 minutes.</div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false">What is the temperature range?<span class="faq-chevron">&#8964;</span></button>
-          <div class="faq-a">The Smart Topper cools you down and warms you up a minimum of -10 or +10 degrees of skin temperature. (Based on average human skin temperature.)</div>
+          <button class="faq-q" aria-expanded="false">How cold does it get?<span class="faq-chevron">&#8964;</span></button>
+          <div class="faq-a">The Smart Topper is calibrated around your average skin temperature. Each of the 20 levels moves roughly one degree Fahrenheit from that baseline, cooling up to 10 degrees below average skin temperature and heating you up to 10 degrees warmer than average skin temperature, with 0 - Middle as the "average" baseline. Response time settles within 60 seconds of a setting change.<br><br>Cooling can remove up to 122W of heat energy from a sleeper per night, more than a human body produces - more than enough to make you shiver. Automatic temperature adjustment acts as a safeguard against extremes, keeping you at your perfect temperature for sleeping.</div>
         </div>
 
         <div class="faq-item">
