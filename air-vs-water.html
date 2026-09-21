@@ -1404,13 +1404,19 @@
       }
     });
 
-    // ── FAQ category toggle ──
+    // ── FAQ category toggle (accordion — one open at a time) ──
     document.querySelectorAll('.faq-group-header').forEach(btn => {
       btn.addEventListener('click', () => {
         const group = btn.closest('.faq-group');
         const isOpen = group.classList.contains('open');
-        group.classList.toggle('open');
-        btn.querySelector('.faq-group-indicator').textContent = isOpen ? '+' : '\u2014';
+        document.querySelectorAll('.faq-group').forEach(g => {
+          g.classList.remove('open');
+          g.querySelector('.faq-group-indicator').textContent = '+';
+        });
+        if (!isOpen) {
+          group.classList.add('open');
+          btn.querySelector('.faq-group-indicator').textContent = '\u2014';
+        }
       });
     });
 
