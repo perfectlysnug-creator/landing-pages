@@ -274,10 +274,13 @@
       display: flex;
       align-items: flex-start;
       gap: 14px;
-      background: var(--navy);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.20);
       border-radius: 10px;
       padding: 16px 18px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.13);
     }
     .problem-icon {
       flex-shrink: 0;
@@ -779,10 +782,10 @@
   </div>
 
   <!-- ══ WATER PROBLEMS ══ -->
-  <section class="sec-white">
+  <section class="sec-deep">
     <div class="container">
-      <p class="sec-label reveal">The problem with water cooling</p>
-      <h2 class="sec-h2 reveal">Here's what nobody tells you<br>about water cooling.</h2>
+      <p class="sec-label sec-label-yellow reveal">The problem with water cooling</p>
+      <h2 class="sec-h2 reveal" style="color:var(--white);">Here's what nobody tells you<br>about water cooling.</h2>
       <p class="sec-body reveal" style="max-width:none;">When you buy Eight Sleep, ChiliPad, or Orion, here is what happens: a machine on your floor chills a tank of treated water. That water runs through tubes inside a pad on your mattress. You sleep on top of it.</p>
       <p class="sec-body reveal" style="max-width:none; margin-top:14px;">The cold has to travel through the pad, foam, and sheets to reach your body, and cooling temperature adjustments have a response time of up to 30 minutes. Meanwhile, your body is releasing moisture continuously as you sleep, creating a warm, humid microclimate right against your skin. Cold water can chill the mattress surface below that layer, but it cannot touch the humid air trapped at skin level. That is the real source of the sticky, clammy feeling water sleepers describe.</p>
 
@@ -821,7 +824,7 @@
         </div>
       </div>
 
-      <div class="reveal" style="margin-top:40px; padding:36px 40px; background:var(--navy); border-radius:8px; box-shadow:0 4px 24px rgba(0,0,0,0.12);">
+      <div class="reveal" style="margin-top:40px; padding:36px 40px; background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.20); border-radius:8px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); box-shadow:0 8px 32px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.13);">
         <div style="width:40px; height:3px; background:var(--yellow); margin-bottom:20px;"></div>
         <p style="font-family:var(--font-heading); font-size:clamp(18px,2.5vw,24px); font-weight:500; color:var(--white); line-height:1.5; margin:0 0 14px;">Think about stepping out of a hot shower onto a cold tile floor versus standing in front of a fan.</p>
         <p style="font-size:15px; color:rgba(255,255,255,0.75); line-height:1.7; margin:0;">The tile only cools the few inches of you touching it. You still feel hot and clammy everywhere else. A fan cools your whole body at once, and helps you dry off faster. That is the difference between a cold water layer and moving air.</p>
