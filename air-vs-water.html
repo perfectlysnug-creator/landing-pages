@@ -274,11 +274,11 @@
       display: flex;
       align-items: flex-start;
       gap: 14px;
-      background: var(--navy);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: #fff;
+      border: 1px solid rgba(25,52,62,0.10);
       border-radius: 10px;
       padding: 16px 18px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
     }
     .problem-icon {
       flex-shrink: 0;
@@ -291,7 +291,7 @@
       font-size: 14px; font-weight: 800;
       margin-top: 1px;
     }
-    .problem-text { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.88); line-height: 1.5; }
+    .problem-text { font-size: 15px; font-weight: 500; color: var(--navy); line-height: 1.5; }
 
     @media (min-width: 700px) {
       .problem-list { grid-template-columns: 1fr 1fr; }
@@ -822,8 +822,7 @@
         </div>
       </div>
 
-      <div class="reveal" style="margin-top:40px; padding:36px 40px; background:var(--navy); border-radius:8px; box-shadow:0 4px 24px rgba(0,0,0,0.12);">
-        <div style="width:40px; height:3px; background:var(--yellow); margin-bottom:20px;"></div>
+      <div class="reveal" style="margin-top:40px; padding:36px 40px; background:var(--navy); border-radius:8px; box-shadow:0 4px 24px rgba(0,0,0,0.12); border-top:4px solid var(--yellow);">
         <p style="font-family:var(--font-heading); font-size:clamp(18px,2.5vw,24px); font-weight:500; color:var(--white); line-height:1.5; margin:0 0 14px;">Think about stepping out of a hot shower onto a cold tile floor versus standing in front of a fan.</p>
         <p style="font-size:15px; color:rgba(255,255,255,0.75); line-height:1.7; margin:0;">The tile only cools the few inches of you touching it. You still feel hot and clammy everywhere else. A fan cools your whole body at once, and helps you dry off faster. That is the difference between a cold water layer and moving air.</p>
       </div>
