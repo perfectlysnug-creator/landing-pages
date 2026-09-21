@@ -64,6 +64,42 @@
     .reveal-delay-2 { transition-delay: 0.24s; }
     .reveal-delay-3 { transition-delay: 0.36s; }
 
+    /* ── Announcement bar ── */
+    .ann-bar {
+      background: var(--yellow);
+      color: var(--black);
+      padding: 11px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .ann-bar .ann-code {
+      display: inline-block;
+      background: var(--black);
+      color: var(--yellow);
+      border-radius: 3px;
+      padding: 2px 7px;
+    }
+    .ann-bar .ann-btn {
+      display: inline-block;
+      background: var(--black);
+      color: var(--yellow);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-radius: 100px;
+    }
+    .ann-bar .ann-btn:hover { opacity: 0.85; }
+
     /* ── Press ticker ── */
     .press-ticker { background: #111; padding: 14px 0; overflow: hidden; border-bottom: 1px solid #1e1e1e; }
     .press-ticker-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #555; text-align: center; margin-bottom: 10px; }
@@ -83,7 +119,7 @@
     .btn-outline { background: transparent; color: var(--yellow); border: 1.5px solid var(--yellow); }
     .btn-outline:hover { background: rgba(242,217,128,0.08); }
 
-    /* ── HERO — full bleed ── */
+    /* ── HERO ── */
     .hero {
       position: relative;
       min-height: 100svh;
@@ -105,7 +141,7 @@
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.15) 100%);
+      background: linear-gradient(to top, rgba(0,0,0,0.90) 0%, rgba(0,0,0,0.48) 50%, rgba(0,0,0,0.15) 100%);
     }
     .hero-content {
       position: relative;
@@ -157,22 +193,32 @@
       color: rgba(255,255,255,0.55);
     }
     .hero-trust span::before { content: '✓  '; color: var(--yellow); }
-    .oprah-badge {
-      position: absolute;
-      bottom: 24px;
-      right: 24px;
-      width: 88px;
-      height: 88px;
-      border-radius: 50%;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.5);
-      z-index: 3;
+    .hero-oprah {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 28px;
     }
-
-    /* ── Press ticker sits right after hero ── */
+    .hero-oprah img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      flex-shrink: 0;
+    }
+    .hero-oprah span {
+      font-size: 11px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.45;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      font-weight: 600;
+    }
 
     /* ── Section types ── */
     .sec-black  { background: var(--black);  padding: clamp(72px, 10vw, 120px) 0; }
     .sec-dark   { background: #0f0f0f;       padding: clamp(72px, 10vw, 120px) 0; }
+    .sec-navy   { background: #0d141a;       padding: clamp(72px, 10vw, 120px) 0; }
     .sec-cream  { background: var(--cream);  padding: clamp(72px, 10vw, 120px) 0; color: #1a1a1a; }
     .sec-white  { background: var(--white);  padding: clamp(72px, 10vw, 120px) 0; color: #1a1a1a; }
 
@@ -202,6 +248,23 @@
       max-width: 600px;
     }
     .sec-cream .e-body, .sec-white .e-body { color: #444; }
+
+    /* ── Year split (Make 2026 section) ── */
+    .year-split {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    @media (min-width: 800px) {
+      .year-split { grid-template-columns: 1fr 1fr; gap: 80px; }
+    }
+    .year-img {
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+    }
+    .year-img img { width: 100%; height: 100%; object-fit: cover; }
 
     /* ── Sleep facts — editorial 3-up ── */
     .sleep-facts {
@@ -236,7 +299,46 @@
     }
     .sleep-fact-desc { font-size: 14px; color: #666; line-height: 1.6; }
 
-    /* ── Product — image left, text right ── */
+    /* ── Sleep suffers split ── */
+    .suffers-split {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    @media (min-width: 800px) {
+      .suffers-split { grid-template-columns: 1fr 1fr; gap: 80px; }
+    }
+    .suffers-video {
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 9/16;
+      max-height: 640px;
+    }
+    @media (min-width: 800px) {
+      .suffers-video { aspect-ratio: 4/5; max-height: none; }
+    }
+    .suffers-video video { width: 100%; height: 100%; object-fit: cover; }
+    .effect-list { margin-top: 28px; }
+    .effect-item {
+      display: flex;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .effect-item:first-child { border-top: 1px solid rgba(255,255,255,0.06); }
+    .effect-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--yellow);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 8px;
+    }
+    .effect-title { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+    .effect-desc { font-size: 13px; color: #777; line-height: 1.6; }
+
+    /* ── Product split ── */
     .product-split {
       display: grid;
       grid-template-columns: 1fr;
@@ -270,26 +372,15 @@
     .pf-title { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
     .pf-desc { font-size: 14px; color: #666; line-height: 1.55; }
 
-    /* ── Quote testimonials ── */
-    .quote-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 48px;
-      margin-top: 72px;
-    }
-    @media (min-width: 700px) { .quote-grid { grid-template-columns: repeat(3, 1fr); } }
-    .quote-mark { font-family: Georgia, serif; font-size: 72px; line-height: 0.8; color: var(--yellow); margin-bottom: 16px; }
-    .quote-stars { color: var(--yellow); font-size: 13px; letter-spacing: 2px; margin-bottom: 16px; }
-    .quote-text { font-size: 16px; line-height: 1.65; color: rgba(255,255,255,0.8); margin-bottom: 20px; font-style: italic; }
-    .sec-cream .quote-text, .sec-white .quote-text { color: #333; }
-    .quote-author { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--yellow); }
-    .sec-cream .quote-author, .sec-white .quote-author { color: #888; }
-
     /* ── Sale strip ── */
     .sale-strip {
       background: var(--yellow);
-      padding: 18px 24px;
-      text-align: center;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
       font-family: var(--font-body);
       font-size: 13px;
       font-weight: 800;
@@ -298,6 +389,92 @@
       color: var(--black);
     }
     .sale-strip .code { display: inline-block; background: var(--black); color: var(--yellow); border-radius: 3px; padding: 2px 8px; margin: 0 4px; }
+    .sale-strip-btn {
+      display: inline-block;
+      background: var(--black);
+      color: var(--yellow);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 9px 22px;
+      border-radius: 100px;
+      transition: opacity 0.2s;
+    }
+    .sale-strip-btn:hover { opacity: 0.8; }
+
+    /* ── Category Reviews ── */
+    .rv-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 48px;
+      justify-content: center;
+    }
+    .rv-tab {
+      background: none;
+      border: 1.5px solid #333;
+      color: #666;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .rv-tab:hover { border-color: #555; color: #aaa; }
+    .rv-tab.active { background: var(--yellow); border-color: var(--yellow); color: var(--black); }
+    .rv-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    @media (min-width: 700px) { .rv-grid { grid-template-columns: repeat(3, 1fr); } }
+    .rv-card {
+      background: #111;
+      border: 1px solid #1e1e1e;
+      border-radius: 8px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+    }
+    .rv-stars { color: var(--yellow); letter-spacing: 2px; margin-bottom: 12px; font-size: 14px; }
+    .rv-title { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 10px; line-height: 1.3; }
+    .rv-text {
+      font-size: 14px;
+      color: #888;
+      line-height: 1.65;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 6;
+      -webkit-box-orient: vertical;
+      flex: 1;
+    }
+    .rv-text.expanded { display: block; }
+    .rv-readmore {
+      background: none;
+      border: none;
+      color: var(--yellow);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 8px;
+      padding: 0;
+      font-family: var(--font-body);
+      letter-spacing: 0.05em;
+      text-align: left;
+    }
+    .rv-author {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #555;
+      margin-top: 16px;
+    }
 
     /* ── Trial ── */
     .trial-split {
@@ -365,18 +542,24 @@
 </head>
 <body>
 
+  <!-- ══ ANNOUNCEMENT BAR (top) ══ -->
+  <div class="ann-bar">
+    <span>Black Friday 2026 &nbsp;&mdash;&nbsp; Use code <span class="ann-code">BFCM26</span> &nbsp;&mdash;&nbsp; Save up to $360</span>
+    <a href="https://perfectlysnug.com/products/the-smart-topper" class="ann-btn">Shop Now</a>
+  </div>
+
   <!-- ══ HEADER ══ -->
   <header class="header">
     <img src="https://perfectlysnug.com/cdn/shop/files/300x59-WHITE.png" alt="Perfectly Snug" width="152" height="30">
   </header>
 
-  <!-- ══ HERO — full bleed ── -->
+  <!-- ══ HERO ── -->
   <section class="hero">
     <div class="hero-bg" id="heroBg"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content reveal">
       <div class="sale-tag"><span class="dot"></span>Black Friday 2026</div>
-      <h1>Better sleep starts here.<br><em>The biggest deal of the year starts now.</em></h1>
+      <h1>Better sleep<br>starts here.<br><em>Biggest deal of the year.</em></h1>
       <p class="hero-sub">Use code BFCM26 to save up to $360 off the Perfectly Snug Smart Topper. The most effective sleep temperature system on the market, at its lowest price ever.</p>
       <div class="hero-actions">
         <a href="https://perfectlysnug.com/products/the-smart-topper" class="btn btn-lg">Claim My Black Friday Deal</a>
@@ -387,8 +570,11 @@
         <span>No restocking fees</span>
         <span>HSA/FSA Eligible</span>
       </div>
+      <div class="hero-oprah">
+        <img src="https://choose.perfectlysnug.com/icon-oprah-badge.jpg" alt="Oprah Daily 2026 Sleep O'ward">
+        <span>Oprah Daily<br>Sleep O'ward 2026</span>
+      </div>
     </div>
-    <img src="https://choose.perfectlysnug.com/icon-oprah-badge.jpg" alt="Oprah Daily 2026 Sleep O'ward" class="oprah-badge">
   </section>
 
   <!-- ══ PRESS TICKER ══ -->
@@ -396,10 +582,6 @@
     <div class="press-ticker-label">As seen in</div>
     <div style="overflow:hidden;">
       <div class="press-track">
-        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/house_beautiful_logo.png?v=1757623891" alt="House Beautiful"></span>
-        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/GQ_logo_b.png?v=1771533714" alt="GQ"></span>
-        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/dargon_s_den_logo.png?v=1771533002" alt="CBC Dragons' Den"></span>
-        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/wired_logo_b.png?v=1771532807" alt="WIRED"></span>
         <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/sleep_foundation_logo.png?v=1771532498" alt="Sleep Foundation"></span>
         <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/Inc___business_magazine__logo_svg.png?v=1771011573" alt="Inc."></span>
         <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/readersdigest-logo.svg?v=1788366471" alt="Reader's Digest"></span>
@@ -408,32 +590,42 @@
         <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/buzzfeed_logo.png?v=1771008825" alt="BuzzFeed"></span>
         <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/strategist_logo_825f8752-adf8-4b42-8f15-ab985d023dfb.png?v=1771008825" alt="The Strategist"></span>
         <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/mens-journal.png?v=1662953525" alt="Men's Journal"></span>
-        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/house_beautiful_logo.png?v=1757623891" alt="House Beautiful"></span>
         <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/GQ_logo_b.png?v=1771533714" alt="GQ"></span>
         <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/dargon_s_den_logo.png?v=1771533002" alt="CBC Dragons' Den"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/house_beautiful_logo.png?v=1757623891" alt="House Beautiful"></span>
         <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/wired_logo_b.png?v=1771532807" alt="WIRED"></span>
+        <!-- duplicate for seamless loop -->
         <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/sleep_foundation_logo.png?v=1771532498" alt="Sleep Foundation"></span>
         <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/Inc___business_magazine__logo_svg.png?v=1771011573" alt="Inc."></span>
         <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/readersdigest-logo.svg?v=1788366471" alt="Reader's Digest"></span>
         <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/town_and_country_logo.png?v=1771008825" alt="Town&amp;Country"></span>
         <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/omc_oprah_daily_logo.png?v=1773349198" alt="Oprah Daily"></span>
         <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/buzzfeed_logo.png?v=1771008825" alt="BuzzFeed"></span>
-        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/strategist_logo_825f8752-adf8-4b46-8f15-ab985d023dfb.png?v=1771008825" alt="The Strategist"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/strategist_logo_825f8752-adf8-4b42-8f15-ab985d023dfb.png?v=1771008825" alt="The Strategist"></span>
         <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/mens-journal.png?v=1662953525" alt="Men's Journal"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/GQ_logo_b.png?v=1771533714" alt="GQ"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/dargon_s_den_logo.png?v=1771533002" alt="CBC Dragons' Den"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/house_beautiful_logo.png?v=1757623891" alt="House Beautiful"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/wired_logo_b.png?v=1771532807" alt="WIRED"></span>
       </div>
     </div>
   </div>
 
-  <!-- ══ SLEEP ANGLE ══ -->
+  <!-- ══ WHY THIS IS THE YEAR ══ -->
   <section class="sec-black">
     <div class="container">
-      <div style="max-width:780px;">
-        <p class="e-label reveal">Why this is the year</p>
-        <h2 class="e-h2 reveal">Make 2026 the year you start sleeping better.<br><em>Make 2027 the year you feel like yourself again.</em></h2>
-        <p class="e-body reveal" style="margin-top:28px;">The season piles on fast. Parties, travel, guests, shopping, school events. Sleep is usually the first thing that goes. And when it does, everything else follows — focus, patience, energy, mood. Most people assume it's stress or age. More often, it's temperature.</p>
-        <p class="e-body reveal" style="margin-top:16px;">Black Friday is the one time a year you can get the Smart Topper at its lowest price. Use code <strong style="color:var(--yellow);">BFCM26</strong> to save up to $360. This deal won't last — and neither will another year of broken sleep.</p>
-        <div class="reveal" style="margin-top:40px;">
-          <a href="https://perfectlysnug.com/products/the-smart-topper" class="btn btn-lg">Claim My Black Friday Deal</a>
+      <div class="year-split">
+        <div>
+          <p class="e-label reveal">Why this is the year</p>
+          <h2 class="e-h2 reveal">Make 2026 the year you start sleeping better.<br><em>Make 2027 the year you feel like yourself again.</em></h2>
+          <p class="e-body reveal" style="margin-top:28px;">The season piles on fast. Parties, travel, guests, shopping, school events. Sleep is usually the first thing that goes. And when it does, everything else follows — focus, patience, energy, mood. Most people assume it's stress or age. More often, it's temperature.</p>
+          <p class="e-body reveal" style="margin-top:16px;">Black Friday is the one time a year you can get the Smart Topper at its lowest price. Use code <strong style="color:var(--yellow);">BFCM26</strong> to save up to $360. This deal won't last — and neither will another year of broken sleep.</p>
+          <div class="reveal" style="margin-top:40px;">
+            <a href="https://perfectlysnug.com/products/the-smart-topper" class="btn btn-lg">Claim My Black Friday Deal</a>
+          </div>
+        </div>
+        <div class="year-img reveal reveal-delay-1">
+          <img src="https://choose.perfectlysnug.com/bfcm-couple.jpg" alt="Couple sleeping comfortably">
         </div>
       </div>
 
@@ -452,6 +644,70 @@
           <div class="sleep-fact-num">20s</div>
           <div class="sleep-fact-label">Response time</div>
           <div class="sleep-fact-desc">When your body temperature changes — hot flash, night sweat, restless turn — the Smart Topper responds in 20 seconds. Water systems take 30 minutes.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ WHEN SLEEP SUFFERS ══ -->
+  <section class="sec-navy">
+    <div class="container">
+      <div class="suffers-split">
+        <div class="reveal">
+          <div class="suffers-video">
+            <video autoplay muted loop playsinline>
+              <source src="https://choose.perfectlysnug.com/bfcm-product.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <p class="e-label">The cost of bad sleep</p>
+          <h2 class="e-h2" style="font-size:clamp(32px,5vw,52px);">When sleep suffers, so does everything else.</h2>
+          <p class="e-body" style="margin-top:20px; color:rgba(255,255,255,0.55);">Sleep isn't just rest. It's how your body and mind reset. When you don't get enough of it, everything feels harder: your patience, focus, mood, and motivation. Most people write it off as stress or age. More often, it's temperature.</p>
+          <div class="effect-list">
+            <div class="effect-item">
+              <div class="effect-dot"></div>
+              <div>
+                <div class="effect-title">Higher stress and irritability</div>
+                <div class="effect-desc">Short sleep spikes cortisol, making small things feel big.</div>
+              </div>
+            </div>
+            <div class="effect-item">
+              <div class="effect-dot"></div>
+              <div>
+                <div class="effect-title">Anxiety that's harder to manage</div>
+                <div class="effect-desc">Restless nights keep your nervous system wired, which leads to declining mental health.</div>
+              </div>
+            </div>
+            <div class="effect-item">
+              <div class="effect-dot"></div>
+              <div>
+                <div class="effect-title">Greater risk of depression</div>
+                <div class="effect-desc">Chronic insomnia erodes emotional balance over time.</div>
+              </div>
+            </div>
+            <div class="effect-item">
+              <div class="effect-dot"></div>
+              <div>
+                <div class="effect-title">Foggy focus and low motivation</div>
+                <div class="effect-desc">Tired brains can't prioritize, remember, or follow through.</div>
+              </div>
+            </div>
+            <div class="effect-item">
+              <div class="effect-dot"></div>
+              <div>
+                <div class="effect-title">Lower resilience</div>
+                <div class="effect-desc">Rest rebuilds your mood, energy, and optimism.</div>
+              </div>
+            </div>
+            <div class="effect-item">
+              <div class="effect-dot"></div>
+              <div>
+                <div class="effect-title">Declining mental health</div>
+                <div class="effect-desc">Poor sleep leads to higher stress and anxiety levels which make even the smallest things in life feel big.</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -510,33 +766,96 @@
 
   <!-- ══ SALE STRIP ══ -->
   <div class="sale-strip">
-    Biggest Sale of the Year &nbsp;&mdash;&nbsp; Use code <span class="code">BFCM26</span> &nbsp;&mdash;&nbsp; Save up to $360
+    <span>Biggest Sale of the Year &nbsp;&mdash;&nbsp; Use code <span class="code">BFCM26</span> &nbsp;&mdash;&nbsp; Save up to $360</span>
+    <a href="https://perfectlysnug.com/products/the-smart-topper" class="sale-strip-btn">Shop Now</a>
   </div>
 
-  <!-- ══ TESTIMONIALS ══ -->
+  <!-- ══ CATEGORY REVIEWS ══ -->
   <section class="sec-black">
     <div class="container">
       <p class="e-label reveal" style="text-align:center;">4.87 stars &nbsp;&middot;&nbsp; Thousands of reviews</p>
-      <h2 class="e-h2 reveal" style="text-align:center; max-width:640px; margin:0 auto;">Don't take our word for it.</h2>
-      <div class="quote-grid">
-        <div class="reveal">
-          <div class="quote-mark">"</div>
-          <div class="quote-stars">★★★★★</div>
-          <p class="quote-text">I was hesitant about the price but I've now slept better for 3 months straight. I genuinely cannot believe I waited this long. It's a solved problem.</p>
-          <div class="quote-author">Ryan Johnston &mdash; Verified Purchaser</div>
+      <h2 class="e-h2 reveal" style="text-align:center; max-width:640px; margin:0 auto 48px;">Don't take our word for it.</h2>
+
+      <div class="rv-tabs reveal">
+        <button class="rv-tab active" data-filter="temperature">Hot Sleepers</button>
+        <button class="rv-tab" data-filter="couples">Couples</button>
+        <button class="rv-tab" data-filter="worthit">Worth It</button>
+      </div>
+
+      <div class="rv-grid">
+
+        <!-- HOT SLEEPERS -->
+        <div class="rv-card" data-cat="temperature">
+          <div class="rv-stars">★★★★★</div>
+          <div class="rv-title">Works!</div>
+          <p class="rv-text">"I used to wake up soaked every morning very early. I haven't been sweaty in bed since I installed Perfectly Snug. My sleep is not longer interrupted."</p>
+          <div class="rv-author">EK &mdash; Verified Purchaser</div>
         </div>
-        <div class="reveal reveal-delay-1">
-          <div class="quote-mark">"</div>
-          <div class="quote-stars">★★★★★</div>
-          <p class="quote-text">I wake up every morning without sweating early. It doesn't happen anymore. My sleep is not interrupted. Wish I had bought this sooner.</p>
-          <div class="quote-author">RJ &mdash; Verified Purchaser</div>
+
+        <div class="rv-card" data-cat="temperature">
+          <div class="rv-stars">★★★★★</div>
+          <div class="rv-title">LOVE MY PERFECTLY SNUG!!!</div>
+          <p class="rv-text">"No more waking up hot and sweaty in the middle of the night!! And no more running the air conditioner at sub-zero temps which freeze my husband! This mattress pad really delivers — and it's easy, quiet, comfortable and will never leak onto the floor!"</p>
+          <div class="rv-author">H Morris &mdash; Verified Purchaser</div>
         </div>
-        <div class="reveal reveal-delay-2">
-          <div class="quote-mark">"</div>
-          <div class="quote-stars">★★★★★</div>
-          <p class="quote-text">I'm more alert, focused, and don't feel the need to nap constantly. I had no idea how much my temperature was ruining my sleep until it wasn't anymore.</p>
-          <div class="quote-author">Maggie &mdash; Verified Purchaser</div>
+
+        <div class="rv-card" data-cat="temperature">
+          <div class="rv-stars">★★★★★</div>
+          <div class="rv-title">Life changing. The only solution to drenching night sweats.</div>
+          <p class="rv-text">"It seems like a miracle. My husband has suffered from drenching night sweats for 10+ years. A medical condition causing the sweats was ruled out. We tried everything out there. We lowered the temperature in the bedroom, put a fan next to his side of the bed and directed it to blow on him all night. We tried high quality moisture wicking/cooling sleep shorts, cooling/moisture wicking sheets and blankets. We even purchased a cooling system that had a sheet connected to a hose and a motor that continuously blows cold air throughout the night. Nothing worked until I purchased Perfectly Snug. He put it on the bed and programmed it to drop the temperature to sync to the times he sweats the most. He woke up the first morning perfectly dry!!! It has been almost 2 months since he first used the Perfectly Snug topper and has been dry every night. No sweats at all. His sleep quality has completely changed for the better."</p>
+          <button class="rv-readmore">Read more</button>
+          <div class="rv-author">Anonymous &mdash; Verified Customer</div>
         </div>
+
+        <!-- COUPLES -->
+        <div class="rv-card" data-cat="couples" hidden>
+          <div class="rv-stars">★★★★★</div>
+          <div class="rv-title">Finally!</div>
+          <p class="rv-text">"After suffering for months from hot sweats, and my husband always feeling hot, we bought the split king toppers, and we both love them!"</p>
+          <div class="rv-author">Ellen W. &mdash; Verified Purchaser</div>
+        </div>
+
+        <div class="rv-card" data-cat="couples" hidden>
+          <div class="rv-stars">★★★★★</div>
+          <div class="rv-title">Best cooling mattress topper we've experienced!</div>
+          <p class="rv-text">"My husband and I have had other cooling mattress toppers for years and Perfectly Snug surpasses our experience. We love that there is no water required and immediate cooling is available — as well as the 'boost' option to quickly cool down. This is a must have for hot sleepers including those impacted by night sweats!"</p>
+          <div class="rv-author">Nicole D. &mdash; Verified Purchaser</div>
+        </div>
+
+        <div class="rv-card" data-cat="couples" hidden>
+          <div class="rv-stars">★★★★★</div>
+          <div class="rv-title">Bed Blowy</div>
+          <p class="rv-text">"We had the Chill Pad system for years and constantly had to monitor and change out water and deal with leaks. This one has no water, no leaks, no maintenance. It takes a bit to get the setting just right so I don't wake up too cold or too hot. Definitely a great purchase and so far it's well worth the money."</p>
+          <div class="rv-author">Marcus S. &mdash; Verified Customer</div>
+        </div>
+
+        <!-- WORTH IT -->
+        <div class="rv-card" data-cat="worthit" hidden>
+          <div class="rv-stars">★★★★★</div>
+          <div class="rv-title">Pricey, but worth it.</div>
+          <p class="rv-text">"Been a month now — bought a California king. I had to choose an air cooled mattress topper to go with my sleep number bed and could not be more satisfied. Extremely happy with purchase. My only complaint is that I wish it were true WiFi. Other than that minor complaint, I'm completely satisfied with my purchase."</p>
+          <div class="rv-author">Ryan Johnston &mdash; Verified Purchaser</div>
+        </div>
+
+        <div class="rv-card" data-cat="worthit" hidden>
+          <div class="rv-stars">★★★★★</div>
+          <div class="rv-title">Best Thing I've Ever Done For Myself</div>
+          <p class="rv-text">"I actually sleep through the night now. I use to toss and turn, throw off the covers, and start over again. Now, when I get up, I can easily make my bed because I hardly move during the night. Amazing!"</p>
+          <div class="rv-author">Maggie &mdash; Verified Purchaser</div>
+        </div>
+
+        <div class="rv-card" data-cat="worthit" hidden>
+          <div class="rv-stars">★★★★★</div>
+          <div class="rv-title">Wish I had found Perfectly Snug first!</div>
+          <p class="rv-text">"I have had Two Eight Sleep systems, and One Chilipad — nothing but trouble and limited warranties. Products always seemed to start having trouble just out of limited warranty or after an update. I finally came across Perfectly Snug and I have been blown away with how simple the system is, how great the cooling and heating work (and without WiFi!!) great warranty and outstanding customer service. I have been using this mattress topper since October 2025 and I am finally getting the sleep I need without the hassle. I'm not paid for this — I'm not affiliated with this company — I'm just a customer that is so happy and who is looking forward to years of comfort."</p>
+          <button class="rv-readmore">Read more</button>
+          <div class="rv-author">Jennifer L. &mdash; Verified Customer</div>
+        </div>
+
+      </div>
+
+      <div style="text-align:center; margin-top:48px;" class="reveal">
+        <a href="https://perfectlysnug.com/products/the-smart-topper" class="btn btn-lg">Claim My Black Friday Deal</a>
       </div>
     </div>
   </section>
@@ -564,7 +883,7 @@
   <section class="sec-cream">
     <div class="container" style="max-width:800px;">
       <p class="e-label reveal">Questions</p>
-      <h2 class="e-h2 reveal" style="font-size:clamp(32px,5vw,56px);">Everything you'd want to know first.</h2>
+      <h2 class="e-h2 reveal" style="font-size:clamp(32px,5vw,56px);">Everything you need to know.</h2>
 
       <div class="faq-list reveal">
 
@@ -756,13 +1075,19 @@
     </div>
   </section>
 
+  <!-- ══ ANNOUNCEMENT BAR (bottom) ══ -->
+  <div class="ann-bar">
+    <span>Black Friday 2026 &nbsp;&mdash;&nbsp; Use code <span class="ann-code">BFCM26</span> &nbsp;&mdash;&nbsp; Save up to $360</span>
+    <a href="https://perfectlysnug.com/products/the-smart-topper" class="ann-btn">Shop Now</a>
+  </div>
+
   <!-- ══ FOOTER ══ -->
   <footer class="footer">
     <p>&copy; 2026 Perfectly Snug. All rights reserved. &nbsp;&middot;&nbsp; <a href="https://perfectlysnug.com/policies/privacy-policy">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="https://perfectlysnug.com/policies/terms-of-service">Terms of Service</a></p>
   </footer>
 
   <script>
-    // Hero image subtle parallax load
+    // Hero image subtle scale on load
     window.addEventListener('load', () => {
       document.getElementById('heroBg').classList.add('loaded');
     });
@@ -773,7 +1098,7 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-    // FAQ category accordion
+    // FAQ category accordion (one open at a time)
     document.querySelectorAll('.faq-group-header').forEach(btn => {
       btn.addEventListener('click', () => {
         const group = btn.closest('.faq-group');
@@ -789,7 +1114,7 @@
       });
     });
 
-    // FAQ individual accordion
+    // FAQ individual item accordion
     document.querySelectorAll('.faq-q').forEach(btn => {
       btn.addEventListener('click', () => {
         const item = btn.closest('.faq-item');
@@ -797,6 +1122,27 @@
         document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
         if (!isOpen) item.classList.add('open');
         btn.setAttribute('aria-expanded', !isOpen);
+      });
+    });
+
+    // Review category tabs
+    document.querySelectorAll('.rv-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.rv-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const filter = tab.dataset.filter;
+        document.querySelectorAll('.rv-card').forEach(card => {
+          card.hidden = card.dataset.cat !== filter;
+        });
+      });
+    });
+
+    // Review read-more toggle
+    document.querySelectorAll('.rv-readmore').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const text = btn.previousElementSibling;
+        const expanded = text.classList.toggle('expanded');
+        btn.textContent = expanded ? 'Show less' : 'Read more';
       });
     });
   </script>
