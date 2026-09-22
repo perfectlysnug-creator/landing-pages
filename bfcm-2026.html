@@ -312,13 +312,9 @@
     .suffers-video {
       border-radius: 12px;
       overflow: hidden;
-      aspect-ratio: 9/16;
-      max-height: 640px;
+      aspect-ratio: 4/5;
     }
-    @media (min-width: 800px) {
-      .suffers-video { aspect-ratio: 4/5; max-height: none; }
-    }
-    .suffers-video video { width: 100%; height: 100%; object-fit: cover; }
+    .suffers-video img, .suffers-video video { width: 100%; height: 100%; object-fit: cover; }
     .effect-list { margin-top: 28px; }
     .effect-item {
       display: flex;
@@ -655,9 +651,7 @@
       <div class="suffers-split">
         <div class="reveal">
           <div class="suffers-video">
-            <video autoplay muted loop playsinline>
-              <source src="https://choose.perfectlysnug.com/bfcm-product.mp4" type="video/mp4">
-            </video>
+            <img src="https://choose.perfectlysnug.com/bfcm-suffers.jpg" alt="Exhausted from poor sleep">
           </div>
         </div>
         <div class="reveal reveal-delay-1">
