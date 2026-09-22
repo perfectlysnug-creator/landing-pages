@@ -81,9 +81,7 @@
     }
     .mob-br { display: none; }
     @media (max-width: 600px) {
-      .ann-bar { font-size: 10px; letter-spacing: 0.04em; padding: 10px 16px; }
-      .ann-full { display: none; }
-      .ann-short { display: inline; }
+      .ann-bar { font-size: 10px; letter-spacing: 0.04em; padding: 10px 16px; flex-direction: column; gap: 8px; }
       .year-img { display: none; }
       .sale-strip { font-size: 10px; letter-spacing: 0.04em; padding: 10px 16px; flex-wrap: nowrap; white-space: nowrap; }
       .sale-strip-btn { display: none; }
@@ -109,7 +107,6 @@
       border-radius: 100px;
     }
     .ann-bar .ann-btn:hover { opacity: 0.85; }
-    .ann-short { display: none; }
 
     /* ── Press ticker ── */
     .press-ticker { background: #111; padding: 14px 0; overflow: hidden; border-bottom: 1px solid #1e1e1e; }
@@ -559,8 +556,7 @@
 
   <!-- ══ ANNOUNCEMENT BAR (top) ══ -->
   <div class="ann-bar">
-    <span class="ann-full">Black Friday 2026 &nbsp;&middot;&nbsp; Use code <span class="ann-code">BFCM26</span> &nbsp;&middot;&nbsp; Save up to $360</span>
-    <span class="ann-short">Use code <span class="ann-code">BFCM26</span> &nbsp;&middot;&nbsp; Save $360</span>
+    <span>Black Friday 2026 &nbsp;&middot;&nbsp; Use code <span class="ann-code">BFCM26</span> &nbsp;&middot;&nbsp; Save up to $360</span>
     <a href="https://perfectlysnug.com/products/the-smart-topper" class="ann-btn">Shop Now</a>
   </div>
 
@@ -1080,8 +1076,7 @@
 
   <!-- ══ ANNOUNCEMENT BAR (bottom) ══ -->
   <div class="ann-bar">
-    <span class="ann-full">Black Friday 2026 &nbsp;&middot;&nbsp; Use code <span class="ann-code">BFCM26</span> &nbsp;&middot;&nbsp; Save up to $360</span>
-    <span class="ann-short">Use code <span class="ann-code">BFCM26</span> &nbsp;&middot;&nbsp; Save $360</span>
+    <span>Black Friday 2026 &nbsp;&middot;&nbsp; Use code <span class="ann-code">BFCM26</span> &nbsp;&middot;&nbsp; Save up to $360</span>
     <a href="https://perfectlysnug.com/products/the-smart-topper" class="ann-btn">Shop Now</a>
   </div>
 
