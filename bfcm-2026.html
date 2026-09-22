@@ -81,12 +81,15 @@
       text-transform: uppercase;
       white-space: nowrap;
     }
+    .mob-br { display: none; }
     @media (max-width: 600px) {
       .ann-bar { font-size: 10px; letter-spacing: 0.04em; padding: 10px 16px; }
       .ann-bar .ann-btn { display: none; }
       .year-img { display: none; }
       .sale-strip { font-size: 10px; letter-spacing: 0.04em; padding: 10px 16px; flex-wrap: nowrap; white-space: nowrap; }
       .sale-strip-btn { display: none; }
+      .trial-split .e-h2 { font-size: 24px; }
+      .mob-br { display: block; }
     }
     .ann-bar .ann-code {
       display: inline-block;
@@ -1058,7 +1061,7 @@
   <section class="sec-black">
     <div class="container final-cta">
       <p class="e-label reveal">Black Friday 2026</p>
-      <h2 class="reveal">The biggest sale of the year.<br><em>The best sleep of your life.</em></h2>
+      <h2 class="reveal">The biggest sale<br class="mob-br"> of the year.<br><em>The best sleep<br class="mob-br"> of your life.</em></h2>
       <p class="sub reveal">30-night trial from arrival. Free return shipping. No restocking fees.<br>Use code BFCM26 to save up to $360.</p>
       <div class="reveal">
         <a href="https://perfectlysnug.com/products/the-smart-topper" class="btn btn-lg">Claim My Black Friday Deal</a>
