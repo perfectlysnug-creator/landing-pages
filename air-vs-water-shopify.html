@@ -1,0 +1,982 @@
+<!-- ═══════════════════════════════════════════════════════════════════
+     Perfectly Snug — Air vs. Water Landing Page (Shopify embed)
+     Drop this block into a Shopify page/section content field.
+     The host theme renders nav + footer. This file provides only the
+     page body, scoped styles, and scoped JS.
+═══════════════════════════════════════════════════════════════════ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lora:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+
+<style>
+
+  /* ── Font faces (global scope — required) ── */
+  @font-face {
+    font-family: 'Recoleta';
+    src: url('https://choose.perfectlysnug.com/assets/fonts/recoleta/Recoleta-Medium/Recoleta-Medium.ttf') format('truetype');
+    font-weight: 500; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'Recoleta';
+    src: url('https://choose.perfectlysnug.com/assets/fonts/recoleta/Recoleta-Bold/Recoleta-Bold.ttf') format('truetype');
+    font-weight: 700; font-style: normal; font-display: swap;
+  }
+
+  /* ── Keyframes (global scope — safe, unique names) ── */
+  @keyframes ps-ticker {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ══════════════════════════════════════════════════════
+     ALL rules below are strictly scoped to #ps-partner-lander
+  ══════════════════════════════════════════════════════ */
+
+  /* ── CSS custom properties + base typography ── */
+  #ps-partner-lander {
+    --navy:      #25343E;
+    --navy-deep: #1B272F;
+    --yellow:    #F2D980;
+    --white:     #FFFFFF;
+    --cream:     #F7F8F9;
+    --border:    #E8EAED;
+    --muted:     #667085;
+    --teal:      #2E9E7B;
+    --red:       #C0392B;
+    --font-body:    'Montserrat', sans-serif;
+    --font-heading: 'Recoleta', 'Lora', Georgia, serif;
+    --max: 1120px;
+    --section-pad: clamp(56px, 8vw, 100px);
+    font-family: var(--font-body);
+    color: var(--navy);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  #ps-partner-lander *, #ps-partner-lander *::before, #ps-partner-lander *::after {
+    box-sizing: border-box; margin: 0; padding: 0;
+  }
+
+  #ps-partner-lander img, #ps-partner-lander video { max-width: 100%; display: block; }
+  #ps-partner-lander a { color: inherit; text-decoration: none; }
+  #ps-partner-lander .container { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+  #ps-partner-lander h1,
+  #ps-partner-lander h2,
+  #ps-partner-lander h3 { font-family: var(--font-heading); font-weight: 500; line-height: 1.12; letter-spacing: -0.01em; }
+  #ps-partner-lander h1 em, #ps-partner-lander h2 em { font-style: normal; color: var(--yellow); }
+  #ps-partner-lander h2.light em { color: var(--yellow); }
+
+  /* ── Scroll reveal ── */
+  #ps-partner-lander .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  #ps-partner-lander .reveal.visible { opacity: 1; transform: none; }
+  #ps-partner-lander .reveal-delay-1 { transition-delay: 0.1s; }
+  #ps-partner-lander .reveal-delay-2 { transition-delay: 0.2s; }
+  #ps-partner-lander .reveal-delay-3 { transition-delay: 0.3s; }
+  #ps-partner-lander .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ── Press ticker ── */
+  #ps-partner-lander .press-ticker {
+    background: var(--white);
+    padding: 14px 0;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+  #ps-partner-lander .press-ticker-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--muted);
+    text-align: center; margin-bottom: 10px;
+  }
+  #ps-partner-lander .press-track {
+    display: flex; gap: 48px; align-items: center;
+    width: max-content;
+    animation: ps-ticker 32s linear infinite;
+  }
+  #ps-partner-lander .press-track:hover { animation-play-state: paused; }
+  #ps-partner-lander .press-logo img {
+    height: 22px; width: auto; max-width: 120px;
+    object-fit: contain; opacity: 0.55;
+    filter: grayscale(100%); display: block;
+  }
+
+  /* ── CTA Button ── */
+  #ps-partner-lander .btn {
+    display: inline-block; background: var(--yellow); color: var(--navy);
+    font-family: var(--font-body); font-weight: 800; font-size: 14px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 16px 32px; border-radius: 100px; cursor: pointer;
+    border: none; transition: background 0.2s, transform 0.15s; text-align: center;
+  }
+  #ps-partner-lander .btn:hover { background: #e8cf70; transform: translateY(-1px); }
+  #ps-partner-lander .btn-lg { font-size: 15px; padding: 18px 40px; }
+  #ps-partner-lander .btn-dark {
+    background: transparent; color: var(--yellow); border: 2px solid var(--yellow);
+  }
+  #ps-partner-lander .btn-dark:hover { background: rgba(242,217,128,0.1); transform: translateY(-1px); }
+
+  /* ── Trust strip ── */
+  #ps-partner-lander .trust-strip {
+    display: flex; flex-wrap: wrap; gap: 10px 24px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.75); margin-top: 24px;
+  }
+  #ps-partner-lander .trust-strip span::before { content: '✓ '; color: var(--yellow); }
+
+  /* ── HERO ── */
+  #ps-partner-lander .hero {
+    background: var(--navy); color: var(--white);
+    padding: var(--section-pad) 0; overflow: hidden;
+  }
+  #ps-partner-lander .hero-grid {
+    display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center;
+  }
+  #ps-partner-lander .eyebrow {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--yellow);
+    border: 1px solid rgba(242,217,128,0.45); border-radius: 100px;
+    padding: 6px 16px; margin-bottom: 20px;
+  }
+  #ps-partner-lander .hero h1 { font-size: clamp(30px, 4.5vw, 46px); margin-bottom: 20px; color: var(--white); }
+  #ps-partner-lander .hero-sub { font-size: 18px; color: rgba(255,255,255,0.8); max-width: 540px; margin-bottom: 32px; line-height: 1.6; }
+  #ps-partner-lander .hero-img-wrap { border-radius: 12px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.4); }
+  #ps-partner-lander .hero-img-wrap img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+  #ps-partner-lander .hero-rating { margin-top: 14px; font-size: 13px; color: rgba(255,255,255,0.7); text-align: center; }
+  #ps-partner-lander .stars { color: var(--yellow); letter-spacing: 2px; margin-right: 4px; }
+
+  @media (min-width: 900px) {
+    #ps-partner-lander .hero { padding: clamp(64px, 10vw, 110px) 0; }
+    #ps-partner-lander .hero-grid { grid-template-columns: 1.1fr 1fr; gap: 64px; }
+    #ps-partner-lander .hero-img-wrap img { aspect-ratio: 5/4; }
+  }
+
+  /* ── Section shells ── */
+  #ps-partner-lander .sec-white  { background: var(--white);  padding: var(--section-pad) 0; }
+  #ps-partner-lander .sec-cream  { background: var(--cream);  padding: var(--section-pad) 0; }
+  #ps-partner-lander .sec-navy   { background: linear-gradient(145deg, #2C3F4E 0%, #25343E 50%, #1E2E39 100%); padding: var(--section-pad) 0; color: var(--white); }
+  #ps-partner-lander .sec-deep   { background: linear-gradient(145deg, #20303C 0%, #1B272F 50%, #182028 100%); padding: var(--section-pad) 0; color: var(--white); }
+
+  #ps-partner-lander .sec-label { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+  #ps-partner-lander .sec-navy .sec-label, #ps-partner-lander .sec-deep .sec-label { color: rgba(255,255,255,0.5); }
+  #ps-partner-lander .sec-label-yellow { color: var(--yellow) !important; }
+
+  #ps-partner-lander .sec-h2 { font-size: clamp(28px, 4.5vw, 44px); margin-bottom: 20px; }
+  #ps-partner-lander .sec-body { font-size: 17px; line-height: 1.7; max-width: 640px; }
+  #ps-partner-lander .sec-navy .sec-body, #ps-partner-lander .sec-deep .sec-body { color: rgba(255,255,255,0.82); }
+
+  /* ── Problem list ── */
+  #ps-partner-lander .problem-list { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 32px; }
+  #ps-partner-lander .problem-item {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: #fff; border: 1px solid rgba(25,52,62,0.10);
+    border-radius: 10px; padding: 16px 18px; box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  }
+  #ps-partner-lander .problem-icon {
+    flex-shrink: 0; width: 28px; height: 28px; background: var(--yellow);
+    color: var(--navy); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 800; margin-top: 1px;
+  }
+  #ps-partner-lander .problem-text { font-size: 15px; font-weight: 500; color: var(--navy); line-height: 1.5; }
+
+  @media (min-width: 700px) { #ps-partner-lander .problem-list { grid-template-columns: 1fr 1fr; } }
+
+  /* ── Feature grid ── */
+  #ps-partner-lander .feature-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 36px; }
+  #ps-partner-lander .feature-card {
+    background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.20);
+    border-radius: 12px; padding: 24px 22px;
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.13);
+  }
+  #ps-partner-lander .feature-icon { font-size: 26px; margin-bottom: 12px; }
+  #ps-partner-lander .feature-title { font-weight: 700; font-size: 15px; margin-bottom: 6px; }
+  #ps-partner-lander .feature-desc { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.55; }
+
+  @media (min-width: 600px) { #ps-partner-lander .feature-grid { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 900px) { #ps-partner-lander .feature-grid { grid-template-columns: repeat(3, 1fr); } }
+
+  /* ── How it works ── */
+  #ps-partner-lander .mechanism-video {
+    border-radius: 16px; overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.22);
+    max-width: 420px; margin: 36px auto 0; background: var(--cream);
+  }
+  #ps-partner-lander .mechanism-video video { width: 100%; display: block; }
+
+  #ps-partner-lander .compare-callout {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0; border-radius: 12px; overflow: hidden;
+    margin-top: 40px; border: 1px solid var(--border);
+  }
+  #ps-partner-lander .compare-col { padding: 24px 22px; }
+  #ps-partner-lander .compare-col.water { background: #fff4f4; }
+  #ps-partner-lander .compare-col.air   { background: #f0faf5; }
+  #ps-partner-lander .compare-col-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; margin-bottom: 10px;
+  }
+  #ps-partner-lander .compare-col.water .compare-col-label { color: var(--red); }
+  #ps-partner-lander .compare-col.air   .compare-col-label { color: var(--teal); }
+  #ps-partner-lander .compare-col p { font-size: 15px; line-height: 1.55; color: var(--navy); }
+
+  /* ── Comparison table ── */
+  #ps-partner-lander .compare-table-wrap { overflow-x: auto; margin-top: 36px; border-radius: 12px; border: 1px solid var(--border); }
+  #ps-partner-lander table.compare { width: 100%; border-collapse: collapse; font-size: 14px; }
+  #ps-partner-lander table.compare thead th {
+    padding: 16px 18px; text-align: left; font-weight: 700;
+    font-size: 13px; letter-spacing: 0.04em; border-bottom: 2px solid var(--border);
+  }
+  #ps-partner-lander table.compare thead th:first-child { color: var(--muted); font-weight: 600; }
+  #ps-partner-lander table.compare thead th.col-ps { background: var(--navy); color: var(--yellow); }
+  #ps-partner-lander table.compare thead th.col-water { background: #f9f9f9; color: var(--muted); }
+  #ps-partner-lander table.compare tbody tr:nth-child(even) td { background: var(--cream); }
+  #ps-partner-lander table.compare tbody tr:nth-child(even) td.col-ps-cell { background: #eef3f7; }
+  #ps-partner-lander table.compare tbody td {
+    padding: 14px 18px; border-bottom: 1px solid var(--border);
+    vertical-align: top; line-height: 1.5;
+  }
+  #ps-partner-lander table.compare tbody td:last-child { border-right: none; }
+  #ps-partner-lander table.compare tbody tr:last-child td { border-bottom: none; }
+  #ps-partner-lander .check { color: var(--teal); font-weight: 800; font-size: 16px; margin-right: 4px; }
+  #ps-partner-lander .cross { color: var(--red); font-weight: 800; font-size: 16px; margin-right: 4px; }
+  #ps-partner-lander .col-label { font-weight: 600; color: var(--navy); }
+
+  /* ── Social proof ── */
+  #ps-partner-lander .study-stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 36px; }
+  #ps-partner-lander .stat-card {
+    background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.20);
+    border-radius: 12px; padding: 24px 20px; text-align: center;
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.13);
+  }
+  #ps-partner-lander .stat-number {
+    font-family: var(--font-heading); font-size: clamp(42px, 8vw, 64px);
+    font-weight: 700; color: var(--yellow); line-height: 1; margin-bottom: 8px;
+  }
+  #ps-partner-lander .stat-label { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.45; }
+  #ps-partner-lander .stat-source { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 6px; }
+
+  #ps-partner-lander .testimonial-card {
+    background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.20);
+    border-radius: 12px; padding: 28px 26px; margin-top: 20px;
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.13);
+  }
+  #ps-partner-lander .testimonial-stars { color: var(--yellow); font-size: 18px; letter-spacing: 3px; margin-bottom: 14px; }
+  #ps-partner-lander .testimonial-text {
+    font-size: 17px; font-style: italic;
+    color: rgba(255,255,255,0.9); line-height: 1.65; margin-bottom: 14px;
+  }
+  #ps-partner-lander .testimonial-author { font-size: 13px; font-weight: 700; color: var(--yellow); }
+
+  @media (min-width: 700px) { #ps-partner-lander .study-stat-grid { grid-template-columns: repeat(4, 1fr); } }
+
+  /* ── Price section ── */
+  #ps-partner-lander .price-display { text-align: center; margin: 40px 0; }
+  #ps-partner-lander .price-per-night {
+    font-family: var(--font-heading); font-size: clamp(72px, 15vw, 120px);
+    font-weight: 700; color: var(--navy); line-height: 1;
+  }
+  #ps-partner-lander .price-per-night-label {
+    font-size: 16px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--muted); margin-top: 6px;
+  }
+  #ps-partner-lander .price-explainer {
+    font-size: 17px; line-height: 1.7; max-width: 620px;
+    margin: 0 auto 28px; text-align: center; color: var(--navy);
+  }
+  #ps-partner-lander .payment-grid { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 20px; }
+  #ps-partner-lander .payment-pill {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 100px; padding: 6px 14px; font-size: 12px;
+    font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 6px;
+  }
+
+  /* ── Trial ── */
+  #ps-partner-lander .trial-grid { display: grid; grid-template-columns: 1fr; gap: 32px; align-items: center; }
+  #ps-partner-lander .trial-number {
+    font-family: var(--font-heading); font-size: clamp(80px, 18vw, 140px);
+    font-weight: 700; color: var(--yellow); line-height: 0.9;
+  }
+  #ps-partner-lander .trial-unit {
+    font-size: 22px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 4px;
+  }
+  #ps-partner-lander .trial-note { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 8px; }
+  #ps-partner-lander .trial-body { font-size: 18px; color: rgba(255,255,255,0.85); line-height: 1.65; margin-bottom: 24px; }
+
+  @media (min-width: 700px) { #ps-partner-lander .trial-grid { grid-template-columns: auto 1fr; gap: 56px; } }
+
+  /* ── FAQ ── */
+  #ps-partner-lander .faq-list { margin-top: 36px; }
+  #ps-partner-lander .faq-item { border-bottom: 1px solid var(--border); }
+  #ps-partner-lander .faq-q {
+    width: 100%; background: none; border: none; text-align: left;
+    font-family: var(--font-body); font-size: 16px; font-weight: 600;
+    color: var(--navy); padding: 20px 0; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 16px; line-height: 1.4;
+  }
+  #ps-partner-lander .faq-q:hover { color: var(--navy); opacity: 0.8; }
+  #ps-partner-lander .faq-chevron {
+    flex-shrink: 0; width: 20px; height: 20px;
+    border: 2px solid currentColor; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; transition: transform 0.25s;
+  }
+  #ps-partner-lander .faq-item.open .faq-chevron { transform: rotate(180deg); }
+  #ps-partner-lander .faq-a {
+    font-size: 15px; color: var(--muted); line-height: 1.7;
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.25s ease;
+  }
+  #ps-partner-lander .faq-item.open .faq-a { max-height: 600px; padding-bottom: 20px; }
+
+  /* ── FAQ groups ── */
+  #ps-partner-lander .faq-group { margin-bottom: 8px; }
+  #ps-partner-lander .faq-group-header {
+    width: 100%; background: #fff;
+    border: 1px solid rgba(25,40,50,0.09); border-radius: 8px;
+    padding: 18px 24px; display: flex; justify-content: space-between; align-items: center;
+    cursor: pointer; font-family: var(--font-body); font-size: 13px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); text-align: left;
+  }
+  #ps-partner-lander .faq-group-indicator { font-size: 22px; font-weight: 300; flex-shrink: 0; margin-left: 16px; line-height: 1; }
+  #ps-partner-lander .faq-group-body { padding: 0 4px; }
+  #ps-partner-lander .faq-group:not(.open) .faq-group-body { display: none; }
+  #ps-partner-lander .faq-group .faq-item { padding-left: 8px; }
+  #ps-partner-lander .faq-group .faq-q { font-size: 15px; font-weight: 600; color: var(--navy); padding: 16px 8px 16px 12px; }
+  #ps-partner-lander .faq-group .faq-q:hover { opacity: 0.7; }
+  #ps-partner-lander .faq-group .faq-a { color: #4A5568; }
+
+  /* ── Air canvas background ── */
+  #ps-partner-lander .sec-air { position: relative; overflow: hidden; }
+  #ps-partner-lander #air-bg { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; display: block; pointer-events: none; }
+  #ps-partner-lander .sec-air .container { position: relative; z-index: 1; }
+
+  /* ── Trial mobile center ── */
+  @media (max-width: 699px) {
+    #ps-partner-lander .trial-grid { text-align: center; }
+    #ps-partner-lander .trial-grid .btn { display: inline-block; }
+  }
+
+  /* ── Final CTA ── */
+  #ps-partner-lander .final-cta { text-align: center; }
+  #ps-partner-lander .final-cta h2 { font-size: clamp(36px, 7vw, 60px); color: var(--white); margin-bottom: 16px; }
+  #ps-partner-lander .final-cta .sub { font-size: 18px; color: rgba(255,255,255,0.75); margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
+  #ps-partner-lander .final-trust {
+    display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: center;
+    font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.6); margin-top: 24px;
+  }
+  #ps-partner-lander .final-trust span::before { content: '✓ '; color: var(--yellow); }
+
+  /* ── Testimonial grid ── */
+  #ps-partner-lander .testimonial-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 24px; }
+  @media (min-width: 700px) { #ps-partner-lander .testimonial-grid { grid-template-columns: 1fr 1fr; } }
+  #ps-partner-lander .t-title { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+  #ps-partner-lander .t-body { position: relative; overflow: hidden; }
+  #ps-partner-lander .t-body.clamped { max-height: 88px; }
+  #ps-partner-lander .t-body.clamped::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 48px;
+    background: linear-gradient(transparent, rgba(37,52,62,0.96)); pointer-events: none;
+  }
+  #ps-partner-lander .t-read-more {
+    background: none; border: none; padding: 0;
+    color: var(--yellow); font-size: 13px; font-weight: 600;
+    cursor: pointer; margin-top: 8px; display: none;
+    font-family: var(--font-body);
+    text-decoration: underline; text-underline-offset: 2px;
+  }
+
+  /* ── Compare video ── */
+  #ps-partner-lander .compare-video-wrap {
+    border-radius: 16px; overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.18); margin-top: 36px; background: #000;
+  }
+  #ps-partner-lander .compare-video-labels {
+    display: grid; grid-template-columns: 1fr 1fr;
+    text-align: center; margin-top: 12px;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  #ps-partner-lander .label-water { color: var(--red); }
+  #ps-partner-lander .label-air   { color: var(--teal); }
+
+  /* ── Stat strip ── */
+  #ps-partner-lander .stat-strip { display: flex; flex-wrap: wrap; gap: 16px; margin: 28px 0 8px; }
+  #ps-partner-lander .stat-strip-item {
+    flex: 1; min-width: 140px; background: var(--white);
+    border: 1px solid var(--border); border-radius: 12px; padding: 20px 16px; text-align: center;
+  }
+  #ps-partner-lander .stat-strip-num {
+    font-family: var(--font-heading); font-size: clamp(34px, 6vw, 50px);
+    font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: 6px;
+  }
+  #ps-partner-lander .stat-strip-label { font-size: 13px; color: var(--muted); line-height: 1.4; }
+
+  /* ── Smart Topper 2-col intro ── */
+  #ps-partner-lander .st-intro-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; margin-bottom: 40px; }
+  @media (min-width: 700px) { #ps-partner-lander .st-intro-grid { grid-template-columns: 1fr 1fr; gap: 56px; } }
+
+</style>
+
+<!-- ═══════════════════════════════════════════════════
+     PAGE CONTENT — no header, no footer, no <main>
+═══════════════════════════════════════════════════ -->
+<div id="ps-partner-lander">
+
+  <!-- ══ HERO ══ -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="reveal">
+        <span class="eyebrow">Air vs. Water Cooling</span>
+        <h1>Water systems put cold liquid under&nbsp;you.<br><em>The Smart Topper moves cool air on &amp; around&nbsp;you.</em></h1>
+        <p class="hero-sub">One approach chills a surface under layers of foam and waterproofing, with a slow cooling response time. The other uses airflow to remove heat &amp; humidity directly from your body &amp; bedding, all&nbsp;night.</p>
+        <a href="https://perfectlysnug.com/products/the-smart-topper" class="btn btn-lg">Start My 30-Night Trial</a>
+        <div class="trust-strip">
+          <span>30-night trial from arrival</span>
+          <span>Cooling in 20 seconds</span>
+          <span>Free return shipping</span>
+          <span>HSA/FSA Eligible</span>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="hero-img-wrap" style="position:relative;">
+          <video autoplay loop muted playsinline style="width:100%; aspect-ratio:3/4; object-fit:cover; display:block;">
+            <source src="https://choose.perfectlysnug.com/avw-hero.mp4" type="video/mp4">
+          </video>
+          <img src="https://choose.perfectlysnug.com/icon-oprah-badge.jpg" alt="Oprah Daily 2026 Sleep O'ward" style="position:absolute; bottom:16px; right:16px; width:100px; height:100px; border-radius:50%; box-shadow:0 4px 20px rgba(0,0,0,0.35);">
+        </div>
+        <div class="hero-rating"><span class="stars">★★★★★</span> 4.87 from thousands of happy sleepers</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PRESS TICKER ══ -->
+  <div class="press-ticker">
+    <div class="press-ticker-label">As seen in</div>
+    <div style="overflow:hidden;">
+      <div class="press-track">
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/house_beautiful_logo.png?v=1757623891" alt="House Beautiful" height="22"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/GQ_logo_b.png?v=1771533714" alt="GQ" height="22"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/dargon_s_den_logo.png?v=1771533002" alt="CBC Dragons' Den" height="22"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/wired_logo_b.png?v=1771532807" alt="WIRED" height="22"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/sleep_foundation_logo.png?v=1771532498" alt="Sleep Foundation" height="22"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/Inc___business_magazine__logo_svg.png?v=1771011573" alt="Inc." height="22"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/readersdigest-logo.svg?v=1788366471" alt="Reader's Digest" height="22"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/town_and_country_logo.png?v=1771008825" alt="Town&amp;Country" height="22"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/omc_oprah_daily_logo.png?v=1773349198" alt="Oprah Daily" height="22"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/buzzfeed_logo.png?v=1771008825" alt="BuzzFeed" height="22"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/strategist_logo_825f8752-adf8-4b42-8f15-ab985d023dfb.png?v=1771008825" alt="The Strategist" height="22"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/mens-journal.png?v=1662953525" alt="Men's Journal" height="22"></span>
+        <!-- duplicate for seamless loop -->
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/house_beautiful_logo.png?v=1757623891" alt="House Beautiful" height="22"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/GQ_logo_b.png?v=1771533714" alt="GQ" height="22"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/dargon_s_den_logo.png?v=1771533002" alt="CBC Dragons' Den" height="22"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/wired_logo_b.png?v=1771532807" alt="WIRED" height="22"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/sleep_foundation_logo.png?v=1771532498" alt="Sleep Foundation" height="22"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/Inc___business_magazine__logo_svg.png?v=1771011573" alt="Inc." height="22"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/readersdigest-logo.svg?v=1788366471" alt="Reader's Digest" height="22"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/town_and_country_logo.png?v=1771008825" alt="Town&amp;Country" height="22"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/omc_oprah_daily_logo.png?v=1773349198" alt="Oprah Daily" height="22"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/buzzfeed_logo.png?v=1771008825" alt="BuzzFeed" height="22"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/strategist_logo_825f8752-adf8-4b42-8f15-ab985d023dfb.png?v=1771008825" alt="The Strategist" height="22"></span>
+        <span class="press-logo"><img src="//perfectlysnug.com/cdn/shop/files/mens-journal.png?v=1662953525" alt="Men's Journal" height="22"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ WATER PROBLEMS ══ -->
+  <section class="sec-white">
+    <div class="container">
+      <p class="sec-label reveal">The problem with water cooling</p>
+      <h2 class="sec-h2 reveal">Here's what nobody tells you<br>about water cooling.</h2>
+      <p class="sec-body reveal" style="max-width:none;">When you buy Eight Sleep, ChiliPad, or Orion, here is what happens: a machine on your floor chills a tank of treated water. That water runs through tubes inside a pad on your mattress. You sleep on top of it.</p>
+      <p class="sec-body reveal" style="max-width:none; margin-top:14px;">The cold has to travel through the pad, foam, and sheets to reach your body, and cooling temperature adjustments have a response time of up to 30 minutes. Meanwhile, your body is releasing moisture continuously as you sleep, creating a warm, humid microclimate right against your skin. Cold water can chill the mattress surface below that layer, but it cannot touch the humid air trapped at skin level. That is the real source of the sticky, clammy feeling water sleepers sometimes describe.</p>
+
+      <div class="problem-list">
+        <div class="problem-item reveal"><div class="problem-icon">✕</div><div class="problem-text">You sleep on water-filled tubes</div></div>
+        <div class="problem-item reveal reveal-delay-1"><div class="problem-icon">✕</div><div class="problem-text">System traps humidity under your covers</div></div>
+        <div class="problem-item reveal reveal-delay-2"><div class="problem-icon">✕</div><div class="problem-text">Slow to respond when your temperature changes</div></div>
+        <div class="problem-item reveal reveal-delay-3"><div class="problem-icon">✕</div><div class="problem-text">High maintenance: filters, water treatment, regular cleaning</div></div>
+        <div class="problem-item reveal"><div class="problem-icon">✕</div><div class="problem-text">Risk of leaks and condensation leading to mold</div></div>
+        <div class="problem-item reveal reveal-delay-1"><div class="problem-icon">✕</div><div class="problem-text">Machines raise room temperature as the night goes on</div></div>
+        <div class="problem-item reveal reveal-delay-2"><div class="problem-icon">✕</div><div class="problem-text">Bulky machine on the floor</div></div>
+        <div class="problem-item reveal reveal-delay-3"><div class="problem-icon">✕</div><div class="problem-text">More complex set up involved</div></div>
+      </div>
+
+      <div class="reveal" style="margin-top:40px; padding:36px 40px; background:var(--navy); border-radius:8px; box-shadow:0 4px 24px rgba(0,0,0,0.12); border-top:4px solid var(--yellow);">
+        <p style="font-family:var(--font-heading); font-size:clamp(18px,2.5vw,24px); font-weight:500; color:var(--white); line-height:1.5; margin:0 0 14px;">Think about stepping out of a hot shower onto a cold tile floor versus standing in front of a fan.</p>
+        <p style="font-size:15px; color:rgba(255,255,255,0.75); line-height:1.7; margin:0;">The tile only cools the few inches of you touching it. You still feel hot and clammy everywhere else. A fan cools your whole body at once, and helps you dry off faster. That is the difference between a cold water layer and moving air.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ AIR ADVANTAGE ══ -->
+  <section class="sec-navy sec-air">
+    <canvas id="air-bg"></canvas>
+    <div class="container">
+      <p class="sec-label sec-label-yellow reveal">Why air is different</p>
+      <h2 class="sec-h2 reveal" style="color:var(--white);">Air cooling works differently.<br><em>Here's why it matters.</em></h2>
+      <p class="sec-body reveal" style="max-width:none;">The Smart Topper sends perfectly calibrated airflow directly against your skin: through your fitted sheet from head to toe, right where heat builds up most. When this active airflow reaches your skin it absorbs heat and gets pushed out of your bed, removing up to 122W of body heat per night. That is more than the human body can produce.<br><br>Air cooling also solves a problem conduction cannot: it physically clears the warm, humid microclimate trapped at your skin and enables evaporative cooling, the same mechanism your body already uses when it sweats. Two problems solved at once, versus a cold surface that only addresses one of them. A fan limiter in the app keeps the airflow comfortable for sensitive sleepers.</p>
+
+      <div class="feature-grid">
+        <div class="feature-card reveal" style="background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.20); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); box-shadow:0 8px 32px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.13);">
+          <div class="feature-icon" style="color:var(--yellow);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="feature-title">In contact with your skin</div>
+          <div class="feature-desc">Water's cooling effect has to travel through foam, a waterproof pad, and your sheets before it reaches you. The problem: foam is engineered to cushion your body and resist heat transfer, not enable it. So even though water conducts heat well, the system around it defeats that advantage before it reaches your body. Air flows directly through your sheets and against your skin, with nothing working against it.</div>
+        </div>
+        <div class="feature-card reveal reveal-delay-1" style="background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.20); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); box-shadow:0 8px 32px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.13);">
+          <div class="feature-icon" style="color:var(--yellow);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><line x1="12" y1="19" x2="12" y2="5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><polyline points="5 12 12 5 19 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="feature-title">Removes heat instead of chilling a surface</div>
+          <div class="feature-desc">Cold water sits underneath you and waits. Moving air absorbs heat from your body and carries it out of the sleep environment. Evaporative cooling and windchill provide additional cooling benefits. Your body loses heat faster than it would on a cold surface slowly warming back up.</div>
+        </div>
+        <div class="feature-card reveal reveal-delay-2" style="background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.20); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); box-shadow:0 8px 32px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.13);">
+          <div class="feature-icon" style="color:var(--yellow);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="2" y1="2" x2="22" y2="22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div class="feature-title">No trapped humidity</div>
+          <div class="feature-desc">Your body releases moisture continuously as you sleep, creating a warm, humid microclimate against your skin. Cold water chills the mattress below that layer, but can't clear the humid air trapped at skin level. That stagnant layer is a large part of what makes people feel hot and clammy at night, and is a favorable environment for bacteria. Moving air keeps you cool and dry.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:48px;" class="reveal">
+        <p class="sec-label sec-label-yellow">Hot flash + night sweats</p>
+        <h3 style="font-family:var(--font-heading); font-size:clamp(22px,3.5vw,32px); font-weight:500; color:var(--white); margin-bottom:12px;">When a hot flash hits at 2 AM, you need cooling in seconds. Not minutes.</h3>
+        <p style="font-size:16px; color:rgba(255,255,255,0.75); line-height:1.6;">Water cooling is already working at a fixed temperature. It can't respond to a sudden spike. Air cooling adjusts the moment your body temperature changes for immediate relief.</p>
+      </div>
+
+      <div class="compare-video-wrap reveal" style="margin-top:24px;">
+        <video autoplay loop muted playsinline style="width:100%;display:block;">
+          <source src="https://choose.perfectlysnug.com/air-vs-water-compare.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="compare-video-labels reveal">
+        <div class="label-water">✕ Water cooling</div>
+        <div class="label-air">✓ Air cooling (Smart Topper)</div>
+      </div>
+    </div>
+  </section>
+
+  <div style="height:3px; background:linear-gradient(90deg, transparent 0%, #2E9E7B 25%, #F2D980 50%, #2E9E7B 75%, transparent 100%);"></div>
+
+  <!-- ══ SMART TOPPER INTRO ══ -->
+  <section class="sec-deep">
+    <div class="container">
+      <div class="st-intro-grid">
+        <div>
+          <p class="sec-label sec-label-yellow reveal">The product</p>
+          <h2 class="sec-h2 reveal">Meet the Perfectly Snug Smart Topper.</h2>
+          <p class="sec-body reveal">Perfectly Snug's dual-zone cooling mattress topper sits on top of your existing mattress. No machines on the floor, no water, no plumbing. Ambient air circulates through a breathable surface directly against your skin, and most people have it set up and running in under 5 minutes.</p>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div class="mechanism-video" style="margin:0; max-width:100%; background:rgba(255,255,255,0.04);">
+            <video autoplay loop muted playsinline>
+              <source src="https://choose.perfectlysnug.com/air-vs-water-product.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-card reveal" style="background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.20); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); box-shadow:0 8px 32px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.13);">
+          <div class="feature-icon" style="color:var(--yellow);"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="feature-title">20 temperature levels</div>
+          <div class="feature-desc">Cooling and heating in both directions. It heats like a car seat, not like a hair dryer. Automatic thermostat-like adjustments throughout the night.</div>
+        </div>
+        <div class="feature-card reveal reveal-delay-1" style="background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.20); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); box-shadow:0 8px 32px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.13);">
+          <div class="feature-icon" style="color:var(--yellow);"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><line x1="12" y1="2" x2="12" y2="22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="2" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="19.07" y1="4.93" x2="4.93" y2="19.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg></div>
+          <div class="feature-title">Cold Burst</div>
+          <div class="feature-desc">Instant relief for hot flashes. The only cooling topper with Cold Burst, designed to respond the moment your body temperature spikes.</div>
+        </div>
+        <div class="feature-card reveal reveal-delay-2" style="background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.20); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); box-shadow:0 8px 32px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.13);">
+          <div class="feature-icon" style="color:var(--yellow);"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M11 5L6 9H2v6h4l5 4V5z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <div class="feature-title">Gentle white noise</div>
+          <div class="feature-desc">Smart Topper has adjustable fan speed. A fan limiter can be set in the app to limit wind chill and fan volume for sensitive sleepers.</div>
+        </div>
+        <div class="feature-card reveal reveal-delay-3" style="background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.20); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); box-shadow:0 8px 32px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.13);">
+          <div class="feature-icon" style="color:var(--yellow);"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="9 12 11 14 15 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="feature-title">Zero maintenance</div>
+          <div class="feature-desc">No filters, no water treatment, no cleaning schedule. Set it and sleep.</div>
+        </div>
+        <div class="feature-card reveal reveal-delay-1" style="background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.20); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); box-shadow:0 8px 32px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.13);">
+          <div class="feature-icon" style="color:var(--yellow);"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5 12.55a11 11 0 0 1 14.08 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M1.42 9a16 16 0 0 1 21.16 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="20" r="1" fill="currentColor"/></svg></div>
+          <div class="feature-title">Wi-Fi optional</div>
+          <div class="feature-desc">Can be turned off completely for EMF-conscious sleepers. No cloud server. Privately hosted, stable app.</div>
+        </div>
+        <div class="feature-card reveal reveal-delay-2" style="background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.20); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); box-shadow:0 8px 32px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.13);">
+          <div class="feature-icon" style="color:var(--yellow);"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><polygon points="12 2 2 7 12 12 22 7 12 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="2 17 12 22 22 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="2 12 12 17 22 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="feature-title">Fits any mattress</div>
+          <div class="feature-desc">Goes on top of what you already have. Including adjustable bases. Works with any sheets. No new bed required.</div>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:40px;" class="reveal">
+        <a href="https://perfectlysnug.com/products/the-smart-topper" class="btn btn-lg">Start My 30-Night Trial</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ COMPARISON TABLE ══ -->
+  <section class="sec-white">
+    <div class="container">
+      <p class="sec-label reveal">Side by side</p>
+      <h2 class="sec-h2 reveal">See the difference clearly.</h2>
+
+      <div class="stat-strip reveal">
+        <div class="stat-strip-item"><div class="stat-strip-num">102%</div><div class="stat-strip-label">more cooling power than water-based systems</div></div>
+        <div class="stat-strip-item"><div class="stat-strip-num">360x</div><div class="stat-strip-label">faster than water-based systems</div></div>
+        <div class="stat-strip-item"><div class="stat-strip-num">2x</div><div class="stat-strip-label">the cooling power of water-based systems</div></div>
+      </div>
+
+      <div class="compare-table-wrap reveal">
+        <table class="compare">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="col-ps">Smart Topper (Air)</th>
+              <th class="col-water">Eight Sleep / ChiliPad / Orion (Water)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="col-label">Contact method</td><td class="col-ps-cell"><span class="check">✓</span> Air against your skin</td><td><span class="cross">✕</span> Cold surface under you</td></tr>
+            <tr><td class="col-label">Humidity</td><td class="col-ps-cell"><span class="check">✓</span> Keeps you dry</td><td><span class="cross">✕</span> Traps moisture under covers</td></tr>
+            <tr><td class="col-label">Cooling response</td><td class="col-ps-cell"><span class="check">✓</span> Cooling in 20 seconds</td><td><span class="cross">✕</span> Slow to adjust</td></tr>
+            <tr><td class="col-label">Room temperature</td><td class="col-ps-cell"><span class="check">✓</span> No change (0°F increase)</td><td><span class="cross">✕</span> Machine raises room temperature</td></tr>
+            <tr><td class="col-label">Setup</td><td class="col-ps-cell"><span class="check">✓</span> Simple, no floor equipment</td><td><span class="cross">✕</span> Machine on the floor</td></tr>
+            <tr><td class="col-label">Maintenance</td><td class="col-ps-cell"><span class="check">✓</span> None</td><td><span class="cross">✕</span> Filters, water treatment, regular cleaning</td></tr>
+            <tr><td class="col-label">Leak or mold risk</td><td class="col-ps-cell"><span class="check">✓</span> None</td><td><span class="cross">✕</span> Yes</td></tr>
+            <tr><td class="col-label">Heating</td><td class="col-ps-cell"><span class="check">✓</span> Yes</td><td><span class="check">✓</span> Yes</td></tr>
+            <tr><td class="col-label">Dual zones</td><td class="col-ps-cell"><span class="check">✓</span> Custom temperatures for each side</td><td><span class="check">✓</span> Custom temperatures for each side</td></tr>
+            <tr><td class="col-label">Cold Burst</td><td class="col-ps-cell"><span class="check">✓</span> Instant cooling for hot flashes</td><td><span class="cross">✕</span> Not available</td></tr>
+            <tr><td class="col-label">Trial</td><td class="col-ps-cell"><span class="check">✓</span> 30 nights from arrival</td><td>Varies by brand</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:16px; font-size:12px; color:rgba(0,0,0,0.4);">Source: <a href="https://perfectlysnug.com/pages/perfectly-snug-performance-and-specs" style="color:rgba(0,0,0,0.4); text-decoration:underline;" target="_blank">Perfectly Snug Performance &amp; Specs</a></p>
+    </div>
+  </section>
+
+  <!-- ══ SOCIAL PROOF ══ -->
+  <section class="sec-navy">
+    <div class="container">
+      <p class="sec-label sec-label-yellow reveal">Smart Topper reviews</p>
+      <h2 class="sec-h2 reveal" style="color:var(--white);">From people who switched to the Smart Topper.</h2>
+
+      <div class="study-stat-grid">
+        <div class="stat-card reveal"><div class="stat-number">100%</div><div class="stat-label">reported improved sleep</div><div class="stat-source"><a href="https://sleepspace.com/perfectly-snug-study/" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline; text-underline-offset:2px;">SleepSpace Study · Dr. Daniel Gartenberg, 2025</a></div></div>
+        <div class="stat-card reveal reveal-delay-1"><div class="stat-number">80%</div><div class="stat-label">of partners reported improved sleep too</div><div class="stat-source"><a href="https://sleepspace.com/perfectly-snug-study/" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline; text-underline-offset:2px;">SleepSpace Study · Dr. Daniel Gartenberg, 2025</a></div></div>
+        <div class="stat-card reveal reveal-delay-2"><div class="stat-number">90%</div><div class="stat-label">reported less tossing and turning</div><div class="stat-source"><a href="https://sleepspace.com/perfectly-snug-study/" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline; text-underline-offset:2px;">SleepSpace Study · Dr. Daniel Gartenberg, 2025</a></div></div>
+        <div class="stat-card reveal reveal-delay-3"><div class="stat-number">75%</div><div class="stat-label">reported better dreams</div><div class="stat-source"><a href="https://sleepspace.com/perfectly-snug-study/" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline; text-underline-offset:2px;">SleepSpace Study · Dr. Daniel Gartenberg, 2025</a></div></div>
+      </div>
+
+      <div class="testimonial-grid">
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="t-title">Life changing. The only solution to drenching night sweats.</div>
+          <div class="t-body">
+            <p class="testimonial-text">"It seems like a miracle. My husband has suffered from drenching night sweats for 10+ years. A medical condition causing the sweats was ruled out. We tried everything out there. We lowered the temperature in the bedroom, put a fan next to his side of the bed and directed it to blow on him all night. We tried high quality moisture wicking/cooling sleep shorts, cooling/moisture wicking sheets and blankets. We even purchased a cooling system that had a sheet connected to a hose and a motor that continuously blows cold air throughout the night. Nothing worked until I purchased Perfectly Snug. He put it on the bed and programmed it to drop the temperature to sync to the times he sweats the most. He woke up the first morning perfectly dry!!! It has been almost 2 months since he first used the Perfectly Snug topper as has been dry every night. No sweats at all. His sleep quality has completely changed for the better."</p>
+          </div>
+          <button class="t-read-more">Read more</button>
+          <div class="testimonial-author">Anonymous — Verified Customer · Aug 2026</div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="t-title">Wish I had found Perfectly Snug first!</div>
+          <div class="t-body">
+            <p class="testimonial-text">"I have had Two Eight Sleep systems, and One Chilipad…nothing but trouble and limited warranties. Products always seemed to start having trouble just out of limited warranty or after an update. I finally came across Perfectly Snug and I have been blown away with how simple the system is, how great the cooling and heating work (and without WiFi!!) great warranty and outstanding customer service. I have been using this mattress topper since October 2025 and I am finally getting the sleep I need without the hassle. I'm not paid for this- I'm not affiliated with this company- I'm just a customer that is so happy and who is looking forward to years of comfort."</p>
+          </div>
+          <button class="t-read-more">Read more</button>
+          <div class="testimonial-author">Jennifer L. — Verified Customer · Dec 2025</div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="t-title">Bed Blowy</div>
+          <div class="t-body">
+            <p class="testimonial-text">"We had the Chill Pad system for years and constantly had to monitor and change out water and deal with leaks. This one has no water, no leaks, no maintenance. It takes a bit to get the setting just right so I don't wake up too cold or too hot. Definitely a great purchase and so far it's well worth the money."</p>
+          </div>
+          <button class="t-read-more">Read more</button>
+          <div class="testimonial-author">Marcus S. — Verified Customer · Aug 2026</div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-3">
+          <div class="testimonial-stars">★★★★☆</div>
+          <div class="t-title">Feedback on Perfectly Snug replacing Eight Sleep</div>
+          <div class="t-body">
+            <p class="testimonial-text">"I just spent my first night on the Perfectly Snug smart topper that replace my Eight Sleep Pod 3, which I have had for years (and an older version before that). The Eight Sleep Pod does work very well for creating a cooling and heating surface and you can program with an app. The downsides are numerous: 1) the cumbersome water tubes and Pod water chamber that spits out some heat in order to cool the water. However, it does alter the feel of your mattress surface by making it slightly stiffer. You also have to go through quite a bit to wrap your mattress. If you put anything at all on top of it to soften the surface, you block the heating and cooling. The Perfectly Snug did work well for cooling and I loved the ability to adjust the temp with a button on the side of the mattress. For Eight Sleep, you have to turn on your phone and call up the app. That can be awkward in the middle of the night and also the phone screen can be bright, even on the dimmest setting. The cooling effect was not drafty as I had feared. The fan noise cannot be heard over an air conditioner and is not bad when the ac is not on. It is a low-level white noise once temp equilibrium is reached. The app for Perfectly Snug is much simpler than Eight Sleep and has no subscription. They have 3 stages (used to be four) but you can't really control the length. Eight uses sensors and AI to regulate the temp, but you have to pay a subscription for that unless you were grandfathered in as I was from an early version. For Eight, I don't think that it did that a good job and it was hassle to try and second guess or preselect my temperatures. Huge advantage here for Perfectly Snug. For the sleeping feel, I was very anxious to see how the Perfectly Snug would feel and how it was constructed. I am happy to say the I was quite impressed with the unique structure. The cover consists of an open grid that that is about 1/8-1/4" thick. While the material feels like hard nylon, it is quite elastic and the structure gives into pressure. As a result, I did not find that it created pressure points on my skin. In other words it feels soft, but not mushy, like a pillow top. The Eight Sleep cover has almost no padding and is not elastic. Underneath the cover layer is a layer of non-descript memory foam, about 1/2-3/4". This was my one disappointment, since I am not a fan of memory foam, since it gets too soft when warmed up. Since the foam layer is a relatively small part of the overall structure, it is not that integral to its functioning. Underneath the memory foam is another structure that circulates the air from the fans. Overall, the topper did not interfere with the deeper support levels of my mattress and actually enhanced the more surface level feel with the unique structure described above. I am glad to be rid of the overhead of dealing with the Eight Sleep and having the simpler and perhaps better type of cooling for the Perfectly Snug."</p>
+          </div>
+          <button class="t-read-more">Read more</button>
+          <div class="testimonial-author">Rob K. — Verified Customer · Aug 2026</div>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:36px;" class="reveal">
+        <a href="https://perfectlysnug.com/products/the-smart-topper" class="btn">Start My 30-Night Trial</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PRICE ══ -->
+  <section class="sec-white">
+    <div class="container" style="text-align:center;">
+      <p class="sec-label reveal" style="text-align:center;">The math</p>
+      <div class="price-display reveal">
+        <div class="price-per-night">$1.20</div>
+        <div class="price-per-night-label">Per night over 5 years</div>
+      </div>
+      <p class="price-explainer reveal" style="margin-top:20px;">At $2,195, the Smart Topper is a real purchase decision. Here is a different way to look at it. Over five years, that works out to $1.20 a night, less than a cup of coffee, and about $4.32 a year in electricity to run.</p>
+      <p class="price-explainer reveal" style="margin-top:0;">Compare that to water-based systems in the $2,000 to $5,000 range that need ongoing maintenance, carry leak risk, and put a machine on your bedroom floor.</p>
+      <div class="payment-grid reveal">
+        <div class="payment-pill"><span style="color:#2E9E7B; margin-right:6px;">✓</span>Afterpay available</div>
+        <div class="payment-pill"><span style="color:#2E9E7B; margin-right:6px;">✓</span>HSA/FSA Eligible</div>
+      </div>
+      <div style="margin-top:32px;" class="reveal">
+        <a href="https://perfectlysnug.com/products/the-smart-topper" class="btn btn-lg">Start My 30-Night Trial</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TRIAL ══ -->
+  <section class="sec-navy">
+    <div class="container">
+      <div class="trial-grid">
+        <div class="reveal" style="text-align:center;">
+          <div class="trial-number">30</div>
+          <div class="trial-unit">Nights</div>
+          <div class="trial-note">Starting the day it arrives</div>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <p class="sec-label sec-label-yellow">Risk-free trial</p>
+          <h2 class="sec-h2" style="color:var(--white); margin-bottom:16px;">Try it for 30 nights.<br>Starting the day it arrives.</h2>
+          <p class="trial-body">Your 30 nights start the day your Smart Topper is delivered, not the day you order. Sleep on it. If it does not change the way you sleep, send it back. We cover the return shipping. No restocking fees.</p>
+          <a href="https://perfectlysnug.com/products/the-smart-topper" class="btn">Start My 30-Night Trial</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FAQ ══ -->
+  <section class="sec-cream">
+    <div class="container" style="max-width:780px;">
+      <p class="sec-label reveal">Questions</p>
+      <h2 class="sec-h2 reveal">Everything you'd want to<br>know first.</h2>
+
+      <div class="faq-list reveal">
+
+        <div class="faq-group">
+          <button class="faq-group-header">HOW DOES IT COMPARE TO...<span class="faq-group-indicator">+</span></button>
+          <div class="faq-group-body">
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">How does Perfectly Snug compare to other cooling mattress toppers and water/air cooling systems?<span class="faq-chevron">&#8964;</span></button><div class="faq-a">Perfectly Snug is the best cooling mattress topper on the market, and outperforms any other water/air cooling system. It combines the simplicity and comfort of a cooling mattress topper with the active cooling of other sleep systems - with no gel and no hassle. Perfectly Snug's algorithmic thermoregulation keeps you at your perfect temperature every night, with zero clutter, maintenance, leaks or subscription fees. No machines, no compressors, no hoses. Just deep sleep.<br><br>It's the perfect Eight Sleep or Chilipad alternative. Try today with our 30 day no-risk guarantee!</div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">Does it work for both hot and cold sleepers?<span class="faq-chevron">&#8964;</span></button><div class="faq-a">Yes. The Smart Topper has dual zones for personalized temperature control, with a range of 20 levels that adjust for both heating and cooling. If you and your partner run at different temperatures, ask us about options for your setup. Sleepers can also customize multiple phases of the night on their own side of the bed, eg: start with warming when they first get into bed and then shift to more cooling overnight, or vice-versa.</div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">How is this different from a fan?<span class="faq-chevron">&#8964;</span></button><div class="faq-a">A fan moves air around your room outside your bed. The Smart Topper circulates perfectly calibrated active airflow directly against your skin from head to toe through your fitted sheet. The cooling source is ambient air coming into contact with your body and bedding, absorbing large amounts of heat, then being pushed out of the sleep environment, taking the heat with it. You and your bed are left cool and dry.</div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">Why does my body respond better to moving air than cold water?<span class="faq-chevron">&#8964;</span></button><div class="faq-a">When your body detects intense, localized cold against the skin, it narrows the blood vessels near that spot to protect your core temperature. This is called vasoconstriction, and it's a built-in defense response. The side effect: it reduces blood flow and heat transfer right at the point where a cold water pad is working hardest. Your body is actively fighting the cooling system meant to help it.<br><br>Gentle, distributed airflow doesn't trigger the same response. There's no single cold spot for your body to defend against, so it doesn't compensate. Cooling stays consistent through the night rather than your body adapting to resist it.<br><br>There's also a second problem water cooling can't solve: your body releases moisture continuously while you sleep, creating a warm, humid layer of air right against your skin — what sleep scientists call a microclimate. A cold water surface can chill the mattress below that layer, but it does nothing to clear the trapped, humid air at skin level. Moving air clears that microclimate entirely and enables evaporative cooling — the same mechanism your body already uses when it sweats. It solves two problems at once.</div></div>
+          </div>
+        </div>
+
+        <div class="faq-group">
+          <button class="faq-group-header">WILL IT WORK WITH MY BED?<span class="faq-group-indicator">+</span></button>
+          <div class="faq-group-body">
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">What size should I order?<span class="faq-chevron">&#8964;</span></button><div class="faq-a">Smart Toppers come in many sizes: Twin, Twin-XL, Double, Queen, King, California King, and Split King. Shop for your Smart Topper and view our size chart <a href="https://perfectlysnug.com/products/the-smart-topper" style="color:#2E9E7B;">here</a>.</div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">Does it work on adjustable beds?<span class="faq-chevron">&#8964;</span></button><div class="faq-a">Yes it does! This is one of our most convenient features. We recommend using our bed-corner straps (included with the topper) to hold it in place.</div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">Can I use my existing sheets and mattress?<span class="faq-chevron">&#8964;</span></button><div class="faq-a">Yes. The topper fits your existing mattress and works with any sheets. Breathable sheets are required but you likely have these already. For a quick test, hold the sheet over your mouth and try breathing through it. If you can, so can your Smart Topper.<br><br>Cotton or bamboo percale weave are recommended if you're unsure. For added softness, cotton flannel works too.</div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">Which side is the manual controller on?<span class="faq-chevron">&#8964;</span></button><div class="faq-a">Dual zone Smart Toppers have controllers on both sides, left and right. They are used by touch through your fitted sheet.<br><br>"Twin XL-Left" is the only single zone Smart Topper with the manual controller on the left hand side. You can view a diagram in the size selection section on our <a href="https://perfectlysnug.com/products/the-smart-topper" style="color:#2E9E7B;">Shop</a> page.</div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">Will it work with my phone/WiFi network?<span class="faq-chevron">&#8964;</span></button><div class="faq-a">The Smart Topper can be used manually without any app or network connections, but functions best when set up using the free app.<br><br>The Perfectly Snug App requires:<br>• Apple iOS 13 (You'll need an iPhone 6S, iPhone 6S Plus or iPhone SE or later)<br>• Android 6.0.1 or later<br>• 2.4 GHz WiFi networks<br><br><a href="https://perfectlysnug.com/pages/connection-troubleshooting" style="color:#2E9E7B;">Click here</a> for more help and information regarding connectivity.</div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">What if my mattress is thick?<span class="faq-chevron">&#8964;</span></button><div class="faq-a">The Perfectly Snug Smart Topper sits on top of your mattress so it doesn't matter. If you might need extra long corner straps for mattresses thicker than 12", add a note to your order or email our customer service team and we'll make it happen.</div></div>
+          </div>
+        </div>
+
+        <div class="faq-group">
+          <button class="faq-group-header">WILL IT WORK IN MY ROOM?<span class="faq-group-indicator">+</span></button>
+          <div class="faq-group-body">
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">Does it work in a warm room?<span class="faq-chevron">&#8964;</span></button><div class="faq-a">Yes. The Perfectly Snug Smart Topper can make you cold enough to shiver in a room up to about 75F, and up to 80F it will still make your bed the coolest place in the room. It is common for sleepers to have "summer settings" and "winter settings," adjusting their cooling set point to be cooler as it warms up outside. The chilliest cooling effects are experienced in a room under 72F. Many sleepers report using less AC at night once they have their Smart Topper.<br><br>It is worth noting that water systems subcool your bed surface. If the cooling set point of that water-filled topper is lower than the dewpoint in a warm and humid room, there is a risk of condensation. This can lead to mold, and is something to be aware of if you live in a humid region without AC. There is zero risk of condensation or mold with an air-cooled / air-based mattress topper.</div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">Does it dry or heat the air in your room?<span class="faq-chevron">&#8964;</span></button><div class="faq-a">Not at all! Our Perfectly Snug Smart Toppers are ambient neutral. There is no decrease or increase of humidity in your bedroom, no risk of condensation, and no external machine that will make your room hot.</div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">Is the setup complicated?<span class="faq-chevron">&#8964;</span></button><div class="faq-a">No machines, no floor equipment, no plumbing. Most people are set up in under 5 minutes.</div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">How cold does it get?<span class="faq-chevron">&#8964;</span></button><div class="faq-a">The Smart Topper is calibrated around your average skin temperature. Each of the 20 levels moves roughly one degree Fahrenheit from that baseline, cooling up to 10 degrees below average skin temperature and heating you up to 10 degrees warmer than average skin temperature, with 0 - Middle as the "average" baseline. Response time settles within 60 seconds of a setting change.<br><br>Cooling can remove up to 122W of heat energy from a sleeper per night, more than a human body produces - more than enough to make you shiver. Automatic temperature adjustment acts as a safeguard against extremes, keeping you at your perfect temperature for sleeping.</div></div>
+          </div>
+        </div>
+
+        <div class="faq-group">
+          <button class="faq-group-header">COMFORT AND QUIET<span class="faq-group-indicator">+</span></button>
+          <div class="faq-group-body">
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">How quiet is it?<span class="faq-chevron">&#8964;</span></button><div class="faq-a">The Smart Topper is nearly silent when cooling at a low level. At 50% cooling it's like the quiet whoosh from a home furnace. At full cooling, it sounds similar to a stand-alone fan running in the room.<br><br>The level of cooling selected will determine how loud the fans will run. There is a fan limiter setting in the app for sensitive sleepers.</div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">Is it comfortable?<span class="faq-chevron">&#8964;</span></button><div class="faq-a">Yes! We designed the Smart Topper to be perfectly medium firm. You may experience it as firmer at first, so give it time! A transition period is perfectly normal and will pass. You and your body are learning your new sleep habitat. You'll be glad you did!</div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">Where are the fans located?<span class="faq-chevron">&#8964;</span></button><div class="faq-a">The fans are located at the very foot of the Smart Topper. You can view a diagram in the size selection section on our <a href="https://perfectlysnug.com/products/the-smart-topper" style="color:#2E9E7B;">Shop</a> page.</div></div>
+          </div>
+        </div>
+
+        <div class="faq-group">
+          <button class="faq-group-header">PRODUCT CARE<span class="faq-group-indicator">+</span></button>
+          <div class="faq-group-body">
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">How is it powered?<span class="faq-chevron">&#8964;</span></button><div class="faq-a">The Smart Topper is powered by low voltage DC power from a power brick that plugs into any standard wall outlet. The power supply will work in any country.</div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">Can I wash the Smart Topper?<span class="faq-chevron">&#8964;</span></button><div class="faq-a">Yes! The cover of the Smart Topper can be spot cleaned, and this is the simplest way to care for it. The cover can also be fully removed for washing. Learn more about washing details <a href="https://perfectlysnug.com/pages/cover-washing" style="color:#2E9E7B;">here</a>.</div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">Is it pet friendly?<span class="faq-chevron">&#8964;</span></button><div class="faq-a">Yes! Cats and dogs can join you on your Smart Topper - so long as they are potty trained!</div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">Is any ongoing maintenance required?<span class="faq-chevron">&#8964;</span></button><div class="faq-a">No, there is no ongoing maintenance. Simply plug it in, switch it on, connect, and enjoy!</div></div>
+          </div>
+        </div>
+
+        <div class="faq-group">
+          <button class="faq-group-header">SHIPPING AND RETURNS<span class="faq-group-indicator">+</span></button>
+          <div class="faq-group-body">
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">Shipping<span class="faq-chevron">&#8964;</span></button><div class="faq-a">We offer free shipping within the USA and Canada on all Smart Topper orders. <a href="https://perfectlysnug.com/policies/shipping-policy" style="color:#2E9E7B;">Read our full Shipping Policy here.</a><br><br>We are not currently impacted by duties or tariffs.</div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">Return Policy<span class="faq-chevron">&#8964;</span></button><div class="faq-a">Sleep on it for 30 nights risk free! If you don't love the Smart Topper within 30 nights, we'll take it back and refund you the purchase price. Our full Return Policy can be found <a href="https://perfectlysnug.com/policies/refund-policy" style="color:#2E9E7B;">here</a>.<br><br>Looking for an Extended Warranty? This can be added from your Cart after <a href="https://perfectlysnug.com/products/the-smart-topper" style="color:#2E9E7B;">selecting your topper.</a></div></div>
+          </div>
+        </div>
+
+        <div class="faq-group">
+          <button class="faq-group-header">PRICE<span class="faq-group-indicator">+</span></button>
+          <div class="faq-group-body">
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">Why does the Smart Topper cost as much as some mattresses?<span class="faq-chevron">&#8964;</span></button><div class="faq-a">The Smart Topper is more affordable than water based cooling pads that can leak, require a lot of maintenance, and can cause mold leading to health concerns.<br><br>It's also much more than a mattress! A mattress can't actively cool or regulate your temperature. Unique features like adaptive cooling and heating, smart sensors to monitor your temperature, and scheduled sleep settings require specially developed technology and materials.<br><br>The Smart Topper is a high quality, North American made and hand built product that comes with a high level of service and care. There are no app subscription fees. All pricing populates on our <a href="https://perfectlysnug.com/products/the-smart-topper" style="color:#2E9E7B;">Shop page</a> when you select your desired size.</div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">Can I use HSA/FSA funds to purchase?<span class="faq-chevron">&#8964;</span></button><div class="faq-a">Yes! Customers who have an American (USA) HSA or FSA account can now qualify to pay using their HSA funds at checkout. (Learn more <a href="https://perfectlysnug.com/pages/hsa-fsa" style="color:#2E9E7B;">here</a>.)<br><br>Simply select "Flex | Pay with HSA/FSA" as your Payment Method. You will be led through a simple questionnaire which will determine your eligibility.<br><br>Note: If you do not see Flex as an option, please ensure you are not signed in to Shop Pay. Checkout as a guest if you wish to use Flex.</div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">How much does it cost to run?<span class="faq-chevron">&#8964;</span></button><div class="faq-a">The Smart Topper uses very little energy, averaging 8 Watts/night to cool and heat both sides of the bed (about $4.32 per year).<br><br>The Smart Topper can allow you to spend less on heating and air conditioning by adjusting your body temperature directly while you sleep.<br><br>Prices appear when you select your desired size on our <a href="https://perfectlysnug.com/products/the-smart-topper" style="color:#2E9E7B;">Shop</a> page. There are no app subscription fees.</div></div>
+          </div>
+        </div>
+
+        <div class="faq-group">
+          <button class="faq-group-header">ABOUT<span class="faq-group-indicator">+</span></button>
+          <div class="faq-group-body">
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">Warranty<span class="faq-chevron">&#8964;</span></button><div class="faq-a">We offer a 1 year "bumper to bumper" warranty. This means that if you run into any issues with your Smart Topper during normal wear and tear, we'll cover it. This includes any material or workmanship defect in your Smart Topper in the cover, foam, mesh material, or electronic defects in the sensors, wiring heaters, or fans. Your satisfaction with our product is our top priority. Learn more about our warranty <a href="https://perfectlysnug.com/pages/warranty" style="color:#2E9E7B;">here</a>.<br><br>A Three Year Extended Warranty can be purchased from your Cart before checkout, for $250.</div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">Where is it made?<span class="faq-chevron">&#8964;</span></button><div class="faq-a">Perfectly Snug is a proudly Canadian company. The Smart Topper is designed and made by Perfectly Snug in our facility in British Columbia, Canada.<br><br>We are not currently impacted by duties or tariffs.</div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">Quality<span class="faq-chevron">&#8964;</span></button><div class="faq-a">Every Smart Topper is produced to Perfectly Snug's high quality standards and is fully tested before shipping. You can view our full Performance &amp; Specs on our <a href="https://perfectlysnug.com/products/the-smart-topper" style="color:#2E9E7B;">Shop</a> page.</div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">Safety + Compliance<span class="faq-chevron">&#8964;</span></button><div class="faq-a">The Smart Topper complies with all North American safety standards and has been 3rd party tested and approved.</div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false">Support<span class="faq-chevron">&#8964;</span></button><div class="faq-a">If you are unable to find the information you are looking for, use our <a href="https://perfectlysnug.com/pages/contact" style="color:#2E9E7B;">Contact Form</a> and briefly describe your inquiry. We will get back to you as soon as possible!</div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FINAL CTA ══ -->
+  <section class="sec-deep">
+    <div class="container final-cta">
+      <p class="sec-label sec-label-yellow reveal" style="text-align:center;">#1 Air Cooling Mattress Topper</p>
+      <h2 class="reveal">Stop sleeping on water.<br><em>Start sleeping on air.</em></h2>
+      <p class="sub reveal">30-night trial from arrival.<br>Free return shipping. $1.20 a night.</p>
+      <div class="reveal">
+        <a href="https://perfectlysnug.com/products/the-smart-topper" class="btn btn-lg">Start My 30-Night Trial</a>
+      </div>
+      <div class="final-trust reveal">
+        <span>30-night trial from arrival</span>
+        <span>Free return shipping</span>
+        <span>No restocking fees</span>
+        <span>HSA/FSA Eligible</span>
+        <span>Afterpay available</span>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /#ps-partner-lander -->
+
+<script>
+(function() {
+  var root = document.getElementById('ps-partner-lander');
+  if (!root) return;
+
+  // ── Scroll reveal ──
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  root.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+
+  // ── Testimonial read-more ──
+  root.querySelectorAll('.t-body').forEach(function(body) {
+    if (body.scrollHeight > 92) {
+      body.classList.add('clamped');
+      var btn = body.nextElementSibling;
+      if (btn && btn.classList.contains('t-read-more')) {
+        btn.style.display = 'inline';
+        btn.addEventListener('click', function() {
+          body.classList.toggle('clamped');
+          btn.textContent = body.classList.contains('clamped') ? 'Read more' : 'Show less';
+        });
+      }
+    }
+  });
+
+  // ── FAQ category toggle (one open at a time) ──
+  root.querySelectorAll('.faq-group-header').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var group = btn.closest('.faq-group');
+      var isOpen = group.classList.contains('open');
+      root.querySelectorAll('.faq-group').forEach(function(g) {
+        g.classList.remove('open');
+        g.querySelector('.faq-group-indicator').textContent = '+';
+      });
+      if (!isOpen) {
+        group.classList.add('open');
+        btn.querySelector('.faq-group-indicator').textContent = '\u2014';
+      }
+    });
+  });
+
+  // ── FAQ item accordion ──
+  root.querySelectorAll('.faq-q').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = btn.closest('.faq-item');
+      var isOpen = item.classList.contains('open');
+      root.querySelectorAll('.faq-item.open').forEach(function(i) { i.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+      btn.setAttribute('aria-expanded', !isOpen);
+    });
+  });
+})();
+
+// ── Air canvas animation ──
+(function() {
+  var canvas = document.getElementById('air-bg');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var w, h, pts, tick = 0;
+
+  function mkPt() {
+    return {
+      x: Math.random() * w, y: Math.random() * h,
+      vx: (0.4 + Math.random() * 0.7) * (Math.random() < 0.7 ? 1 : -1),
+      vy: (Math.random() - 0.5) * 0.25,
+      life: Math.floor(Math.random() * 80),
+      maxLife: 90 + Math.random() * 110,
+      a: 0.05 + Math.random() * 0.11,
+      lw: 0.5 + Math.random() * 1.1
+    };
+  }
+
+  function resize() {
+    w = canvas.width  = canvas.offsetWidth;
+    h = canvas.height = canvas.offsetHeight;
+    pts = Array.from({length: 75}, mkPt);
+  }
+
+  function frame() {
+    tick += 0.004;
+    ctx.clearRect(0, 0, w, h);
+    pts.forEach(function(p, i) {
+      var angle = Math.sin(p.x / w * 3.5 + tick) * 0.35 + Math.cos(p.y / h * 2.8 + tick * 0.6) * 0.18;
+      var ox = p.x, oy = p.y;
+      p.x += Math.cos(angle) * 0.85 + p.vx * 0.18;
+      p.y += Math.sin(angle) * 0.28 + p.vy;
+      p.life++;
+      var prog = p.life / p.maxLife;
+      var alpha = p.a * Math.sin(prog * Math.PI);
+      ctx.beginPath();
+      ctx.strokeStyle = 'rgba(46,158,123,' + alpha.toFixed(3) + ')';
+      ctx.lineWidth = p.lw;
+      ctx.moveTo(ox, oy);
+      ctx.lineTo(p.x, p.y);
+      ctx.stroke();
+      if (p.life > p.maxLife || p.x < -30 || p.x > w + 30 || p.y < -30 || p.y > h + 30) {
+        pts[i] = mkPt();
+        if (Math.random() < 0.5) pts[i].x = -2;
+      }
+    });
+    requestAnimationFrame(frame);
+  }
+
+  new ResizeObserver(resize).observe(canvas);
+  resize();
+  frame();
+})();
+</script>
