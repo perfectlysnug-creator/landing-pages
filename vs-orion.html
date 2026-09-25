@@ -344,25 +344,56 @@
     .cross { color: var(--red); font-weight: 800; font-size: 16px; margin-right: 4px; }
     .col-label { font-weight: 600; color: var(--navy); }
 
+    /* ── S3 split layout ── */
+    .s3-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px 80px;
+      align-items: start;
+    }
+    @media (max-width: 768px) { .s3-split { grid-template-columns: 1fr; gap: 32px; } }
+    .s3-feature {
+      padding: 22px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.09);
+    }
+    .s3-feature:first-child { border-top: 1px solid rgba(0,0,0,0.09); }
+    .s3-feature-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+    .s3-feature-body {
+      font-size: 15px;
+      color: #666;
+      line-height: 1.65;
+      margin: 0;
+    }
+
     /* ── Problem icon row ── */
     .icon-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-top: 40px;
+      gap: 16px;
+      margin-top: 48px;
     }
     @media (min-width: 700px) { .icon-row { grid-template-columns: repeat(4, 1fr); } }
     .icon-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 12px;
+      background: rgba(255,255,255,0.55);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.85);
+      border-radius: 18px;
       padding: 28px 20px;
       text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
     }
     .icon-circle {
       width: 56px;
       height: 56px;
-      background: var(--yellow);
+      background: rgba(255,255,255,0.5);
+      border: 1px solid rgba(255,255,255,0.9);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -1069,9 +1100,26 @@
   <!-- S3 PROBLEM / AGITATION -->
   <section class="sec-cream">
     <div class="container">
-      <p class="sec-label reveal">The real cost</p>
-      <h2 class="sec-h2 reveal">You Wanted Cooler Sleep. <em>Not Another Subscription.</em></h2>
-      <p class="sec-body reveal" style="max-width:none;">Orion looks simpler than Eight Sleep. Thinner cover, lower price, "no subscription." Then you read the fine print. The sleep tracking, the personalized schedules and the water tablets all live behind a $360 yearly plan. There's still a tower by your bed and water running under your sheet. Perfectly Snug was built for people who just want to sleep cool. No water, no tower, nothing to renew.</p>
+      <div class="s3-split">
+        <div class="s3-left">
+          <p class="sec-label reveal">The real cost</p>
+          <h2 class="sec-h2 reveal">You Wanted Cooler Sleep. <em>Not Another Subscription.</em></h2>
+        </div>
+        <div class="s3-right">
+          <div class="s3-feature reveal">
+            <div class="s3-feature-title">Fine print they don't advertise</div>
+            <p class="s3-feature-body">The sleep tracking, personalized schedules and water tablets all live behind a $360 yearly plan. Most people don't know until after they buy.</p>
+          </div>
+          <div class="s3-feature reveal reveal-delay-1">
+            <div class="s3-feature-title">Still a tower. Still water.</div>
+            <p class="s3-feature-body">Orion is a smaller package than Eight Sleep, but the setup is the same: a floor unit, a water fill routine and tubing running under your sheet.</p>
+          </div>
+          <div class="s3-feature reveal reveal-delay-2">
+            <div class="s3-feature-title">Nothing to refill, renew, or maintain</div>
+            <p class="s3-feature-body">Perfectly Snug runs on air. No subscription, no water, no annual anything. The full product is the product from night one.</p>
+          </div>
+        </div>
+      </div>
 
       <div class="icon-row">
         <div class="icon-card reveal">
