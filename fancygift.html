@@ -138,9 +138,14 @@
     .early-note a { color: var(--yellow); font-weight: 600; }
 
     /* CTA band */
-    .cta-band { background: var(--navy); color: var(--white); text-align: center; padding: 72px 0; }
-    .cta-band h2 { font-size: clamp(30px, 4vw, 44px); margin-bottom: 12px; }
-    .cta-band p { color: #D5DEE3; margin-bottom: 28px; font-size: 17px; }
+    .cta-band { background: radial-gradient(ellipse at 15% 0%, #2E404C 0%, transparent 55%), linear-gradient(160deg, #1F2D36 0%, #1A262E 100%); color: var(--white); text-align: center; padding: 84px 0 80px; }
+    .cta-band .eyebrow { margin-bottom: 14px; }
+    .cta-band h2 { font-size: clamp(32px, 4.6vw, 52px); line-height: 1.12; margin-bottom: 20px; text-wrap: balance; }
+    .cta-band h2 em { font-style: normal; color: var(--yellow); }
+    .cta-band p.sub { color: #D5DEE3; margin-bottom: 30px; font-size: 18px; line-height: 1.6; }
+    .btn-pill { border-radius: 999px; padding: 18px 40px; }
+    .trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 22px; margin-top: 26px; font-size: 13px; font-weight: 600; color: #BFCCD4; }
+    .trust span::before { content: "\2713"; color: var(--yellow); margin-right: 6px; font-weight: 700; }
 
     /* Fine print */
     .fine { padding: 40px 0 56px; font-size: 13px; color: var(--muted); }
@@ -286,9 +291,17 @@
 
   <section class="cta-band">
     <div class="container">
-      <h2>Better sleep, plus a gift</h2>
-      <p>Ends December 12. Use code FANCYGIFT at checkout.</p>
-      <a class="btn" href="https://perfectlysnug.com/discount/FANCYGIFT?redirect=/products/the-smart-topper">Shop the Smart Topper</a>
+      <div class="eyebrow">#1 Air Cooling Mattress Topper</div>
+      <h2>Your Sleep Upgrade Just Got <em>More Rewarding</em></h2>
+      <p class="sub">Holiday 30 Night Trial.<br>Free return shipping. $1.20 a night.</p>
+      <a class="btn btn-pill" href="https://perfectlysnug.com/discount/FANCYGIFT?redirect=/products/the-smart-topper">Try It Risk-Free for 30 Nights</a>
+      <div class="trust">
+        <span>Holiday 30 Night Trial</span>
+        <span>Free return shipping</span>
+        <span>No restocking fees</span>
+        <span>HSA/FSA Eligible</span>
+        <span>Afterpay available</span>
+      </div>
     </div>
   </section>
 
