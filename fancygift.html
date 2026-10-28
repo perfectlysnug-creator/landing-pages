@@ -143,6 +143,7 @@
     .cta-band h2 { font-size: clamp(32px, 4.6vw, 52px); line-height: 1.12; margin-bottom: 20px; text-wrap: balance; }
     .cta-band h2 em { font-style: normal; color: var(--yellow); }
     .cta-band p.sub { color: #D5DEE3; margin-bottom: 30px; font-size: 18px; line-height: 1.6; }
+    .code-box-center { margin: 0 auto 28px; text-align: left; }
     .btn-pill { border-radius: 999px; padding: 18px 40px; }
     .trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 22px; margin-top: 26px; font-size: 13px; font-weight: 600; color: #BFCCD4; }
     .trust span::before { content: "\2713"; color: var(--yellow); margin-right: 6px; font-weight: 700; }
@@ -294,6 +295,11 @@
       <div class="eyebrow">#1 Air Cooling Mattress Topper</div>
       <h2>Your Sleep Upgrade Just Got <em>More Rewarding</em></h2>
       <p class="sub">Holiday 30 Night Trial.<br>Free return shipping. $1.20 a night.</p>
+      <div class="code-box code-box-center">
+        <span class="label">Use code at checkout</span>
+        <strong>FANCYGIFT</strong>
+        <button class="copy-btn" type="button" onclick="copyCode(this)">Copy</button>
+      </div>
       <a class="btn btn-pill" href="https://perfectlysnug.com/discount/FANCYGIFT?redirect=/products/the-smart-topper">Try It Risk-Free for 30 Nights</a>
       <div class="trust">
         <span>Holiday 30 Night Trial</span>
@@ -315,7 +321,7 @@
 
   <script>
     function copyCode(btn) {
-      var code = document.getElementById('code').textContent;
+      var code = btn.parentNode.querySelector('strong').textContent;
       if (navigator.clipboard) {
         navigator.clipboard.writeText(code).then(function () {
           btn.textContent = 'Copied';
