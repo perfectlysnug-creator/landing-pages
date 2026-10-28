@@ -82,8 +82,17 @@
     .copy-btn:hover { border-color: var(--yellow); color: var(--yellow); }
     .hero .dates { margin-top: 16px; font-size: 13px; color: #AFC0CA; }
 
-    .hero-collage { background: var(--sky); border-radius: 18px; padding: 28px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; align-items: center; }
-    .hero-collage img { width: 100%; height: 110px; object-fit: contain; }
+    .hero h1 { text-wrap: balance; }
+    .rotator { position: relative; background: var(--sky); border-radius: 18px; padding: 40px 32px 28px; text-align: center; }
+    .rotator .stage { position: relative; height: 300px; }
+    .rotator .stage img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; transform: scale(0.94); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .rotator .stage img.on { opacity: 1; transform: scale(1); }
+    .rotator .gift-name { margin-top: 18px; font-weight: 700; font-size: 17px; color: var(--navy); min-height: 1.4em; }
+    .rotator .dots { display: flex; justify-content: center; gap: 8px; margin-top: 12px; }
+    .rotator .dots span { width: 8px; height: 8px; border-radius: 50%; background: rgba(37,52,62,0.25); transition: background 0.3s; }
+    .rotator .dots span.on { background: var(--navy); }
+    .badge { position: absolute; top: -22px; right: -18px; width: 112px; height: 112px; border-radius: 50%; background: var(--yellow); color: var(--navy); display: flex; align-items: center; justify-content: center; text-align: center; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.25; transform: rotate(10deg); box-shadow: 0 6px 18px rgba(0,0,0,0.25); z-index: 2; }
+    @media (prefers-reduced-motion: reduce) { .rotator .stage img { transition: none; transform: none; } }
 
     /* Gifts */
     .section { padding: 80px 0; }
@@ -125,8 +134,9 @@
     @media (max-width: 560px) {
       .hero { padding: 28px 0 56px; }
       .gift-grid { grid-template-columns: 1fr; }
-      .hero-collage { padding: 18px; gap: 12px; }
-      .hero-collage img { height: 80px; }
+      .rotator { padding: 32px 20px 22px; }
+      .rotator .stage { height: 220px; }
+      .badge { width: 92px; height: 92px; font-size: 11px; top: -18px; right: -6px; }
       .section { padding: 56px 0; }
       .btn { display: block; text-align: center; }
     }
@@ -146,7 +156,7 @@
     <div class="container hero-grid">
       <div>
         <div class="eyebrow">Holiday Gift With Purchase</div>
-        <h1>Good Sleep Deserves a Little Something Extra</h1>
+        <h1>Good Sleep Deserves a Little Something&nbsp;Extra</h1>
         <p class="sub">Get a new Smart Topper between December 2 and 12 and pick a free gift on us. Six to choose from, all picked with better nights (and easier mornings) in mind.</p>
         <div class="code-box">
           <span class="label">Use code at checkout</span>
@@ -154,15 +164,20 @@
           <button class="copy-btn" type="button" onclick="copyCode(this)">Copy</button>
         </div>
         <a class="btn" href="https://perfectlysnug.com/discount/FANCYGIFT?redirect=/products/the-smart-topper">Shop the Smart Topper</a>
-        <p class="dates">Valid on new Smart Topper orders, December 2 to 12, 2026.</p>
+        <p class="dates">Valid on new Smart Topper orders only, December 2 to 12, 2026.</p>
       </div>
-      <div class="hero-collage" aria-hidden="true">
-        <img src="gwp-airpods.png" alt="">
-        <img src="gwp-hatch.png" alt="">
-        <img src="gwp-watch.png" alt="">
-        <img src="gwp-goggles.png" alt="">
-        <img src="gwp-echo.png" alt="">
-        <img src="gwp-ember.png" alt="">
+      <div class="rotator" aria-hidden="true">
+        <div class="badge">Free gift<br>with<br>purchase</div>
+        <div class="stage">
+          <img class="on" src="gwp-airpods.png" alt="" data-name="Apple AirPods Pro 3">
+          <img src="gwp-hatch.png" alt="" data-name="Hatch Restore 3">
+          <img src="gwp-watch.png" alt="" data-name="Apple Watch SE 3">
+          <img src="gwp-goggles.png" alt="" data-name="Therabody SmartGoggles">
+          <img src="gwp-echo.png" alt="" data-name="Amazon Echo Show 11">
+          <img src="gwp-ember.png" alt="" data-name="Ember Travel Mug">
+        </div>
+        <div class="gift-name">Apple AirPods Pro 3</div>
+        <div class="dots"><span class="on"></span><span></span><span></span><span></span><span></span><span></span></div>
       </div>
     </div>
   </section>
@@ -259,6 +274,19 @@
         });
       }
     }
+
+    (function () {
+      var imgs = document.querySelectorAll('.rotator .stage img');
+      var dots = document.querySelectorAll('.rotator .dots span');
+      var name = document.querySelector('.rotator .gift-name');
+      var i = 0;
+      setInterval(function () {
+        imgs[i].classList.remove('on'); dots[i].classList.remove('on');
+        i = (i + 1) % imgs.length;
+        imgs[i].classList.add('on'); dots[i].classList.add('on');
+        name.textContent = imgs[i].getAttribute('data-name');
+      }, 2600);
+    })();
   </script>
 </body>
 </html>
