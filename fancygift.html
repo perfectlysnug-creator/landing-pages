@@ -100,8 +100,15 @@
     .section-head h2 { font-size: clamp(30px, 4vw, 42px); color: var(--navy); margin-bottom: 14px; }
     .section-head p { color: var(--muted); font-size: 17px; }
     .gift-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .gift { background: var(--white); border-radius: 14px; padding: 28px 24px 30px; text-align: center; box-shadow: 0 2px 14px rgba(37,52,62,0.06); }
-    .gift .img-wrap { background: var(--sky); border-radius: 10px; height: 200px; display: flex; align-items: center; justify-content: center; padding: 20px; margin-bottom: 22px; }
+    #gifts { position: relative; overflow: hidden; background: linear-gradient(160deg, #EEF5F9 0%, var(--cream) 55%, #F6EFD9 100%); }
+    #gifts::before, #gifts::after { content: ""; position: absolute; border-radius: 50%; filter: blur(70px); pointer-events: none; }
+    #gifts::before { width: 520px; height: 520px; background: rgba(160,203,226,0.55); top: 80px; left: -140px; }
+    #gifts::after { width: 460px; height: 460px; background: rgba(242,217,128,0.45); bottom: -80px; right: -120px; }
+    #gifts .container { position: relative; z-index: 1; }
+    .gift { background: linear-gradient(145deg, rgba(255,255,255,0.72), rgba(255,255,255,0.38)); -webkit-backdrop-filter: blur(18px) saturate(140%); backdrop-filter: blur(18px) saturate(140%); border: 1px solid rgba(255,255,255,0.85); border-radius: 20px; padding: 22px 22px 30px; text-align: center; box-shadow: 0 10px 34px rgba(37,52,62,0.08), inset 0 1px 0 rgba(255,255,255,0.9); }
+    .gift .img-wrap { position: relative; overflow: hidden; background: linear-gradient(160deg, rgba(216,233,242,0.75), rgba(216,233,242,0.35)); border: 1px solid rgba(255,255,255,0.7); border-radius: 14px; height: 200px; display: flex; align-items: center; justify-content: center; padding: 20px; margin-bottom: 22px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), inset 0 -12px 24px rgba(37,52,62,0.04); }
+    .gift .img-wrap::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 45%; background: linear-gradient(180deg, rgba(255,255,255,0.45), rgba(255,255,255,0)); pointer-events: none; }
+    .gift .img-wrap img { position: relative; filter: drop-shadow(0 10px 14px rgba(37,52,62,0.18)); }
     .gift img { max-height: 160px; width: auto; object-fit: contain; }
     .gift h3 { font-family: var(--font-body); font-weight: 700; font-size: 18px; color: var(--navy); margin-bottom: 8px; }
     .gift p { font-size: 15px; color: var(--muted); }
