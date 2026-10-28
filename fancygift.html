@@ -154,7 +154,12 @@
     .fine a { color: var(--navy); }
 
     @media (max-width: 900px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 0; }
+      .hero-copy { display: contents; }
+      .hero-copy > * { order: 3; }
+      .hero-copy > .eyebrow { order: 1; }
+      .hero-copy > h1 { order: 2; }
+      .hero-grid > .rotator { order: 2; margin: 18px 0 32px; }
       .gift-grid { grid-template-columns: repeat(2, 1fr); }
       .steps { grid-template-columns: 1fr; gap: 36px; max-width: 480px; margin: 0 auto; }
       .step-track { display: none; }
@@ -162,12 +167,18 @@
     @media (max-width: 560px) {
       .hero { padding: 28px 0 56px; }
       .gift-grid { grid-template-columns: 1fr; }
+      .ann-bar { font-size: clamp(9px, 2.9vw, 13px); letter-spacing: 0.03em; white-space: nowrap; padding: 10px 8px; }
+      .code-box { flex-wrap: nowrap; gap: 10px; padding: 12px 12px 12px 14px; }
+      .code-box span.label { font-size: 11px; white-space: nowrap; }
+      .code-box strong { font-size: 17px; letter-spacing: 0.06em; }
+      .copy-btn { padding: 7px 10px; font-size: 11px; flex-shrink: 0; }
       .rotator { padding: 32px 20px 22px; }
       .rotator .stage { height: 220px; }
       .badge { width: 92px; height: 92px; font-size: 11px; top: -18px; right: -6px; }
       .section { padding: 56px 0; }
       .btn { display: block; text-align: center; }
     }
+    @media (max-width: 360px) { .code-box span.label { display: none; } }
   </style>
 </head>
 <body>
@@ -182,7 +193,7 @@
 
   <section class="hero">
     <div class="container hero-grid">
-      <div>
+      <div class="hero-copy">
         <div class="eyebrow">Holiday Gift With Purchase</div>
         <h1>Good Sleep Deserves a Little Something&nbsp;Extra</h1>
         <p class="sub">Get a new Smart Topper between December 2 and 12 and pick a free gift on us. Six to choose from, all picked with better nights (and easier mornings) in mind.</p>
@@ -250,7 +261,7 @@
       </div>
       <div class="gifts-cta">
         <a class="btn btn-navy" href="https://perfectlysnug.com/discount/FANCYGIFT?redirect=/products/the-smart-topper">Shop the Smart Topper</a>
-        <p>Use code FANCYGIFT at checkout, December 2 to 12.</p>
+        <p>Use code FANCYGIFT at checkout,<br>December 2 to 12.</p>
       </div>
     </div>
   </section>
