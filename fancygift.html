@@ -114,14 +114,25 @@
     .gift p { font-size: 15px; color: var(--muted); }
 
     /* How it works */
-    .how { background: var(--white); }
-    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; counter-reset: step; }
-    .step { position: relative; padding-top: 64px; }
-    .step::before { counter-increment: step; content: counter(step); position: absolute; top: 0; left: 0; width: 46px; height: 46px; border-radius: 50%; background: var(--yellow); color: var(--navy); font-weight: 700; font-size: 20px; display: flex; align-items: center; justify-content: center; }
-    .step h3 { font-family: var(--font-body); font-weight: 700; font-size: 18px; color: var(--navy); margin-bottom: 8px; }
-    .step p { color: var(--muted); font-size: 15px; }
-    .early-note { margin-top: 44px; background: var(--cream); border-radius: 10px; padding: 18px 22px; font-size: 15px; color: var(--muted); text-align: center; }
-    .early-note a { color: var(--navy); font-weight: 600; }
+    .how { background: linear-gradient(180deg, #E6F1F7 0%, var(--white) 38%); }
+    .step-track { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: -16px 0 28px; }
+    .step-track span { position: relative; display: flex; justify-content: center; }
+    .step-track b { position: relative; z-index: 1; width: 34px; height: 34px; border-radius: 9px; background: var(--navy); color: var(--yellow); font-size: 15px; display: flex; align-items: center; justify-content: center; }
+    .step-track span:not(:last-child)::after { content: ""; position: absolute; top: 50%; left: calc(50% + 30px); width: calc(100% - 60px + 24px); border-top: 2px dotted rgba(37,52,62,0.35); }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .step-photo { position: relative; aspect-ratio: 1 / 1; border-radius: 22px; overflow: hidden; background: linear-gradient(160deg, #DCEBF4, #C6DDEB); box-shadow: 0 10px 30px rgba(37,52,62,0.10); }
+    .step-photo > img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .step-photo .tag { position: absolute; left: 16px; bottom: 16px; background: var(--navy); color: var(--white); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 11px; border-radius: 6px; }
+    .step-photo.gifts { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 26px 26px 54px; }
+    .step-photo.gifts img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 8px 12px rgba(37,52,62,0.18)); min-height: 0; }
+    .step { display: flex; flex-direction: column; }
+    .step-text { flex: 1; margin-top: 16px; background: var(--sky); border-radius: 16px; padding: 20px 22px; }
+    .step-text h3 { font-family: var(--font-heading); font-weight: 500; font-size: 24px; color: var(--navy); margin-bottom: 6px; line-height: 1.2; }
+    .step-text p { color: var(--ink); font-size: 15px; line-height: 1.55; }
+    .step-text strong { color: var(--navy); }
+    .step-text a { color: var(--navy); font-weight: 600; }
+    .early-note { margin-top: 36px; background: var(--navy); color: #D5DEE3; border-radius: 14px; padding: 18px 22px; font-size: 15px; text-align: center; }
+    .early-note a { color: var(--yellow); font-weight: 600; }
 
     /* CTA band */
     .cta-band { background: var(--navy); color: var(--white); text-align: center; padding: 72px 0; }
@@ -136,7 +147,8 @@
     @media (max-width: 900px) {
       .hero-grid { grid-template-columns: 1fr; gap: 36px; }
       .gift-grid { grid-template-columns: repeat(2, 1fr); }
-      .steps { grid-template-columns: 1fr; gap: 28px; }
+      .steps { grid-template-columns: 1fr; gap: 36px; max-width: 480px; margin: 0 auto; }
+      .step-track { display: none; }
     }
     @media (max-width: 560px) {
       .hero { padding: 28px 0 56px; }
@@ -235,18 +247,28 @@
       <div class="section-head">
         <h2>How it works</h2>
       </div>
+      <div class="step-track" aria-hidden="true"><span><b>1</b></span><span><b>2</b></span><span><b>3</b></span></div>
       <div class="steps">
         <div class="step">
-          <h3>Order by December 12</h3>
-          <p>Get a new Smart Topper between December 2 and 12 and enter code FANCYGIFT at checkout.</p>
+          <div class="step-photo"><img src="gwp-step1.jpg" alt="Unboxing a Perfectly Snug Smart Topper" loading="lazy"><span class="tag">Step 1</span></div>
+          <div class="step-text">
+            <h3>Order by December 12</h3>
+            <p>Get a new Smart Topper between December 2 and 12 and enter code <strong>FANCYGIFT</strong> at checkout.</p>
+          </div>
         </div>
         <div class="step">
-          <h3>Sleep on it</h3>
-          <p>Our Holiday 30 Night Trial runs December 25 to January 25, so a topper under the tree still gets its full 30 nights.</p>
+          <div class="step-photo"><img src="gwp-step2.jpg" alt="Couple sleeping comfortably" loading="lazy"><span class="tag">Step 2</span></div>
+          <div class="step-text">
+            <h3>Sleep on it</h3>
+            <p>Our Holiday 30 Night Trial runs <strong>December 25 to January 25</strong>, so a topper under the tree still gets its full 30 nights.</p>
+          </div>
         </div>
         <div class="step">
-          <h3>Pick your gift</h3>
-          <p>After your trial, you'll get an e-voucher by email from info@selectgiftwithpurchase.com. Redeem it at <a href="https://www.selectgiftwithpurchase.com" target="_blank" rel="noopener">SelectGiftWithPurchase.com</a> and choose your gift.</p>
+          <div class="step-photo gifts"><img src="gwp-airpods.png" alt=""><img src="gwp-hatch.png" alt=""><img src="gwp-watch.png" alt=""><img src="gwp-ember.png" alt=""><span class="tag">Step 3</span></div>
+          <div class="step-text">
+            <h3>Pick your gift</h3>
+            <p>After your trial, you'll get an e-voucher by email from info@selectgiftwithpurchase.com. Redeem it at <a href="https://www.selectgiftwithpurchase.com" target="_blank" rel="noopener">SelectGiftWithPurchase.com</a> and choose your gift.</p>
+          </div>
         </div>
       </div>
       <div class="early-note">
